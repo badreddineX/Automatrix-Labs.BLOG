@@ -1,0 +1,29 @@
+# Nested repositories — these have their own git history and GitHub remotes.
+# Tracked separately, not embedded in this repo.
+blogs/canada-subn-1/smallspacehome/
+blogs/uk-subn-1/britishhomeinterior/
+blogs/australia-subn-1/website/
+blogging ressources/claude-blog/
+blogging ressources/claude-seo/
+
+# Dependencies and build output
+node_modules/
+dist/
+.astro/
+.vercel/
+
+# Secrets and local config
+.env
+.env.*
+*.local
+credentials.json
+service-account*.json
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Local runtime state
+.claude/scheduled_tasks.lock
