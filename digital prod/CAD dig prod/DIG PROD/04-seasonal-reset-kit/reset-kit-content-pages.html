@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Twice-a-Year Apartment Reset Kit — Content Pages</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --color-bg:      #FAFAF7;
+    --color-primary: #8FAF8A;
+    --color-primary-dark: #6B8F66;
+    --color-accent:  #C4A882;
+    --color-accent-dark: #8B6F47;
+    --color-ink:     #1C1917;
+    --color-body:    #292524;
+    --color-border:  #E5DDD3;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'Inter', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: #ddd;
+    font-family: var(--font-body);
+    color: var(--color-body);
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 24px auto;
+    background: var(--color-bg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    padding: 0.75in;
+    position: relative;
+    page-break-after: always;
+  }
+
+  .room-icon { width: 44px; height: 44px; stroke: var(--color-primary-dark); fill: none; stroke-width: 1.6; flex-shrink: 0; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 16px;
+    margin-bottom: 28px;
+  }
+  .section-header .season-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--color-primary-dark);
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+  }
+  .season-tag.spring { background: var(--color-accent-dark); }
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 26px;
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  h3.subhead {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-primary-dark);
+    margin: 24px 0 8px;
+  }
+  h3.subhead:first-of-type { margin-top: 0; }
+
+  p { line-height: 1.55; font-size: 13px; }
+
+  ul.checklist { list-style: none; padding: 0; margin: 0 0 16px; }
+  ul.checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 6px 0;
+    font-size: 13px;
+    border-bottom: 1px dashed var(--color-border);
+  }
+  ul.checklist li:last-child { border-bottom: none; }
+  .checkbox {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--color-accent-dark);
+    border-radius: 4px;
+    margin-top: 1px;
+  }
+
+  table.shop {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 22px;
+    font-size: 12px;
+  }
+  table.shop th {
+    text-align: left;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent-dark);
+    padding: 7px 10px;
+    border-bottom: 2px solid var(--color-primary);
+  }
+  table.shop td { padding: 8px 10px; border-bottom: 1px solid var(--color-border); }
+  table.shop tr:nth-child(even) td { background: rgba(143,175,138,0.08); }
+  table.shop td.price { text-align: right; font-weight: 600; color: var(--color-ink); white-space: nowrap; }
+
+  .two-col { display: flex; gap: 32px; }
+  .two-col > div { flex: 1; }
+
+  .log-intro {
+    background: rgba(196,168,130,0.12);
+    border-left: 4px solid var(--color-accent);
+    padding: 16px 20px;
+    font-size: 13px;
+    margin-bottom: 24px;
+    border-radius: 0 6px 6px 0;
+  }
+  table.log { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.log th {
+    background: var(--color-primary);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  table.log td { padding: 16px 12px; border-bottom: 1px solid var(--color-border); }
+  table.log tr:nth-child(even) td { background: rgba(143,175,138,0.06); }
+
+  .callout {
+    background: rgba(143,175,138,0.10);
+    border-left: 4px solid var(--color-primary);
+    padding: 12px 16px;
+    font-size: 12.5px;
+    border-radius: 0 6px 6px 0;
+    margin: 14px 0;
+  }
+  .callout strong { color: var(--color-primary-dark); }
+
+  .page-footer {
+    position: absolute;
+    bottom: 0.4in;
+    left: 0.75in;
+    right: 0.75in;
+    display: flex;
+    justify-content: center;
+    font-size: 9px;
+    color: var(--color-accent-dark);
+    letter-spacing: 0.08em;
+  }
+
+  .roadmap-step {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+  }
+  .roadmap-step .roadmap-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color-primary-dark);
+  }
+  .roadmap-step h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color-ink);
+    margin: 0 0 2px;
+  }
+  .roadmap-step p { margin: 0; font-size: 12px; color: var(--color-body); }
+  .roadmap-connector {
+    width: 2px;
+    height: 24px;
+    background: var(--color-border);
+    margin-left: 20px;
+  }
+
+  .preview-label {
+    text-align: center;
+    font-family: var(--font-body);
+    color: #888;
+    font-size: 12px;
+    margin-top: -8px;
+    padding-bottom: 8px;
+  }
+
+  /* IKEA blueprint + Reset Log page titles */
+  .plain-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+  .plain-title h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 26px;
+    color: var(--color-ink);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= ROADMAP PAGE ================= -->
+<div class="preview-label">ROADMAP PAGE — replaces a traditional table of contents</div>
+<div class="page">
+  <div class="plain-title"><h2>Your Reset Journey</h2></div>
+
+  <div class="roadmap-step">
+    <div class="roadmap-num">1</div>
+    <div><h3>Section Title</h3><p>Placeholder description text</p></div>
+  </div>
+  <div class="roadmap-connector"></div>
+
+  <div class="roadmap-step">
+    <div class="roadmap-num">2</div>
+    <div><h3>Section Title</h3><p>Placeholder description text</p></div>
+  </div>
+  <div class="roadmap-connector"></div>
+
+  <div class="roadmap-step">
+    <div class="roadmap-num">3</div>
+    <div><h3>Section Title</h3><p>Placeholder description text</p></div>
+  </div>
+  <div class="roadmap-connector"></div>
+
+  <div class="roadmap-step">
+    <div class="roadmap-num">4</div>
+    <div><h3>Section Title</h3><p>Placeholder description text</p></div>
+  </div>
+  <div class="roadmap-connector"></div>
+
+  <div class="roadmap-step">
+    <div class="roadmap-num">5</div>
+    <div><h3>Section Title</h3><p>Placeholder description text</p></div>
+  </div>
+
+  <div class="page-footer">SmallSpace Home</div>
+</div>
+
+<!-- ================= PAGE 1 — JANUARY: BEDROOM & CLOSET ================= -->
+<div class="preview-label">CONTENT PAGE 1 — January Reset · Bedroom &amp; Closet</div>
+<div class="page">
+  <div class="section-header">
+    <svg class="room-icon" viewBox="0 0 100 100">
+      <rect x="20" y="45" width="60" height="30" rx="2"/>
+      <path d="M20 45 v-10 a10 10 0 0 1 10 -10 h40 a10 10 0 0 1 10 10 v10"/>
+      <line x1="20" y1="75" x2="20" y2="85"/>
+      <line x1="80" y1="75" x2="80" y2="85"/>
+    </svg>
+    <div><span class="season-tag">January Reset</span><h2>Bedroom &amp; Closet</h2></div>
+  </div>
+
+  <h3 class="subhead">Declutter the closet completely</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Pull everything out — every item</li>
+    <li><span class="checkbox"></span> Keep only clothing worn in the past 12 months</li>
+    <li><span class="checkbox"></span> Holiday gift clothing: try it on now, decide now</li>
+    <li><span class="checkbox"></span> Shoes not worn in the past year → donate</li>
+    <li><span class="checkbox"></span> Keep one spare bedding set — no more</li>
+  </ul>
+
+  <h3 class="subhead">Reorganize what stays</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Switch to slim velvet hangers (frees 30–40% of rod space)</li>
+    <li><span class="checkbox"></span> Hang by category: tops, bottoms, dresses, outerwear</li>
+    <li><span class="checkbox"></span> Use shelf dividers so folded stacks stop collapsing</li>
+    <li><span class="checkbox"></span> Reassess under-bed storage — compress seasonal items flat</li>
+  </ul>
+
+  <h3 class="subhead">What to buy for this room</h3>
+  <table class="shop">
+    <tr><th>Item</th><th>Where</th><th>Cost</th></tr>
+    <tr><td>Slim velvet hangers (50-pack)</td><td>Amazon.ca</td><td class="price">~$18 CAD</td></tr>
+    <tr><td>Shelf dividers (4-pack)</td><td>IKEA Canada</td><td class="price">~$12–15 CAD</td></tr>
+    <tr><td>SKUBB under-bed bags</td><td>IKEA Canada</td><td class="price">~$14 CAD</td></tr>
+  </table>
+
+  <div class="page-footer">— 1 —</div>
+</div>
+
+<!-- ================= PAGE 2 — JANUARY: KITCHEN & PANTRY ================= -->
+<div class="preview-label">CONTENT PAGE 2 — January Reset · Kitchen &amp; Pantry</div>
+<div class="page">
+  <div class="section-header">
+    <svg class="room-icon" viewBox="0 0 100 100">
+      <path d="M25 40 v35 M75 40 v35 M25 55 h50" />
+      <circle cx="25" cy="35" r="5"/>
+      <circle cx="75" cy="35" r="5"/>
+      <rect x="20" y="75" width="60" height="8" rx="2"/>
+    </svg>
+    <div><span class="season-tag">January Reset</span><h2>Kitchen &amp; Pantry</h2></div>
+  </div>
+
+  <h3 class="subhead">Pantry and food storage</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Empty the pantry completely</li>
+    <li><span class="checkbox"></span> Check every expiry date — holiday baking, canned goods from November</li>
+    <li><span class="checkbox"></span> Consolidate duplicates (three open bags of pasta → one)</li>
+    <li><span class="checkbox"></span> Donate non-expired items you genuinely won't use</li>
+  </ul>
+
+  <h3 class="subhead">Organize what stays</h3>
+  <p>Clear stackable bins by category work far better than loose items on shelves. Label each bin: grains, canned goods, snacks, baking, breakfast — items behind other items get forgotten, bins solve this.</p>
+
+  <h3 class="subhead">Kitchen tools, appliances &amp; the under-sink cabinet</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Ask of every rarely-used appliance: does this earn its cabinet space?</li>
+    <li><span class="checkbox"></span> Empty the under-sink cabinet completely</li>
+    <li><span class="checkbox"></span> Install a tension rod across the middle to hang spray bottles</li>
+    <li><span class="checkbox"></span> Use a turntable for products at the back</li>
+  </ul>
+
+  <h3 class="subhead">What to buy for this room</h3>
+  <table class="shop">
+    <tr><th>Item</th><th>Where</th><th>Cost</th></tr>
+    <tr><td>Clear stackable bins (6-pack)</td><td>Amazon.ca / IKEA Canada</td><td class="price">~$30–40 CAD</td></tr>
+    <tr><td>Pantry turntable</td><td>Amazon.ca</td><td class="price">~$10–15 CAD</td></tr>
+  </table>
+
+  <div class="page-footer">— 2 —</div>
+</div>
+
+<!-- ================= PAGE 3 — JANUARY: LIVING, BATHROOM, ENTRYWAY ================= -->
+<div class="preview-label">CONTENT PAGE 3 — January Reset · Living Room, Bathroom &amp; Entryway</div>
+<div class="page">
+  <div class="section-header">
+    <svg class="room-icon" viewBox="0 0 100 100">
+      <path d="M15 80 v-20 a5 5 0 0 1 5 -5 h60 a5 5 0 0 1 5 5 v20"/>
+      <rect x="10" y="80" width="80" height="8" rx="2"/>
+      <line x1="20" y1="55" x2="20" y2="80"/>
+      <line x1="80" y1="55" x2="80" y2="80"/>
+    </svg>
+    <div><span class="season-tag">January Reset</span><h2>Living Room, Bathroom &amp; Entryway</h2></div>
+  </div>
+
+  <h3 class="subhead">Living area</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Box holiday decor by category (lights, ornaments, textiles) and label clearly</li>
+    <li><span class="checkbox"></span> Clear every surface completely — only intentional items go back</li>
+    <li><span class="checkbox"></span> Empty the storage ottoman or media console and reassess what's inside</li>
+  </ul>
+
+  <h3 class="subhead">Bathroom</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Check expiry dates on skincare, haircare, and medication</li>
+    <li><span class="checkbox"></span> Rule for duplicates: finish one before opening the next</li>
+    <li><span class="checkbox"></span> Counter holds daily-use items only — everything else in a drawer</li>
+    <li><span class="checkbox"></span> Empty and re-group the under-sink cabinet by category</li>
+  </ul>
+
+  <h3 class="subhead">Entryway</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> One hook per household member for daily-use outerwear</li>
+    <li><span class="checkbox"></span> One designated spot for daily footwear (boot tray if wet)</li>
+    <li><span class="checkbox"></span> One spot for keys, transit cards, daily-carry items</li>
+    <li><span class="checkbox"></span> Move seasonal/rarely-used items to the closet or under-bed</li>
+  </ul>
+
+  <h3 class="subhead">What to buy</h3>
+  <table class="shop">
+    <tr><th>Item</th><th>Where</th><th>Cost</th></tr>
+    <tr><td>Door-mounted organizer</td><td>Amazon.ca</td><td class="price">~$25–35 CAD</td></tr>
+    <tr><td>Small counter tray (bathroom)</td><td>Wayfair Canada</td><td class="price">~$10–20 CAD</td></tr>
+  </table>
+
+  <div class="page-footer">— 3 —</div>
+</div>
+
+<!-- ================= PAGE 4 — JANUARY SHOPPING LIST + RULES ================= -->
+<div class="preview-label">CONTENT PAGE 4 — The January Reset Shopping List &amp; Rules</div>
+<div class="page">
+  <div class="plain-title"><h2>The January Reset — Shopping List &amp; Rules</h2></div>
+
+  <h3 class="subhead">Highest-impact buys for the whole apartment</h3>
+  <table class="shop">
+    <tr><th>Item</th><th>Cost (CAD)</th><th>Where</th></tr>
+    <tr><td>Slim velvet hangers (50-pack)</td><td class="price">~$18</td><td>Amazon.ca</td></tr>
+    <tr><td>Clear stackable bins with lids (6-pack)</td><td class="price">~$30–40</td><td>Amazon.ca / IKEA Canada</td></tr>
+    <tr><td>IKEA SKUBB under-bed bags</td><td class="price">~$14</td><td>IKEA Canada</td></tr>
+    <tr><td>Over-door organizer</td><td class="price">~$25–35</td><td>Amazon.ca / Wayfair Canada</td></tr>
+    <tr><td>Pantry turntable (lazy susan)</td><td class="price">~$10–15</td><td>Amazon.ca</td></tr>
+    <tr><td>Shelf dividers (4-pack)</td><td class="price">~$12–15</td><td>IKEA Canada</td></tr>
+    <tr><td>Boot tray</td><td class="price">~$15–25</td><td>Amazon.ca / Wayfair Canada</td></tr>
+  </table>
+  <p style="text-align:right; font-weight:600; color: var(--color-ink);">Total for the full list: under $160 CAD — most apartments only need 2–3 items to see a real difference.</p>
+
+  <h3 class="subhead">The three rules that make a reset actually hold</h3>
+  <div class="callout"><strong>1. Declutter before you organize.</strong> Organizing around clutter is why systems fail — remove the excess first.</div>
+  <div class="callout"><strong>2. Every item needs a home.</strong> If something doesn't have a specific place, it ends up on a surface.</div>
+  <div class="callout"><strong>3. Systems have to fit how you actually live.</strong> The best system is the one you can keep up in 5 minutes a day.</div>
+
+  <div class="page-footer">— 4 —</div>
+</div>
+
+<!-- ================= PAGE 5 — SPRING: BEDROOM & SEASONAL SWAP ================= -->
+<div class="preview-label">CONTENT PAGE 5 — Spring Reset · Bedroom &amp; Seasonal Swap</div>
+<div class="page">
+  <div class="section-header">
+    <svg class="room-icon" viewBox="0 0 100 100" style="stroke: var(--color-accent-dark);">
+      <rect x="20" y="45" width="60" height="30" rx="2"/>
+      <path d="M20 45 v-10 a10 10 0 0 1 10 -10 h40 a10 10 0 0 1 10 10 v10"/>
+      <line x1="20" y1="75" x2="20" y2="85"/>
+      <line x1="80" y1="75" x2="80" y2="85"/>
+    </svg>
+    <div><span class="season-tag spring">Spring Reset</span><h2>Bedroom &amp; Seasonal Swap</h2></div>
+  </div>
+
+  <h3 class="subhead">Declutter</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Pull everything out of the closet — everything</li>
+    <li><span class="checkbox"></span> The changing-room test: would you buy this again right now? If not, it leaves</li>
+    <li><span class="checkbox"></span> Shoes not worn since last spring → donate</li>
+    <li><span class="checkbox"></span> Empty and reassess under-bed storage</li>
+  </ul>
+
+  <h3 class="subhead">The winter → summer seasonal swap</h3>
+  <p>Winter coats, heavy sweaters, snow pants, and wool items go into vacuum storage bags → under-bed or a high shelf. Spring/summer clothing moves to the front of the closet and accessible drawers. Vacuum bags compress winter clothing to a fraction of its size.</p>
+
+  <h3 class="subhead">Deep clean</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Wash all bedding including duvet cover and pillowcases</li>
+    <li><span class="checkbox"></span> Flip or rotate the mattress</li>
+    <li><span class="checkbox"></span> Clean under the bed — not just where you can see</li>
+    <li><span class="checkbox"></span> Dust all surfaces including furniture tops and window sills</li>
+  </ul>
+
+  <h3 class="subhead">What to buy</h3>
+  <table class="shop">
+    <tr><th>Item</th><th>Where</th><th>Cost</th></tr>
+    <tr><td>Vacuum storage bags (6-set)</td><td>Amazon.ca</td><td class="price">~$25–30 CAD</td></tr>
+  </table>
+
+  <div class="page-footer">— 5 —</div>
+</div>
+
+<!-- ================= PAGE 6 — SPRING: KITCHEN ================= -->
+<div class="preview-label">CONTENT PAGE 6 — Spring Reset · Kitchen</div>
+<div class="page">
+  <div class="section-header">
+    <svg class="room-icon" viewBox="0 0 100 100" style="stroke: var(--color-accent-dark);">
+      <path d="M25 40 v35 M75 40 v35 M25 55 h50" />
+      <circle cx="25" cy="35" r="5"/>
+      <circle cx="75" cy="35" r="5"/>
+      <rect x="20" y="75" width="60" height="8" rx="2"/>
+    </svg>
+    <div><span class="season-tag spring">Spring Reset</span><h2>Kitchen</h2></div>
+  </div>
+
+  <h3 class="subhead">Declutter</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Remove everything from every cabinet and the pantry</li>
+    <li><span class="checkbox"></span> Check expiry dates on everything — expired goods out</li>
+    <li><span class="checkbox"></span> Duplicate tools: keep one, donate the rest</li>
+    <li><span class="checkbox"></span> Appliances unused in 12 months → donate</li>
+    <li><span class="checkbox"></span> Spices older than 12–18 months → replace or remove</li>
+  </ul>
+
+  <h3 class="subhead">Pantry rotation</h3>
+  <p>Move older items to the front, newer items to the back — this prevents the "found a tin of tomatoes from three years ago" problem. Add clear stackable bins by category; spring is the ideal time to install a proper pantry system you'll maintain all year.</p>
+
+  <h3 class="subhead">Deep clean</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Wipe down every cabinet surface inside and out</li>
+    <li><span class="checkbox"></span> Clean the refrigerator — remove all items, clean shelves, check condiments</li>
+    <li><span class="checkbox"></span> Clean the oven (often the most neglected appliance in winter)</li>
+    <li><span class="checkbox"></span> Wipe down appliance exteriors and behind anything movable</li>
+  </ul>
+
+  <div class="page-footer">— 6 —</div>
+</div>
+
+<!-- ================= PAGE 7 — SPRING: LIVING, BATHROOM, ENTRYWAY ================= -->
+<div class="preview-label">CONTENT PAGE 7 — Spring Reset · Living Room, Bathroom &amp; Entryway</div>
+<div class="page">
+  <div class="section-header">
+    <svg class="room-icon" viewBox="0 0 100 100" style="stroke: var(--color-accent-dark);">
+      <path d="M15 80 v-20 a5 5 0 0 1 5 -5 h60 a5 5 0 0 1 5 5 v20"/>
+      <rect x="10" y="80" width="80" height="8" rx="2"/>
+      <line x1="20" y1="55" x2="20" y2="80"/>
+      <line x1="80" y1="55" x2="80" y2="80"/>
+    </svg>
+    <div><span class="season-tag spring">Spring Reset</span><h2>Living Room, Bathroom &amp; Entryway</h2></div>
+  </div>
+
+  <h3 class="subhead">Living room</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Remove winter-specific textiles (heavy throws, seasonal cushions) → wash, fold, store</li>
+    <li><span class="checkbox"></span> Box and label leftover seasonal decor for next year</li>
+    <li><span class="checkbox"></span> Vacuum under and behind all furniture; clean windows</li>
+    <li><span class="checkbox"></span> Re-style shelves — add spring/summer textiles once winter ones are stored</li>
+  </ul>
+
+  <h3 class="subhead">Bathroom</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Check expiry on every product — sunscreen, medication, makeup</li>
+    <li><span class="checkbox"></span> Scrub the tile grout, clean the medicine cabinet, wash the bath mat</li>
+    <li><span class="checkbox"></span> Organize with drawer dividers and categorized under-sink bins</li>
+  </ul>
+
+  <h3 class="subhead">Entryway</h3>
+  <ul class="checklist">
+    <li><span class="checkbox"></span> Clean, dry, and store all winter footwear and outerwear</li>
+    <li><span class="checkbox"></span> Deep clean the floor — winter roads bring in salt residue</li>
+    <li><span class="checkbox"></span> Reorganize hooks for spring outerwear (lighter coats, rain jackets)</li>
+  </ul>
+
+  <div class="page-footer">— 7 —</div>
+</div>
+
+<!-- ================= PAGE 8 — IKEA ESSENTIALS BLUEPRINT ================= -->
+<div class="preview-label">CONTENT PAGE 8 — The IKEA Essentials Blueprint</div>
+<div class="page">
+  <div class="plain-title"><h2>The IKEA Essentials Blueprint</h2></div>
+  <p>Starting from zero in a small Canadian apartment, this order makes the most sense — get one piece working before adding the next.</p>
+
+  <table class="shop">
+    <tr><th>Item</th><th>Purpose</th><th>Cost (CAD)</th></tr>
+    <tr><td>NORDLI storage bed</td><td>Sleep + storage — replaces a dresser entirely</td><td class="price">$399–699</td></tr>
+    <tr><td>KALLAX 2×2 or 4×2</td><td>Living room anchor, room divider, or entry bench</td><td class="price">$79–159</td></tr>
+    <tr><td>BILLY bookcase (narrow)</td><td>Floor-to-ceiling vertical storage in a 28cm footprint</td><td class="price">$79–99</td></tr>
+    <tr><td>LACK shelves (×2)</td><td>Floating nightstands — zero floor footprint</td><td class="price">~$30</td></tr>
+    <tr><td>SKUBB under-bed bags</td><td>Seasonal storage that slides under any IKEA bed</td><td class="price">~$14</td></tr>
+    <tr><td>RASKOG cart</td><td>Mobile storage — kitchen, bathroom, or office</td><td class="price">~$39</td></tr>
+  </table>
+  <p style="text-align:right; font-weight:600; color: var(--color-ink);">Total for the essentials: ~$650–1,050 CAD — a complete small-apartment storage system.</p>
+
+  <div class="callout"><strong>Start with whatever solves your biggest problem</strong> — the NORDLI if storage is the issue, the KALLAX if you need a living room anchor, the BILLY if you're drowning in books.</div>
+
+  <div class="page-footer">— 8 —</div>
+</div>
+
+<!-- ================= PAGE 9 — RESET LOG ================= -->
+<div class="preview-label">CONTENT PAGE 9 — Your Reset Log</div>
+<div class="page">
+  <div class="section-header">
+    <svg class="room-icon" viewBox="0 0 100 100">
+      <rect x="15" y="20" width="70" height="65" rx="3"/>
+      <line x1="15" y1="38" x2="85" y2="38"/>
+      <line x1="30" y1="12" x2="30" y2="28"/>
+      <line x1="70" y1="12" x2="70" y2="28"/>
+      <line x1="28" y1="52" x2="38" y2="52"/><line x1="48" y1="52" x2="58" y2="52"/><line x1="68" y1="52" x2="78" y2="52" />
+      <line x1="28" y1="65" x2="38" y2="65"/><line x1="48" y1="65" x2="58" y2="65"/>
+    </svg>
+    <div><span class="season-tag" style="background: var(--color-accent-dark);">Your Reset Log</span><h2>Track Every Reset, Every Year</h2></div>
+  </div>
+
+  <div class="log-intro">This is the one page that makes this kit different from a checklist you use once and lose. Fill this in every January and every spring — over a few years, it becomes proof of a habit that actually holds.</div>
+
+  <table class="log">
+    <tr><th>Year</th><th>Season</th><th>Date Done</th><th>Notes / what changed</th></tr>
+    <tr><td>2026</td><td>January</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>2026</td><td>Spring</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>2027</td><td>January</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>2027</td><td>Spring</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>2028</td><td>January</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>2028</td><td>Spring</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+  </table>
+
+  <div class="page-footer">— 9 —</div>
+</div>
+
+</body>
+</html>

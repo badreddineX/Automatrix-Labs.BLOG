@@ -61,6 +61,42 @@ The differentiated set — built for Victorian and Edwardian rooms with original
 
 ---
 
+## The 12 Generation Prompts (Copy-Paste Ready)
+
+Same six-part anatomy as every prompt in this catalogue: subject, style, colours, composition, background, intent. One generation loop per design — 3–5 variations, pick the strongest, adjust one variable, regenerate.
+
+**Master template (swap [SUBJECT] per design):**
+```
+Minimal [SUBJECT], muted [PALETTE] tones, single-line or soft-block
+illustration style, centered composition, generous negative space,
+[BACKGROUND] background, print-ready vector style, no text, no
+mockup, no frame, isolated graphic only.
+```
+
+**Set A — Muted Heritage**
+1. `Minimal layered arch forms, muted terracotta and warm cream tones, soft-block illustration style, centered composition, cream background, print-ready vector style, no text, no mockup.`
+2. `Single continuous-line organic form study, sage green on off-white, thin clean line, centered, generous negative space, print-ready vector style, no text, no mockup.`
+3. `Abstract three-tone block composition, greige sand and cream, soft edges, centered, minimal, cream background, print-ready vector style, no text, no mockup.`
+4. `Minimal botanical silhouette, single stem, warm charcoal line on cream, centered composition, print-ready vector style, no text, no mockup.`
+
+**Set B — Cottagecore Botanical**
+5. `Pressed wildflower study, faded rose and sage tones, delicate line illustration, centered composition, ivory background, print-ready vector style, no text, no mockup.`
+6. `Single continuous-line fern frond, sage green on ivory, minimal, centered, generous negative space, print-ready vector style, no text, no mockup.`
+7. `Trailing ivy line drawing, muted green on cream background, thin continuous line, centered composition, print-ready vector style, no text, no mockup.`
+8. `Dried grasses arrangement illustration, ochre and oat tones, soft-block style, centered, cream background, print-ready vector style, no text, no mockup.`
+
+**Set C — Dark & Moody Period**
+9. `Botanical study, cream line illustration on deep forest green background, centered composition, print-ready vector style, no text, no mockup.` *(tonal linework, not flat colour fill — this set is the hardest to print cleanly; keep line weight consistent so ink coverage stays even.)*
+10. `Abstract tonal composition, charcoal ink and brass-gold accents, soft geometric shapes, centered, dark background, print-ready vector style, no text, no mockup.`
+11. `Architectural line study of a sash window and cornice detail, cream line on ink background, minimal, centered composition, print-ready vector style, no text, no mockup.`
+12. `Understated serif typographic composition reading "small space, considered life", warm brass tone on charcoal background, generous negative space, centered, print-ready, flat design.` *(intentionally includes text — generate separately without the "no text" clause; if lettering warps, regenerate with a plain serif layout or add the type afterward in Canva.)*
+
+**If a background sneaks in anyway:** append `no mockup, no shirt, no frame, isolated graphic only, flat design on plain background` to any of the 12 and regenerate.
+
+**Set C specific risk:** dark-background prompts are more likely to render with heavy fill instead of clean linework. If a generation comes back too solid/flat, add `thin linework, minimal ink coverage, not a solid fill` and regenerate — this also matters for the print step later (see the printing guide below).
+
+---
+
 ## Design Specification (applies to all 12)
 
 | Attribute | Spec |

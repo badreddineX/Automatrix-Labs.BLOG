@@ -59,6 +59,40 @@ The differentiated set — quietly Canadian without being kitsch. Muted, modern,
 
 ---
 
+## The 12 Generation Prompts (Copy-Paste Ready)
+
+Each prompt follows the same six-part anatomy: subject, style, colours, composition, background, intent. This is what actually goes into the image generator — one generation loop per design, 3–5 variations, pick the strongest, adjust one variable, regenerate.
+
+**Master template (swap [SUBJECT] per design):**
+```
+Minimal [SUBJECT], muted [PALETTE] tones, single-line or soft-block
+illustration style, centered composition, generous negative space,
+off-white or cream background, print-ready vector style, no text,
+no mockup, no frame, isolated graphic only.
+```
+
+**Set A — Warm Neutral**
+1. `Minimal layered arch forms, muted terracotta and cream tones, soft-block illustration style, centered composition, off-white background, print-ready vector style, no text, no mockup, no frame.`
+2. `Single continuous-line organic form study, sand and off-white tones, thin clean line, centered composition, generous negative space, cream background, print-ready vector style, no text, no mockup.`
+3. `Abstract three-tone gradient block composition, greige sand and cream, soft edges, centered, minimal, cream background, print-ready vector style, no text, no mockup.`
+4. `Minimal botanical silhouette, single stem, warm grey line on cream, centered composition, generous negative space, print-ready vector style, no text, no mockup.`
+
+**Set B — Botanical Minimal**
+5. `Single continuous-line eucalyptus stem illustration, charcoal line on white, centered composition, lots of negative space, print-ready vector style, no text, no mockup.`
+6. `Minimal monstera leaf silhouette, deep green on cream background, soft-block illustration style, centered, print-ready vector style, no text, no mockup.`
+7. `Three-stem botanical trio, thin charcoal continuous line, centered composition, generous negative space, cream background, print-ready vector style, no text, no mockup.`
+8. `Single fern frond study, sage green line on off-white, minimal line-art style, centered, print-ready vector style, no text, no mockup.`
+
+**Set C — Canadian Small-Space**
+9. `Minimal topographic line map, abstract urban grid, ink line on cream background, centered composition, print-ready vector style, no text, no mockup.`
+10. `Abstract winter landscape illustration, three-tone blue-grey palette, soft geometric shapes, centered, cream background, print-ready vector style, no text, no mockup.`
+11. `Simple line-art city skyline silhouette, charcoal on warm white background, minimal, centered composition, print-ready vector style, no text, no mockup.`
+12. `Understated serif typographic composition reading "small space, big life", ink on cream background, generous negative space, centered, print-ready, flat design.` *(the one design that intentionally includes text — generate this one separately without the "no text" clause, and treat it like the playbook's text-first template: if the lettering warps, regenerate with a plain sans layout or add the type afterward in Canva rather than fighting the model.)*
+
+**If a background sneaks in anyway:** append `no mockup, no shirt, no frame, isolated graphic only, flat design on plain background` to any of the 12 and regenerate — generators default to adding fake frames or lifestyle scenes even when told not to.
+
+---
+
 ## Design Specification (applies to all 12)
 
 | Attribute | Spec |
