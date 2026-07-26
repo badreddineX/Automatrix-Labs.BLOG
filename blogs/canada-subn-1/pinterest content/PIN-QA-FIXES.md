@@ -10,14 +10,15 @@ Work top to bottom — ordered by impact. Palette, fonts, and footer branding ar
 ### 1. `apartment-decor-ideas-A/B/C` — shows a US stadium
 A Denver Broncos NFL stadium (Empower Field, orange/blue signage) is clearly visible through the window. This set's own kicker says "Canadian renters · Real prices" — the photo directly contradicts it. A sharp-eyed Canadian user will read the apartment as American.
 **Fix:** swap the photo for a real small Canadian apartment (or a neutral interior with no identifiable US landmark).
+**Status (2026-07-27): FIXED.** Verified by re-viewing `apartment-decor-ideas-A.png` — no stadium visible, now reads as a warm, lived-in apartment. Also confirmed this pin is live and is currently the account's #1 performer by views+shares (37 views, 4 shares) — consistent with the fix having helped.
 
 ### 2. "Wrong-space" photos — too big / too luxurious for a small-rental brand
 These show mansions, heritage homes, boutique dressing rooms, or hotel suites — the opposite of what the pin promises. Click-through disappointment = pin fatigue + bounce.
-- `decorate-small-living-room-A/B` — double-height boho-luxury great room
-- `fall-apartment-decor-A/B` — ornate heritage house w/ wood trim + staircase
-- `january-reset-A/B` — boutique walk-in dressing room (both variants)
-- `studio-apartment-A` — reads like a hotel suite render
-**Fix:** replace with genuinely small, modest apartment photos. The blog's own post images are a better source than generic stock here.
+- `decorate-small-living-room-A/B` — double-height boho-luxury great room — **Status (2026-07-27): STILL BROKEN.** Verified still live as-is (rendered luxury great room, not a small apartment). This pin is now one of the 9 published pins and is tied for the account's lowest performer (7 views, 0 shares, 0 saves).
+- `fall-apartment-decor-A/B` — ornate heritage house w/ wood trim + staircase — also now live and also tied for lowest performer (7 views, 0 shares, 0 saves). Consistent with the same issue, not independently re-verified visually.
+- `january-reset-A/B` — boutique walk-in dressing room (both variants) — not yet published, not re-verified.
+- `studio-apartment-A` — reads like a hotel suite render — not yet published, not re-verified.
+**Fix:** replace with genuinely small, modest apartment photos. The blog's own post images are a better source than generic stock here. **Priority: do this before scheduling any more pins from these two sets** — both are already live and underperforming, and more of the same set are presumably queued in the 12-pin scheduled backlog.
 
 ---
 

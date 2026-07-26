@@ -11,6 +11,7 @@ Add a new dated entry at the top of the relevant log each time you pull fresh da
 
 | Date | Total Clicks | Total Impressions | Avg CTR | Avg Position | Notes |
 |------|-------------|--------------------|---------|--------------|-------|
+| 2026-07-26 | 0 | 536 | 0% | 44.7 (impression-weighted) | Pulled via `blog-google` API, window 2026-06-28 to 07-23. 301 rows, 297 distinct queries, 18 pages. Impressions up again (443 -> 536). Still 0 clicks -- expected, matches the hold through 2026-08-24. **New best-ranked query: "british home interiors" at position 4** (1 impression) on `/blog/home-interior-ideas-uk/` -- first UK query ever seen near page 1 (previous best was pos ~27). Only 1 impression so treat as noisy/early, not confirmed, but worth watching next pull. `/blog/kitchen-on-a-budget-uk/` still dominates by volume -- 253 of 536 impressions (47%), pos 43.8. |
 | 2026-07-25 | 0 | 443 | 0% | 44.1 (impression-weighted) | Window 2026-06-27 to 07-22 (GSC lag). Impressions up 320 -> 443. Still 0 clicks, still nothing near page 1 -- best individual query is "kitchen makeover on a budget uk" at pos 27.3 (11 impr), worse than Canada's best (pos 4.9). `/blog/kitchen-on-a-budget-uk/` dominates -- 205 of the 443 impressions (46%), confirming kitchen-budget as the strongest UK topic. |
 | 2026-07-24 | 0 | 320 | 0% | — | First real pull. Via `blog-google` API (service account, `sc-domain:britishhomeinterior.co.uk`), 28-day window. 195 distinct queries. Zero clicks is normal — best position is only ~28 ("kitchen makeover on a budget uk"), nothing near page 1 yet. |
 
@@ -33,6 +34,7 @@ Add a new dated entry at the top of the relevant log each time you pull fresh da
 
 | Date | Sessions | Users | Pageviews | Top Channel | Notes |
 |------|----------|-------|-----------|-------------|-------|
+| 2026-07-26 | 12 total (0 organic search) | 8 | 18 | Direct (12) | 28-day window, property `properties/546917739`. Sessions up from 2 to 12, all still Direct -- unlike Canada, no Organic Social (Pinterest) sessions yet, consistent with UK's `pinterest content/` folder being empty in-repo (pins scheduled outside this repo, not yet reflected here). Top landing page is homepage (11 of 12 sessions). |
 | 2026-07-24 | 2 total (0 organic search) | 2 | 2 | Direct (2) | GA4 only installed 2026-07-23 — this is day-1 data, expected near-zero. Property `properties/546917739`. Zero Pinterest-referral sessions recorded yet. |
 
 ---
@@ -41,16 +43,29 @@ Add a new dated entry at the top of the relevant log each time you pull fresh da
 
 | Date | Impressions | Saves | Outbound Clicks | Engaged Audience | Notes |
 |------|------------|-------|------------------|-------------------|-------|
-|      |            |       |                  |                   |       |
+| 2026-07-26 | 149 (sum of daily, 07-17 to 07-26 -- prior days blank/zero) | 0 | 2 (sum across top 3 boards) | 11 (sum of engagement across top 3 boards) | Source: `Pinterest Analytics overview 20260626-20260726 (1).csv` (Downloads) -- first real UK Pinterest data, confirms the scheduled pins went live. Daily impressions: 0,0,0,0,0,12,16,37,75,9 -- started 5 days later than Canada's account (first impressions 07-22 vs. Canada's 07-19) but ramping fast; 07-25 (75, estimate) is the single biggest day either account has had. 07-25/07-26 figures are still Pinterest estimates, will adjust. |
 
-**Top performing pins**:
--
+**Top performing pins** (as of 2026-07-26):
+- Pin `...137361624` — 29 impressions (top performer)
+- Pin `...137365314` — 25 impressions
+- Pin `...137369534` — 24 impressions
+- Pin `...137441796` / `...137437804` — 17 impressions each
+- Pin `...137445192` — 15 impressions
+- 3 more pins at 3-4 impressions. All organic/from-you.
 
-**Top performing boards**:
--
+**Top performing boards** (as of 2026-07-26):
+| Board | Impressions | Engagement | Pin clicks | Outbound clicks | Saves |
+|---|---|---|---|---|---|
+| living-room-ideas-uk | 51 | 8 | 6 | 2 | 0 |
+| bedroom-ideas-uk | 64 | 3 | 3 | 0 | 0 |
+| room-makeovers-uk | 34 | 0 | 0 | 0 | 0 |
+
+**bedroom-ideas-uk has the most impressions (64) but lowest engagement rate (~5%)** — opposite pattern from `living-room-ideas-uk`, which has fewer impressions (51) but the highest engagement (~16%) and all 2 of the account's outbound clicks. `room-makeovers-uk` has zero engagement of any kind despite 34 impressions — worth watching, could just be a slower-to-convert board this early or a weaker pin/board match.
 
 **Issues found** (low CTR pins, stale boards, seasonal drop-off, etc.):
-- `pinterest content/` folder is currently empty as a repo artifact, but per user (2026-07-24) pins + meta content for both Canada and UK are already scheduled for the coming week outside this repo (e.g. in a scheduler tool) — not actually a gap, just not reflected in this folder. Re-check impressions/saves after that week's pins go live.
+- Only 3 boards showing data vs. Canada's 4 — UK account may have fewer boards set up, or others just haven't started getting impressions yet (same pattern Canada saw in its first week). Not urgent, re-check next pull.
+- 0 saves across all boards (same as Canada at this stage) — not a red flag yet, one pull isn't a trend.
+- GA4 UK still shows 0 Organic Social sessions (see GA4 table above) despite these 149 impressions and 2 outbound clicks — worth checking again next pull now that real Pinterest traffic exists, since Canada's GA4 Organic Social sessions do track its Pinterest outbound clicks reasonably well.
 
 ---
 
@@ -70,4 +85,5 @@ Running log of decisions made based on the data above (e.g. "doubling down on X 
 
 - **2026-07-25 — Completed the UK keyword/on-page audit (same method as Canada).** Checked all 33 posts' titles/descriptions -- 7 descriptions ran 1-4 chars over 160, trimmed to fit. GSC clustering flagged `kitchen-on-a-budget-uk` (5 related queries, 205 impr, only 2 inbound links) and `bedroom-makeover-uk` (real ranking data, only 1 inbound link) as thin high-value pages. Added 4 internal links across 4 posts to strengthen both. Also confirmed all 11 zero-impression evergreen UK pages are properly indexed (PASS via URL Inspection) -- normal early-stage quiet, not a defect.
 - **2026-07-25 — Published 3 storage articles ported from Canada's proven storage angle.** UK had zero storage/organisation content (100% decor/style/colour) while storage is Canada's best-performing category by two independent signals (Pinterest engagement + GSC rankings, see `CANADA-ANALYTICS.md`). Published `small-flat-storage-ideas-uk`, `small-bedroom-storage-uk`, and `bathroom-storage-ideas-uk` (matches 2 of the pre-existing "BLOGS TO POST" stub topics plus bathroom as a new addition -- Canada's #1 article had no UK stub). Real localisation: GBP prices from actual UK retailers, London/Manchester geography, UK tenancy-law framing. Linked into 4 existing posts reciprocally. **Next check:** did these get indexed and pick up impressions by 2026-08-24.
+- **2026-07-26 — Sunday check-in: strategy confirmed on track, no changes made.** GSC impressions up 443→536 (+21%), new query hit pos 4 (noisy, 1 impression, watch not act). GA4 sessions up 2→12 (6x). Pinterest went live for the first time this pull -- 149 impressions already, ramping as fast as Canada did in its first days. One open item: UK GA4 shows 0 Organic Social sessions despite real Pinterest outbound clicks existing now -- worth checking again next pull, not urgent yet. Zero GSC clicks is still expected (GA4 3 days old) -- nothing here suggests the strategy isn't working, UK is tracking Canada's trajectory almost exactly, just ~1 week behind on Pinterest. Hold stands, next real re-evaluation is 2026-08-24.
 - **2026-07-24 — GSC/GA4 API access confirmed working, first real data pulled.** See root `CLAUDE.md` for credentials/property IDs. Both metrics show normal month-1 numbers (zero clicks, near-zero GA4 sessions). Decision: hold on SEO/content changes, re-check ~2026-08-24. Pins + meta content for both Canada and UK are scheduled for the following week (confirmed by user, handled outside this repo) — no additional Pinterest setup action needed right now.
