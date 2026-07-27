@@ -1,0 +1,107 @@
+{
+  "seed_keyword": "kitchen on a budget (UK)",
+  "generated_at": "2026-07-27T00:00:00Z",
+  "site": "britishhomeinterior.co.uk",
+  "rationale": "kitchen-on-a-budget-uk is the single dominant page site-wide: 297 of 615 total GSC impressions (48%), consistently the top query cluster every pull since 2026-07-24. Only 2 kitchen posts exist today (kitchen-on-a-budget-uk, kitchen-decor-ideas-uk) - the topic is under-built relative to how much search demand it's already absorbing. Existing top queries on the pillar page: 'affordable kitchen' (23 impr), 'cheap kitchen' (21 impr), 'kitchen makeover budget' (15 impr), 'affordable kitchen cabinets' (2 impr, room to grow).",
+  "pillar": {
+    "id": "P",
+    "title": "Kitchen on a Budget UK (EXISTING - to be strengthened, not rewritten)",
+    "file": "kitchen-on-a-budget-uk.md",
+    "primary_keyword": "kitchen on a budget uk",
+    "action": "Add internal links down to all 6 new spokes once written. Already has real GSC ranking data (pos ~29-45 across variants) - do not rewrite.",
+    "cluster": "pillar"
+  },
+  "clusters": [
+    {
+      "name": "Cluster A: Budget Surface Makeovers",
+      "intent": "commercial",
+      "color": "#5B7A48",
+      "posts": [
+        {
+          "id": "A1",
+          "title": "Budget Kitchen Cabinet Makeover Ideas UK",
+          "primary_keyword": "affordable kitchen cabinets uk",
+          "secondary_keywords": ["kitchen cabinet respray cost uk", "vinyl wrap kitchen cabinets", "cheap kitchen cabinet doors uk"],
+          "search_volume_estimate": "high",
+          "template": "how-to-guide",
+          "word_count_target": 1700,
+          "differentiation_note": "Pillar page already gets real impressions on 'affordable kitchen cabinets' and 'affordable cabinets' queries - this spoke targets that specific sub-intent with real depth (respray vs vinyl wrap vs new handles/fronts, UK suppliers/costs) instead of a passing mention in the general roundup.",
+          "links_to": ["P", "A2", "A3"],
+          "priority_rank": 1
+        },
+        {
+          "id": "A2",
+          "title": "Budget Kitchen Worktop Makeover Ideas UK",
+          "primary_keyword": "cheap kitchen worktop ideas uk",
+          "secondary_keywords": ["laminate worktop wrap", "budget kitchen countertop uk"],
+          "search_volume_estimate": "medium",
+          "template": "how-to-guide",
+          "word_count_target": 1500,
+          "differentiation_note": "No existing dedicated post. Laminate wrap/adhesive film vs full worktop replacement cost comparison.",
+          "links_to": ["P", "A1", "A3"],
+          "priority_rank": 4
+        },
+        {
+          "id": "A3",
+          "title": "Budget Kitchen Splashback & Tile Ideas UK",
+          "primary_keyword": "cheap kitchen splashback ideas uk",
+          "secondary_keywords": ["peel and stick tiles kitchen uk", "budget kitchen tile alternatives"],
+          "search_volume_estimate": "medium",
+          "template": "listicle",
+          "word_count_target": 1400,
+          "differentiation_note": "No existing post. Peel-and-stick tile/panel options - renter-safe angle overlaps with Cluster B, cross-link deliberately.",
+          "links_to": ["P", "B1", "A1"],
+          "priority_rank": 6
+        },
+        {
+          "id": "A4",
+          "title": "Budget Kitchen Flooring Ideas UK",
+          "primary_keyword": "cheap kitchen flooring ideas uk",
+          "secondary_keywords": ["click vinyl flooring kitchen uk", "budget kitchen floor over lino"],
+          "search_volume_estimate": "low",
+          "template": "how-to-guide",
+          "word_count_target": 1300,
+          "differentiation_note": "No existing post. Click-vinyl-over-existing-floor as the renter-safe/reversible option.",
+          "links_to": ["P", "A1", "B1"],
+          "priority_rank": 7
+        }
+      ]
+    },
+    {
+      "name": "Cluster B: Rental & Storage",
+      "intent": "informational",
+      "color": "#9FB88A",
+      "posts": [
+        {
+          "id": "B1",
+          "title": "Rental Kitchen Upgrade Ideas UK (No Landlord Permission Needed)",
+          "primary_keyword": "rental kitchen upgrade ideas uk",
+          "secondary_keywords": ["landlord friendly kitchen updates uk", "temporary kitchen makeover renter uk"],
+          "search_volume_estimate": "medium",
+          "template": "how-to-guide",
+          "word_count_target": 1600,
+          "differentiation_note": "No existing post takes the renter-safe/reversible angle specifically for kitchens, despite this being the same differentiator that works for CAD's whole site and UK's existing rented-flat-makeover-uk post (living-room/general, not kitchen-specific). Strongest single spoke for matching the site's proven renter-focused voice into the highest-traffic topic.",
+          "links_to": ["P", "A3", "A4", "B2"],
+          "priority_rank": 2
+        },
+        {
+          "id": "B2",
+          "title": "Small Kitchen Storage Ideas on a Budget UK",
+          "primary_keyword": "small kitchen storage ideas uk",
+          "secondary_keywords": ["budget kitchen organisation uk", "cheap kitchen storage solutions uk"],
+          "search_volume_estimate": "medium",
+          "template": "listicle",
+          "word_count_target": 1500,
+          "differentiation_note": "No existing kitchen-specific storage post on UK site (kitchen-decor-ideas-uk is decor, not storage/organisation). Direct UK counterpart to CAD's proven storage angle, adapted to UK retailers (Dunelm, Wilko, IKEA UK) and £ pricing.",
+          "links_to": ["P", "B1", "A1"],
+          "priority_rank": 3
+        }
+      ]
+    }
+  ],
+  "total_posts": 6,
+  "total_interlinks": 16,
+  "estimated_total_words": 9000,
+  "priority_order": ["A1", "B1", "B2", "A2", "A3", "A4"],
+  "notes": "Smaller, denser cluster than Canada's (6 spokes vs 9) reflecting UK's narrower proven signal (one dominant page vs Canada's multi-page storage signal). All spokes target sub-intents of the pillar's own real GSC query data rather than guessed keywords. No product/store links included per current instruction to leave dig prod out of scope."
+}

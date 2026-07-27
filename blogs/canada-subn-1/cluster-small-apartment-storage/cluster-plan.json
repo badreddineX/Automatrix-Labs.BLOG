@@ -1,0 +1,150 @@
+{
+  "seed_keyword": "small apartment storage / renter storage solutions (Canada)",
+  "generated_at": "2026-07-27T00:00:00Z",
+  "site": "smallspacehome.ca",
+  "rationale": "Storage is the site's proven strongest angle: Pinterest's storage board has a 33% engagement rate (highest of 4 boards) and GSC's best-ranked page site-wide is the bathroom-storage post (pos 4.9-9.4). Existing storage posts already published: small-apartment-bathroom-storage, small-apartment-bedroom-storage-ideas, storage-ideas-for-small-places (functions as the de facto pillar), small-space-kitchen-organization, small-apartment-organization.",
+  "pillar": {
+    "id": "P",
+    "title": "Storage Ideas for Small Places (EXISTING - to be strengthened, not rewritten)",
+    "file": "storage-ideas-for-small-places.md",
+    "primary_keyword": "small apartment storage ideas",
+    "action": "Add internal links down to all 9 new spokes below once written. Do not rewrite - already has real GSC ranking data (pos 14-22).",
+    "cluster": "pillar"
+  },
+  "clusters": [
+    {
+      "name": "Cluster A: Room-Specific Storage Gaps",
+      "intent": "informational",
+      "color": "#8FAF8A",
+      "posts": [
+        {
+          "id": "A1",
+          "title": "Small Closet Organization Ideas for Rental Apartments",
+          "primary_keyword": "small closet organization ideas rental apartment",
+          "secondary_keywords": ["renter friendly closet organization", "no drill closet storage", "small apartment wardrobe storage"],
+          "search_volume_estimate": "high",
+          "template": "how-to-guide",
+          "word_count_target": 1600,
+          "differentiation_note": "No existing closet-specific post. Vertical/riser shelves, over-door organizers, slim hangers, clear bins - all no-drill. CAD retailers: IKEA Canada (SKUBB, KOMPLEMENT), Amazon.ca.",
+          "links_to": ["P", "C1", "A2"],
+          "priority_rank": 2
+        },
+        {
+          "id": "A2",
+          "title": "Small Entryway & Hallway Storage Ideas for Apartments",
+          "primary_keyword": "small entryway storage ideas apartment",
+          "secondary_keywords": ["renter friendly entryway organization", "small hallway storage no drill"],
+          "search_volume_estimate": "medium",
+          "template": "how-to-guide",
+          "word_count_target": 1400,
+          "differentiation_note": "No existing entryway post. Coat/shoe/bag drop-zone systems that don't need wall mounting - freestanding racks, tension-rod solutions, door-back organizers.",
+          "links_to": ["P", "A1"],
+          "priority_rank": 5
+        },
+        {
+          "id": "A3",
+          "title": "Living Room Storage Solutions for Small Apartments",
+          "primary_keyword": "small living room storage ideas apartment",
+          "secondary_keywords": ["hidden storage furniture small apartment", "ottoman storage small living room"],
+          "search_volume_estimate": "medium",
+          "template": "listicle",
+          "word_count_target": 1500,
+          "differentiation_note": "CAUTION: existing small-space-living-room-ideas and how-to-decorate-a-small-living-room posts already cover this room from a decor angle. This spoke must stay strictly storage-functional (multi-purpose furniture with hidden storage, media console storage, under-console baskets) to avoid the near-duplicate-content problem already flagged in the 2026-07-21 scaling decision. If a genuinely distinct storage angle can't be sustained for 1400+ words, drop this spoke rather than force it.",
+          "links_to": ["P", "A4"],
+          "priority_rank": 8
+        },
+        {
+          "id": "A4",
+          "title": "Laundry Storage Ideas for Small Apartments & In-Suite Laundry",
+          "primary_keyword": "small apartment laundry storage ideas",
+          "secondary_keywords": ["in suite laundry organization", "stackable washer dryer storage small space"],
+          "search_volume_estimate": "medium",
+          "template": "how-to-guide",
+          "word_count_target": 1400,
+          "differentiation_note": "No existing post. Rolling carts, over-machine shelving, door-back detergent racks - relevant to condo/in-suite-laundry-common Canadian building stock.",
+          "links_to": ["P", "A1", "A3"],
+          "priority_rank": 7
+        }
+      ]
+    },
+    {
+      "name": "Cluster B: Renter Timing & Seasonal Storage",
+      "intent": "informational",
+      "color": "#C4A882",
+      "posts": [
+        {
+          "id": "B1",
+          "title": "Quebec Moving Day (July 1) Storage & Packing Guide for Montreal Renters",
+          "primary_keyword": "quebec moving day storage tips",
+          "secondary_keywords": ["july 1 moving day montreal", "moving day quebec apartment storage", "montreal renter moving guide"],
+          "search_volume_estimate": "medium",
+          "template": "how-to-guide",
+          "word_count_target": 1600,
+          "differentiation_note": "Previously-identified content gap (2026-07-21 scaling log): Quebec's province-wide July 1 lease-turnover day has no North American equivalent and no existing site content. This is evergreen - write now to rank ahead of next July 1, even though this year's date has passed. Strongest Canadian-authenticity differentiator in the whole cluster (same logic as the deposit-rights page in the CAD digital product).",
+          "links_to": ["P", "B2", "B3"],
+          "priority_rank": 1
+        },
+        {
+          "id": "B2",
+          "title": "September Student Move-In Storage Setup Guide",
+          "primary_keyword": "student apartment storage ideas move in",
+          "secondary_keywords": ["first apartment storage checklist student", "small dorm apartment storage canada"],
+          "search_volume_estimate": "medium",
+          "template": "checklist",
+          "word_count_target": 1500,
+          "differentiation_note": "Previously-identified content gap (2026-07-21 scaling log): September student-lease wave, single strongest demand signal in the digital-product seasonality research but zero content exists. Time-sensitive - needs to publish before early August to be indexed ahead of the September wave.",
+          "links_to": ["P", "B1", "A1"],
+          "priority_rank": 3
+        },
+        {
+          "id": "B3",
+          "title": "Seasonal Storage: Rotating Off-Season Clothes & Gear in a Small Apartment",
+          "primary_keyword": "seasonal storage small apartment off season clothes",
+          "secondary_keywords": ["winter coat storage small closet", "vacuum storage bags apartment"],
+          "search_volume_estimate": "medium",
+          "template": "how-to-guide",
+          "word_count_target": 1400,
+          "differentiation_note": "No existing post covers seasonal rotation specifically (existing january-reset and spring-cleaning posts are broader). Under-bed vacuum bags, top-shelf bin rotation - reuses the same seasonal angle validated by the digital prod Seasonal Reset Kit, but this is free blog content, not a product tie-in.",
+          "links_to": ["P", "C1", "B1"],
+          "priority_rank": 6
+        }
+      ]
+    },
+    {
+      "name": "Cluster C: Underused Spaces",
+      "intent": "informational",
+      "color": "#6B8F66",
+      "posts": [
+        {
+          "id": "C1",
+          "title": "Under-Bed Storage Ideas for Small Apartments",
+          "primary_keyword": "under bed storage ideas small apartment",
+          "secondary_keywords": ["under bed storage bins bed risers", "bed risers small apartment"],
+          "search_volume_estimate": "high",
+          "template": "listicle",
+          "word_count_target": 1300,
+          "differentiation_note": "No existing dedicated post (bedroom-storage post covers the whole room, this is a focused long-tail spoke on one specific tactic web research flagged as highest-leverage/cheapest first buy for renters).",
+          "links_to": ["P", "A1", "B3"],
+          "priority_rank": 4
+        },
+        {
+          "id": "C2",
+          "title": "Balcony & Patio Storage Ideas for Small Apartments",
+          "primary_keyword": "small apartment balcony storage ideas",
+          "secondary_keywords": ["bike storage small balcony renter", "patio storage no drill"],
+          "search_volume_estimate": "low",
+          "template": "listicle",
+          "word_count_target": 1300,
+          "differentiation_note": "No existing post. Freestanding gravity bike racks, weatherproof deck boxes, vertical planters - genuinely unaddressed space in current content.",
+          "links_to": ["P", "A1"],
+          "priority_rank": 9
+        }
+      ]
+    }
+  ],
+  "total_posts": 9,
+  "total_interlinks": 24,
+  "estimated_total_words": 13000,
+  "priority_order": ["B1", "A1", "B2", "C1", "A2", "B3", "A4", "A3", "C2"],
+  "notes": "A3 (Living Room Storage) carries a cannibalization risk flagged inline - verify a genuinely distinct storage-only angle exists before writing, or drop it. All 9 spokes plus the existing pillar keep the site within its established renter-safe/no-drill/real-Canadian-retailer voice. No product/store links included in any spoke per current instruction to leave dig prod out of scope."
+}
