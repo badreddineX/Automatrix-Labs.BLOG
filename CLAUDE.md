@@ -1,6 +1,8 @@
 # SPACE WORK — Project Purpose & Current Focus
 
-Read this first in any new session before doing anything else in this repo.
+Read this first in any new session before doing anything else in this repo. Also read
+`CLAUDE-WORKFLOW.md` (same folder) for token-economy habits and when to delegate tasks
+outside Claude Code entirely (free OpenRouter/Cline setup, other free tools).
 
 ## What this is
 
