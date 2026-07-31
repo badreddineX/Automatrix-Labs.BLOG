@@ -31,11 +31,11 @@ Both stores already exist on Fourthwall. This is the checklist to configure thei
    - Point to a subdomain of smallspacehome.ca (e.g. `shop.smallspacehome.ca`) if Fourthwall's custom domain tier is active — keeps the buyer inside your own domain the whole way through checkout, which matters since Fourthwall is explicitly the "owned storefront" channel per `PRODUCT-PLAN.md`
    - If not on that tier yet, the default `smallspacehome.fourthwall.com`-style URL is fine to start
 
-3. **Header/Footer Code** (already drafted, just needs real IDs)
-   - Files exist at `blogs/canada-subn-1/smallspacehome/digital-products/first-apartment-checklist/fourthwall-header-code.html` and `-footer-code.html`
-   - Header code box: paste the Pinterest Tag snippet, replace both `YOUR_TAG_ID` instances with the real ID from Pinterest Ads Manager → Ads → Conversions → Pinterest Tag
-   - Footer code box: paste the GA4 snippet, replace `YOUR_MEASUREMENT_ID` with the real `G-XXXXXXX` ID from analytics.google.com → Admin → Data Streams
-   - **These two are the only tracking you have right now** — without them, you can't measure whether blog traffic is converting on Fourthwall at all, which is the entire point of this being the "owned" channel
+3. **Header/Footer Code** (2026-07-31: rebuilt at `CAD dig prod/Fourthwall/` after the old `digital-products/first-apartment-checklist/` copy was lost with the rest of CAD dig prod)
+   - Files: `CAD dig prod/Fourthwall/fourthwall-header-code.html` and `-footer-code.html`
+   - Footer code is **done** — GA4 measurement ID `G-8RQLW4BWHR` is real, pulled directly from the live blog's `SEO.astro` (reuses the blog's own GA4 property rather than creating a second one, so blog + store traffic land in one property)
+   - Header code still needs the Pinterest Tag ID pasted in — CAD has no Pinterest Tag set up yet at all (checked the blog's own code, nothing there either). Create one in Pinterest Ads Manager → Ads → Conversions → Pinterest Tag, then replace both `YOUR_TAG_ID` instances
+   - **Pinterest Tag is the only tracking piece still missing** — GA4 is already wired
 
 4. **Banner / hero image**
    - Use the same warm-cream + sage palette, Playfair Display headline
@@ -79,11 +79,11 @@ Both stores already exist on Fourthwall. This is the checklist to configure thei
 2. **Store settings → Domain**
    - Subdomain of britishhomeinterior.co.uk once the custom-domain tier is active; default Fourthwall URL until then
 
-3. **Header/Footer Code — does not exist yet, needs building**
-   - CAD already has these two files; UK has no equivalent anywhere in the repo
-   - **To do:** create a Pinterest Tag ID for the UK Pinterest account (separate from CAD's — different account, different tag) and a separate GA4 property/stream for britishhomeinterior.co.uk if one doesn't already exist
-   - Copy the two CAD files as a template, swap only the IDs — the code itself is identical
-   - This is a real gap right now: **UK has zero Fourthwall-side tracking**, so once the store goes live there's no way to measure blog→store conversion until this is done
+3. **Header/Footer Code** (2026-07-31: built at `UK dig prod/DIG PROD/Fourthwall/`)
+   - Files: `UK dig prod/DIG PROD/Fourthwall/fourthwall-header-code.html` and `-footer-code.html`
+   - Footer code is **done** — GA4 measurement ID `G-54RDJL98V9` is real, pulled directly from the live blog's `SEO.astro` (reuses the blog's own GA4 property, same approach as CAD)
+   - Header code still needs the Pinterest Tag ID pasted in — needs its own UK Pinterest business account Tag (separate from CAD's, different account/ID). Create in Pinterest Ads Manager → Ads → Conversions → Pinterest Tag, then replace both `YOUR_TAG_ID` instances
+   - **Pinterest Tag is the only tracking piece still missing** for UK too — GA4 is already wired
 
 4. **Banner / hero image**
    - Forest green + gold palette, Playfair Display headline
@@ -101,15 +101,14 @@ Both stores already exist on Fourthwall. This is the checklist to configure thei
 
 ## What's genuinely blocking either store from going live today
 
-1. **UK has no tracking codes set up at all** — Pinterest Tag + GA4 need creating before the footer/header code can even be written
-2. **No product images exist yet** — all 6 Product Content.md files are copy/content only; Fourthwall listings need a cover image and 2-4 preview images per product, which depends on the Wall Art Bundle art generation happening first (or at minimum a designed cover for the PDF products)
-3. **CAD's own product plan says not to launch yet** — `PRODUCT-PLAN.md` explicitly sequences this as Phase 4, gated on the free lead magnet validating first. Setting up the store's *design* now is fine and doesn't conflict with that — actually publishing live product listings is the part that should wait
+1. **Neither store has a Pinterest Tag yet** — both header code files are ready except for this one ID each (see above)
+2. **CAD has zero products right now** — the entire `CAD dig prod/` product folder (Organization Suite, Wall Art Bundle, Storage Budget Kit, Seasonal Reset Kit) is gone from disk and git history as of 2026-07-31, cause not fully reconstructed. UK still has its 2 spec-only products (Wall Art Bundle, Colour Scheme Kit), neither built yet — no product images exist for either
+3. **CAD's own product plan said not to launch yet** even when products existed — sequenced as Phase 4, gated on free lead magnet validation. That gate still applies once CAD has products again.
 
 Logos are **not** a blocker — both exist and are ready to upload as-is (see each section above).
 
 ## Suggested order
 
 1. Upload the existing logos and set brand colours + fonts in both stores' Branding settings (5 minutes each, values are all above)
-2. Build UK's Pinterest Tag + GA4 the same way CAD's were built, using the CAD files as a template
-3. Paste both stores' header/footer tracking code
-4. Leave collections/navigation structured but products unpublished until the lead-magnet validation gate clears
+2. Paste both stores' footer code now (GA4 is ready) — get Pinterest Tags created and paste the header code when that's done
+3. Leave collections/navigation structured but products unpublished until CAD has products again and the lead-magnet validation gate clears for both
