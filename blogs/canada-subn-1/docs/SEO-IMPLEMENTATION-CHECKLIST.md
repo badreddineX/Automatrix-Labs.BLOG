@@ -14,11 +14,13 @@
   - Commit: `accdd16` — deployed
   - Next: Monitor GSC for homepage CTR improvement over next 2 weeks
 
-- [ ] **Re-Inspect `/blog/small-space-furniture/` Page**
-  - Current status: "URL is unknown to Google" (despite 83 impressions)
-  - Action: Run fresh URL Inspection via GSC
-  - If status unchanged: add to Indexing API queue
-  - Target date: 2026-07-27
+- [x] **Re-Inspect `/blog/small-space-furniture/` Page**
+  - ✅ RESOLVED 2026-07-29 — false alarm, not a real indexation gap.
+  - The "unknown to Google" verdict was on the trailing-slash URL variant
+    (`/blog/small-space-furniture/`), which is a non-canonical duplicate (see the
+    RSS trailing-slash root-cause fix, commit `685019a`, logged 2026-07-28).
+  - The real canonical URL (`/blog/small-space-furniture`, no trailing slash) inspects as
+    `PASS` / "Submitted and indexed", last crawled 2026-07-17. No action needed.
 
 ---
 
@@ -46,12 +48,12 @@
 
 ## 🟢 MEDIUM PRIORITY (Next 2-4 weeks)
 
-- [ ] **Add BlogPosting Schema Markup**
-  - File: `src/layouts/BlogPost.astro`
-  - Add JSON-LD schema with: headline, description, datePublished, dateModified, author, image, articleBody
-  - Test first post with Google Rich Results Test
-  - Verify: No validation errors, schema rendering correctly
-  - Target date: 2026-08-10
+- [x] **Add BlogPosting Schema Markup**
+  - ✅ CONFIRMED ALREADY DONE (verified 2026-07-29) — this checklist was stale, not the site.
+  - `src/components/SEO.astro` already emits full `BlogPosting` JSON-LD (headline, description,
+    image, datePublished, dateModified, author, publisher) plus `BreadcrumbList` and `FAQPage`
+    schema on every article page, rendered via `<BlogPost>` → `<SEO type="article">`.
+  - No code change made — flagging here only so this item stops showing as outstanding.
 
 - [ ] **Create Monthly Tracking Sheet**
   - Track: Bathroom storage query position (target: pos 4.9 → pos 1-3)
