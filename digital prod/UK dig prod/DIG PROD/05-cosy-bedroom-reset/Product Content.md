@@ -8,7 +8,7 @@
 
 **What's included:**
 - The 12-Chapter Cosy Bedroom System — bedding, lighting, curtains, layout, colour, and scent, all reversible
-- **Bonus:** The £170 Shopping List — exact allocation, not a vague guideline
+- **Bonus:** The £190 Shopping List — exact allocation, not a vague guideline
 - **Bonus:** The Weekend Timeline — hour-by-hour plan so the whole reset fits in one weekend
 
 **Guarantee:** If this doesn't help, email hello@britishhomeinterior.co.uk within 30 days for a full refund.
@@ -39,7 +39,7 @@ The problem is that bedrooms are often the last room we decorate. We prioritise 
 
 But the bedroom is the most personal room in your home. It's where you start and end every day. It should feel like a warm, calming retreat — not a room you tolerate.
 
-The good news: **you can transform a bedroom in a weekend for under £170, without drilling a single hole.** The changes that make the biggest difference — bedding, lighting, curtains, layout, wall decor — are all reversible and renter-friendly.
+The good news: **you can transform a bedroom in a weekend for under £190, without drilling a single hole.** The changes that make the biggest difference — bedding, lighting, curtains, layout, wall decor — are all reversible and renter-friendly.
 
 Over the next 12 chapters, you'll learn exactly how to transform your bedroom. By Sunday evening, you'll have a space that feels like a sanctuary.
 
@@ -864,11 +864,11 @@ Second, if your landlord strictly forbids candles, bypass the fire risk to your 
 
 ---
 
-## Chapter 11: The £170 Shopping List
+## Chapter 11: The £190 Shopping List
 
 ### Chapter Hook
 
-You've read the chapters. You know what to do. But you're not sure what to buy or how much it will cost. Here's everything you need for under £170.
+You've read the chapters. You know what to do. But you're not sure what to buy or how much it will cost. Here's everything you need for under £190.
 
 ### The Build
 
@@ -885,13 +885,13 @@ You've read the chapters. You know what to do. But you're not sure what to buy o
 | Rug (120x180 cm) | £25 | Dunelm, The Range, IKEA |
 | 2 plants + pots | £15 | IKEA, The Range |
 | Candle or diffuser (lavender) | £7 | Primark, The Range |
-| **Total** | **£170** | |
+| **Total** | **£190** | |
 
 **Skip:** Matching furniture sets (look like a showroom), trendy decor that doesn't fit your palette, anything bought because it's on sale.
 
 ### Design Insight
 
-The **£170 budget** is intentional. It covers the essentials that make the biggest visual impact. Everything on this list is reversible, renter-friendly, and available at UK high-street retailers.
+The **£190 budget** is intentional. It covers the essentials that make the biggest visual impact. Everything on this list is reversible, renter-friendly, and available at UK high-street retailers.
 
 ### Quick Wins
 
@@ -903,7 +903,7 @@ The **£170 budget** is intentional. It covers the essentials that make the bigg
 
 **Mistake #1: Buying furniture before bedding.** Bedding transforms a bedroom more than any furniture purchase.
 
-**Mistake #2: Exceeding the budget.** £170 is enough. Spending more doesn't mean better results.
+**Mistake #2: Exceeding the budget.** £190 is enough. Spending more doesn't mean better results.
 
 ### Designer Tips
 
@@ -924,17 +924,17 @@ The **£170 budget** is intentional. It covers the essentials that make the bigg
 - [ ] Rug purchased
 - [ ] Plants purchased
 - [ ] Candle or diffuser purchased
-- [ ] Total under £170
+- [ ] Total under £190
 
 ### Key Takeaway
 
-**£170 is enough to transform your bedroom.** Buy in this order: bedding, lighting, curtains, rug, plants, accessories. One shopping trip, one weekend, complete transformation.
+**£190 is enough to transform your bedroom.** Buy in this order: bedding, lighting, curtains, rug, plants, accessories. One shopping trip, one weekend, complete transformation.
 
 ### One More Thing
 
 If your rental flat came equipped with hideous plastic vertical blinds or an immovable curtain track, don't panic—and don't attempt to unscrew them. UK landlords love keeping these industrial-looking fixtures in place, but you don't have to stare at them every night.
 
-The smartest optional upgrade outside the core £170 budget is a set of **No-Drill Curtain Rod Brackets (£9.99 on Amazon UK)** or a heavy-duty **Dunelm Twist & Fit Tension Rod (£12)**. 
+The smartest optional upgrade outside the core £190 budget is a set of **No-Drill Curtain Rod Brackets (£9.99 on Amazon UK)** or a heavy-duty **Dunelm Twist & Fit Tension Rod (£12)**. 
 
 No-drill brackets slide directly onto the existing blind headrail or window frame without needing screws, adhesive, or wall fastenings. You simply clip them into place, lay a lightweight curtain pole across, and hang your new blackout curtains right over the top of the existing blinds. Keep the landlord's blinds permanently pulled open or flattened against the glass for an extra layer of insulation, then layer your textured, warm-toned curtains over the top to hide the plastic completely.
 
@@ -1006,7 +1006,7 @@ The weekend timeline follows the principle of **"progressive complexity"** — s
 
 ### Key Takeaway
 
-**One weekend, £170, complete transformation.** Saturday: clean, curtains, lighting. Sunday: make the bed, place rug, style, hang art, enjoy. Everything is reversible.
+**One weekend, £190, complete transformation.** Saturday: clean, curtains, lighting. Sunday: make the bed, place rug, style, hang art, enjoy. Everything is reversible.
 
 ### One More Thing
 
@@ -1029,7 +1029,7 @@ Finally, flatten all cardboard shipping boxes immediately and store them outside
 
 You did it. In one weekend, you transformed your bedroom from a space you tolerated to a space you love. The bedding is warm. The lighting is soft. The curtains are blackout. The room feels like a sanctuary.
 
-This guide isn't about spending money. It's about making intentional choices. The bedding cost £65. The lighting cost £43. The total was under £170. And everything is reversible.
+This guide isn't about spending money. It's about making intentional choices. The bedding cost £65. The lighting cost £43. The total was under £190. And everything is reversible.
 
 **What you've learned:**
 - How to layer bedding for a designer look
