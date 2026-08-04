@@ -1,52 +1,62 @@
 [
   {
     "book": "The 1-Hour Apartment Reset.pdf",
-    "pages": 40,
-    "sourcePath": "../../CAD dig prod/DIG PROD/01-one-hour-apartment-reset/Product Content.md"
+    "pages": 44,
+    "sourcePath": "../../CAD dig prod/DIG PROD/01-one-hour-apartment-reset/Product Content.md",
+    "cover": ""
   },
   {
     "book": "The No-Damage Renter's Toolkit.pdf",
-    "pages": 36,
-    "sourcePath": "../../CAD dig prod/DIG PROD/02-no-damage-renters-toolkit/Product Content.md"
+    "pages": 68,
+    "sourcePath": "../../CAD dig prod/DIG PROD/02-no-damage-renters-toolkit/Product Content.md",
+    "cover": ""
   },
   {
     "book": "The Move-In Week Survival Kit.pdf",
-    "pages": 33,
-    "sourcePath": "../../CAD dig prod/DIG PROD/03-move-in-week-survival-kit/Product Content.md"
+    "pages": 69,
+    "sourcePath": "../../CAD dig prod/DIG PROD/03-move-in-week-survival-kit/Product Content.md",
+    "cover": ""
   },
   {
     "book": "The Small Kitchen Storage Fix.pdf",
-    "pages": 35,
-    "sourcePath": "../../CAD dig prod/DIG PROD/04-small-kitchen-storage-fix/Product Content.md"
+    "pages": 57,
+    "sourcePath": "../../CAD dig prod/DIG PROD/04-small-kitchen-storage-fix/Product Content.md",
+    "cover": ""
   },
   {
     "book": "The Closet & Wardrobe Reset.pdf",
-    "pages": 34,
-    "sourcePath": "../../CAD dig prod/DIG PROD/05-closet-wardrobe-reset/Product Content.md"
+    "pages": 55,
+    "sourcePath": "../../CAD dig prod/DIG PROD/05-closet-wardrobe-reset/Product Content.md",
+    "cover": ""
   },
   {
     "book": "The Rented Flat Living Room Makeover Plan.pdf",
-    "pages": 38,
-    "sourcePath": "../../UK dig prod/DIG PROD/01-living-room-makeover-plan/Product Content.md"
+    "pages": 53,
+    "sourcePath": "../../UK dig prod/DIG PROD/01-living-room-makeover-plan/Product Content.md",
+    "cover": "01-living-room-makeover-plan.png"
   },
   {
     "book": "The Small Kitchen Budget Refresh.pdf",
-    "pages": 34,
-    "sourcePath": "../../UK dig prod/DIG PROD/04-small-kitchen-budget-refresh/Product Content.md"
+    "pages": 54,
+    "sourcePath": "../../UK dig prod/DIG PROD/04-small-kitchen-budget-refresh/Product Content.md",
+    "cover": "04-small-kitchen-budget-refresh.png"
   },
   {
     "book": "The Cosy Bedroom Reset.pdf",
-    "pages": 29,
-    "sourcePath": "../../UK dig prod/DIG PROD/05-cosy-bedroom-reset/Product Content.md"
+    "pages": 53,
+    "sourcePath": "../../UK dig prod/DIG PROD/05-cosy-bedroom-reset/Product Content.md",
+    "cover": "05-cosy-bedroom-reset.png"
   },
   {
     "book": "The No-Damage Renter's Styling Toolkit.pdf",
-    "pages": 35,
-    "sourcePath": "../../UK dig prod/DIG PROD/06-no-damage-renters-toolkit/Product Content.md"
+    "pages": 42,
+    "sourcePath": "../../UK dig prod/DIG PROD/06-no-damage-renters-toolkit/Product Content.md",
+    "cover": "06-no-damage-renters-toolkit.png"
   },
   {
     "book": "The Seasonal Home Refresh Playbook.pdf",
-    "pages": 32,
-    "sourcePath": "../../UK dig prod/DIG PROD/07-seasonal-home-refresh-playbook/Product Content.md"
+    "pages": 43,
+    "sourcePath": "../../UK dig prod/DIG PROD/07-seasonal-home-refresh-playbook/Product Content.md",
+    "cover": "07-seasonal-home-refresh-playbook.png"
   }
 ]

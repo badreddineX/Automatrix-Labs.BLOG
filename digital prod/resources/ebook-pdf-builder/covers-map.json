@@ -1,0 +1,11 @@
+{
+  "_instructions": "Map each book slug to its cover filename in the brand covers folder. Fill this in after uploading covers to Fourthwall (their export uses GUID names). The batch builder will not guess — if an entry is missing it builds WITHOUT a cover rather than stamping the wrong one. UK covers still use slug names and need no mapping.",
+  "cad": {
+    "01-one-hour-apartment-reset": "",
+    "02-no-damage-renters-toolkit": "",
+    "03-move-in-week-survival-kit": ""
+    ,"04-small-kitchen-storage-fix": "",
+    "05-closet-wardrobe-reset": ""
+  },
+  "uk": {}
+}

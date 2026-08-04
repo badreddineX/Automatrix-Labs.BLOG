@@ -11,9 +11,14 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/lora": "^5.3.0",
+    "@fontsource/playfair-display": "^5.3.0",
     "marked": "^18.0.7",
     "pdf-lib": "^1.17.1",
     "pdf-to-png-converter": "^4.2.0",
-    "playwright": "^1.62.1"
+    "playwright": "^1.62.1",
+    "qrcode": "^1.5.4"
   }
 }

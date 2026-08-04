@@ -5,12 +5,17 @@ blogs/uk-subn-1/britishhomeinterior/
 blogs/australia-subn-1/website/
 blogging ressources/claude-blog/
 blogging ressources/claude-seo/
+blogging ressources/hormozi-skills/
 
 # Dependencies and build output
 node_modules/
 dist/
 .astro/
 .vercel/
+
+# Generated ebook PDFs + build artifacts — regenerable from rewritten/ + build.mjs,
+# kept on disk but not in git history (was bloating .git on every rebuild)
+digital prod/resources/ebook-pdf-builder/output/
 
 # Secrets and local config
 .env
