@@ -10,24 +10,42 @@ Add a new dated entry at the top of the relevant log each time you pull fresh da
 (weekly or biweekly recommended). Keep old entries — the trend matters more than any
 single snapshot.
 
-## Setup status (2026-08-07)
+## Setup status (last updated 2026-08-07 — fully working)
 
-**GSC/GA4 API access is NOT yet confirmed for Australia.** The shared service account
-(`claude-blog@smallspace-home.iam.gserviceaccount.com`, config at
-`~/.config/claude-seo/google-api.json`) currently has no Australia GSC property or GA4
-property ID recorded — only Canada's are configured (`default_property`,
-`ga4_property_id`). Before the tables below can be filled with real data, someone with
-Search Console/GA4 admin access to outdoorcoastalhome.com needs to:
+**GSC/GA4 API access is confirmed and working, using a dedicated Australia-only
+service account (no longer the shared Canada one).**
 
-1. Add `outdoorcoastalhome.com` as a property in Google Search Console (confirm
-   domain vs. URL-prefix property type, matching how Canada/UK are each set up).
-2. Grant `claude-blog@smallspace-home.iam.gserviceaccount.com` access to that property.
-3. Confirm a GA4 property exists for the site and record its property ID.
+- Service account: `claude-blog-au@outdoorcoastal-home.iam.gserviceaccount.com`
+  (own GCP project, `outdoorcoastal-home`, separate from Canada/UK's projects)
+- Credentials file: `~/.config/claude-seo/service_account_au.json`
+- Config: `~/.config/claude-seo/google-api-au.json`
+- GSC property: `sc-domain:outdoorcoastalhome.com` — granted `siteFullUser`,
+  verified via a real `sites().list()` API call (not just assumed from the UI).
+- **GA4 property ID: `549096981`** — corrected 2026-08-07. An earlier session
+  briefly used `15398993923` for this (wrong number, possibly a stream ID or a
+  transcription error) which caused a real, confusing "permission denied" that
+  looked like a missing grant but was actually just the wrong property being
+  queried. Verified working: real GA4 data pulled successfully (4 sessions in a
+  7-day test window).
+- Australia also has its own dedicated PageSpeed/CrUX API key now, in the same
+  `google-api-au.json` config, separate from Canada's and UK's keys.
 
-Until this is done, do not assume Australia has the same "already live" analytics
-status as Canada/UK — verify with a raw API call first (per root `CLAUDE.md`'s guidance
-that "permission denied" is as likely to be a disabled API / wrong property format as
-a real missing grant).
+Canada and UK were given the same treatment in this session — each site now has
+its own fully separate service account + API key rather than sharing Canada's
+original credentials:
+- Canada: `claude-blog-ca@smallspace-home.iam.gserviceaccount.com`,
+  `~/.config/claude-seo/service_account_ca.json` /
+  `~/.config/claude-seo/google-api.json` (kept as the default/shared filename
+  for backward compatibility with existing tooling, but now Canada-specific)
+- UK: `claude-blog-uk@britishhome-interiro.iam.gserviceaccount.com`,
+  `~/.config/claude-seo/service_account_uk.json` /
+  `~/.config/claude-seo/google-api-uk.json`
+
+All three: Search Console API + GA4 Data API had to be separately enabled per
+GCP project (a one-time step distinct from granting property access) before
+either would work — if setting up a 4th site later, don't forget this step,
+it produces a "has not been used / disabled" error that looks unrelated to
+permissions but is actually just this.
 
 ---
 
@@ -99,9 +117,13 @@ a real missing grant).
   `origin/main` (`a944413`, `0f1985e` in the `website/` repo).
 - **2026-08-07 (full-day wrap):** Analytics + indexing infrastructure fully stood
   up. GSC verified (DNS TXT method via Hostinger, `sc-domain:outdoorcoastalhome.com`,
-  service account granted Full access, confirmed via API). GA4 property
-  `15398993923` created and gtag snippet wired in; **GA4 API Viewer access still
-  not confirmed working as of this entry** — re-check before trusting any GA4 pulls.
+  service account granted Full access, confirmed via API). GA4 property created
+  and gtag snippet wired in; GA4 API Viewer access initially failed with
+  "permission denied," which turned out to be caused by testing against the
+  wrong property ID (`15398993923`, likely a stream ID) rather than a missing
+  grant — **correct property ID is `549096981`**, confirmed working same day
+  once corrected (see "Setup status" above for the full, current picture,
+  including the later move to a dedicated Australia-only service account).
   GTM container `GTM-MC5RJFSF` added, combined with gtag per Canada's pattern.
   Google + Bing site-verification files/tags both live.
 
