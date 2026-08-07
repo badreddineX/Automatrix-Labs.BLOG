@@ -70,3 +70,18 @@ a real missing grant).
   Australia to `blogs/check-posts.mjs` so drafted-vs-published status is tracked across
   all three countries the same way. Actual writing/publishing of the first article is
   the next step, not done yet.
+- **2026-08-07 (later same day):** User asked to "rework all articles" per the
+  CA/UK strategy. Confirmed with user this means targeted audit-driven fixes (not a
+  full rewrite of already-good content). Applied against `blog-audit-report.md`'s
+  prioritized action queue: diversified the repeated "**Key point:**" price callout
+  (10-11x identical → 6 rotating variants) across `coastal-dining-room-australia`,
+  `beach-house-furniture-australia`, `coastal-bedroom-decor-australia`,
+  `coastal-kitchen-decor-australia`; reworded 5 of 6 identical fire-restriction
+  sentences in `backyard-fire-pit-ideas-australia` while keeping the safety message.
+  Committed in the `website/` repo (`af6f133`). Re-checked the audit's other flagged
+  critical bugs (unrendered placeholders, mojibake, broken stub links, missing
+  frontmatter) — **already resolved before this session**, no action needed.
+  Title/H1 mismatch item checked — the Astro template renders H1 from the same
+  frontmatter `title` field, so there's no real second source to diverge; audit
+  flag was a false positive. Remaining open item: thin source diversity (most posts
+  lean on 1-2 repeatedly-cited sources) — lower priority, not addressed this pass.
