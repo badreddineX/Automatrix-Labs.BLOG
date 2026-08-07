@@ -54,8 +54,8 @@ export default function TermsOfUsePage() {
           <h2>Affiliate Links</h2>
           <p>
             Some articles contain affiliate links. If you click one and make a purchase, we may earn a
-            commission at no extra cost to you. See our <a href="/affiliate-disclosure">Affiliate Disclosure</a>{' '}
-            for details. Affiliate relationships never influence our editorial opinions.
+            commission at no extra cost to you. Affiliate relationships never influence our editorial
+            opinions.
           </p>
 
           <h2>Third-Party Links</h2>

@@ -109,28 +109,46 @@ export default function PostPage({ params }: Props) {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
 
-      {/* ── COVER IMAGE ──────────────────────────────────────────── */}
-      <div className="relative h-[60vh] w-full">
+      {/* ── HERO IMAGE — full-bleed, no text overlay ────────────────── */}
+      <div className="relative h-[42vh] min-h-[320px] max-h-[520px] w-full">
         <Image src={post.coverImage} alt={post.title} fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+      </div>
 
-        {/* Header content over image */}
-        <div className="absolute bottom-0 left-0 right-0 max-w-4xl mx-auto px-6 lg:px-8 pb-10">
-          <CategoryBadge category={post.category} />
+      {/* ── POST HEADER — centered below hero ───────────────────────── */}
+      <header className="border-b border-gray-100">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 pt-10 pb-8 text-center">
+          <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-xs text-[#94a3b8] mb-5">
+            <a href="/" className="hover:text-[#0F172A] transition-colors">Home</a>
+            <span aria-hidden="true">›</span>
+            <a href="/blog" className="hover:text-[#0F172A] transition-colors">Blog</a>
+            <span aria-hidden="true">›</span>
+            <span className="text-[#0F172A] capitalize">{post.category}</span>
+          </nav>
+
+          <div className="flex justify-center mb-4">
+            <CategoryBadge category={post.category} />
+          </div>
+
           <h1
-            className="text-3xl md:text-5xl font-bold text-white mt-4 leading-tight"
+            className="text-3xl md:text-5xl font-bold text-[#0F172A] leading-tight"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             {post.title}
           </h1>
-          <div className="flex items-center gap-4 mt-4 text-white/70 text-sm flex-wrap">
-            <Image src={post.author.avatar} alt={post.author.name} width={30} height={30} className="rounded-full border border-white/30" />
-            <span className="font-medium text-white">{post.author.name}</span>
+          <p className="text-[#64748B] text-base mt-4 max-w-xl mx-auto">
+            {post.excerpt}
+          </p>
+
+          <div className="flex items-center justify-center gap-5 mt-6 text-sm text-[#64748B] flex-wrap">
+            <span className="flex items-center gap-2">
+              <Image src={post.author.avatar} alt={post.author.name} width={24} height={24} className="rounded-full" />
+              <span className="font-medium text-[#0F172A]">{post.author.name}</span>
+            </span>
             <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{formatDate(post.date)}</span>
             <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />{post.readingTime}</span>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* ── ARTICLE BODY ─────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
