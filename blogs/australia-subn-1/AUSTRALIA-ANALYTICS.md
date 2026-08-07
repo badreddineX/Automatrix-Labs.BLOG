@@ -85,3 +85,15 @@ a real missing grant).
   frontmatter `title` field, so there's no real second source to diverge; audit
   flag was a false positive. Remaining open item: thin source diversity (most posts
   lean on 1-2 repeatedly-cited sources) — lower priority, not addressed this pass.
+- **2026-08-07 (later still):** User caught a real miss — the earlier reactivation
+  pass checked docs/analytics/content structure but never diffed individual site
+  *pages* against CA/UK. Actual gap: AU was missing `/author`, `/contact` (had a
+  form embedded in `/about` instead), `/editorial-policy`, and `/thank-you` — all
+  four exist on both CA and UK. Built all four using AU's own design tokens (not
+  copy-pasted UK styling), wired into `Footer.astro` nav, and pointed the existing
+  `/about` contact form at the new `/thank-you` page. Also wrote and published the
+  first daily-loop article, `outdoor-kitchen-ideas-australia` — caught and fixed a
+  `[PERSONAL EXPERIENCE]`/`[UNIQUE INSIGHT]` unrendered-placeholder bug the writer
+  agent introduced before it went live (same bug class as the original audit's
+  critical #1). Site is now 53 pages, builds clean, both commits pushed to
+  `origin/main` (`a944413`, `0f1985e` in the `website/` repo).
