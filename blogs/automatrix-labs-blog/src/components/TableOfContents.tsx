@@ -1,24 +1,24 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { ChevronUp, ChevronDown } from 'lucide-react'
 
 interface Heading {
   id: string
   text: string
-  level: number
 }
 
 export function TableOfContents() {
   const [headings, setHeadings] = useState<Heading[]>([])
   const [active, setActive] = useState('')
-  const listRef = useRef<HTMLUListElement>(null)
+  const [collapsed, setCollapsed] = useState(false)
+  const listRef = useRef<HTMLOListElement>(null)
 
   useEffect(() => {
-    const els = document.querySelectorAll('article h2, article h3')
+    const els = document.querySelectorAll('article h2')
     const items: Heading[] = Array.from(els).map(el => ({
       id: el.id,
       text: el.textContent ?? '',
-      level: Number(el.tagName[1]),
     }))
     setHeadings(items)
 
@@ -41,27 +41,64 @@ export function TableOfContents() {
     activeEl?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   }, [active])
 
-  if (headings.length === 0) return null
+  if (headings.length < 2) return null
 
   return (
-    <nav className="hidden xl:block sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#94a3b8] mb-4">On this page</p>
-      <ul ref={listRef} className="space-y-2 border-l border-gray-100">
-        {headings.map(h => (
-          <li key={h.id} data-heading-id={h.id} style={{ paddingLeft: h.level === 3 ? '1.25rem' : '0.75rem' }}>
-            <a
-              href={`#${h.id}`}
-              className="block text-xs leading-snug transition-colors py-0.5"
-              style={{
-                color: active === h.id ? '#0EA5E9' : '#94a3b8',
-                fontWeight: active === h.id ? '600' : '400',
-              }}
-            >
-              {h.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className="hidden xl:flex xl:flex-col gap-9 sticky top-24">
+      {/* TOC widget card */}
+      <div className="rounded-md border border-gray-200 overflow-hidden">
+        <button
+          type="button"
+          onClick={() => setCollapsed(c => !c)}
+          className="w-full flex items-center justify-between gap-3 px-5 py-4 select-none"
+          style={{ background: '#0F172A' }}
+        >
+          <h2 className="text-white text-sm font-bold tracking-[0.1em] uppercase" style={{ fontFamily: 'var(--font-display)' }}>
+            On This Page
+          </h2>
+          {collapsed ? <ChevronDown className="w-3.5 h-3.5 text-white shrink-0" /> : <ChevronUp className="w-3.5 h-3.5 text-white shrink-0" />}
+        </button>
+
+        <div
+          className="overflow-y-auto transition-[max-height] duration-300 ease-in-out border-t border-gray-100"
+          style={{ maxHeight: collapsed ? 0 : 'min(560px, calc(100vh - 12rem))' }}
+        >
+          <ol ref={listRef} className="list-none m-0 py-5 px-5">
+            {headings.map((h, i) => (
+              <li key={h.id} data-heading-id={h.id} className="mb-4 last:mb-0">
+                <a
+                  href={`#${h.id}`}
+                  className="flex items-baseline gap-2.5 text-sm leading-snug transition-colors"
+                  style={{
+                    color: active === h.id ? '#0EA5E9' : '#374151',
+                    fontWeight: active === h.id ? '600' : '400',
+                  }}
+                >
+                  <span className="shrink-0 text-[#0F172A] text-sm">{i + 1}.</span>
+                  <span className={active === h.id ? 'underline underline-offset-4' : ''}>{h.text}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      {/* CTA card */}
+      <div className="p-6 rounded-md" style={{ background: '#F8FAFC', borderTop: '2px solid #0EA5E9' }}>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] mb-2.5" style={{ color: '#0EA5E9' }}>
+          More Ideas
+        </p>
+        <p className="text-[13px] text-[#64748B] leading-relaxed mb-4">
+          Browse all AI tutorials, tool reviews, and practical guides on AutoMatrix Labs.
+        </p>
+        <a
+          href="/blog"
+          className="block text-center text-xs font-semibold py-2.5 rounded-full transition-opacity hover:opacity-90"
+          style={{ background: '#0F172A', color: '#fff' }}
+        >
+          Browse All Posts
+        </a>
+      </div>
+    </div>
   )
 }
