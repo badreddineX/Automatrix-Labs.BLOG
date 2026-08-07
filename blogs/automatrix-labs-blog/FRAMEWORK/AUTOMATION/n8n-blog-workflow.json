@@ -1,0 +1,263 @@
+﻿{
+  "name": "AutoMatrix Labs — Auto Blog Publisher",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * 1-5"
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Every Weekday 8am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1AJo7mVuq6yyuqm21xdUdF6idGXvfC3wOGLhyp92-Xk4",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Keywords",
+          "mode": "name"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "ready"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "id": "get-keyword",
+      "name": "Get Next Keyword",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "version": 2,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-keyword",
+              "leftValue": "={{ $json.Keyword }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ]
+        }
+      },
+      "id": "check-has-keyword",
+      "name": "Has Keyword?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-1.5-flash",
+        "prompt": {
+          "messages": [
+            {
+              "role": "user",
+              "parts": [
+                {
+                  "text": "=You are the voice of AutoMatrix Labs — a solo builder who uses Claude, ChatGPT and n8n every single day to build a real AI-powered business. You write with honest, first-person authority. You have tested every tool you write about. You correct AI output constantly and you say so. You are NOT a generic AI blog.\n\nWrite a complete, high-quality blog post for the keyword: \"{{ $('Get Next Keyword').item.json.Keyword }}\"\nPost type: {{ $('Get Next Keyword').item.json.Type }}\n\n## VOICE & TONE (non-negotiable)\n- Write in first person: 'I tested', 'I use this daily', 'In my experience', 'After 3 months of using this'\n- Be honest: if something has a downside, say it. Readers trust honesty more than hype.\n- Be specific: not 'saves time' but 'saves me 2 hours every week'\n- Be direct: answer the question immediately, no fluff, no preamble\n- Sound like a real builder, not a content farm\n\n## REQUIRED STRUCTURE (follow exactly)\n\n### 1. TITLE\n- Include exact keyword + 2026\n- Use a power word: Honest, Tested, Real, Complete, Actual\n- Format: 'I [Did X] — Here Is What Actually Happened' OR '[Number] [Things] About [Keyword] Nobody Tells You'\n\n### 2. OPENING\n- First 2 sentences: answer the main question directly\n- Add a QUICK ANSWER box: **Quick Answer:** [2-sentence direct answer]\n- One specific statistic with source (mckinsey.com, gartner.com, openai.com)\n- Hook: surprising fact OR pain the reader knows\n\n### 3. BODY SECTIONS\n- H2 heading every 300 words, H3 subheadings under each H2\n- Short paragraphs: 2-3 lines MAX\n- ONE step-by-step numbered tutorial (minimum 5 steps)\n- FIVE copy-paste ready prompts or commands in code blocks\n- ONE data-rich comparison table with REAL pricing/features (look up actual prices: n8n=$20/mo cloud, Zapier=$19-$49/mo, Claude Pro=$20/mo, ChatGPT Plus=$20/mo, Gemini Advanced=$19.99/mo, Jasper=$49/mo, Copy.ai=$49/mo)\n- ONE Before/After section: Without AI vs With AI with specific time numbers\n- ONE honest limitation or downside section\n- TWO external links to authoritative sources\n\n### 4. I TESTED THIS SECTION (REQUIRED)\nAfter the main tutorial, include a section using the <ITestedThis> MDX component showing real output:\n\n<ITestedThis tool=\"[Tool Name]\">\n**My actual prompt:**\n```\n[Exact prompt I used]\n```\n**What I got back:**\n```\n[Realistic output example — specific, not generic]\n```\n**My verdict:** [1-2 honest sentences about the quality of the output — what was good, what needed fixing]\n</ITestedThis>\n\n### 5. EMAIL CAPTURE (REQUIRED — place after the tutorial section)\n<EmailCapture title=\"Get my exact [keyword] prompts and workflow — free\" />\n\n### 6. RATING SECTION (for review and comparison posts only)\nIf post type is 'review', include RatingCard:\n<RatingCard\n  tool=\"[Tool Name]\"\n  ratings={[\n    {\"label\": \"Ease of setup\", \"score\": 8},\n    {\"label\": \"Output quality\", \"score\": 7},\n    {\"label\": \"Value for money\", \"score\": 6},\n    {\"label\": \"Speed\", \"score\": 9},\n    {\"label\": \"Reliability\", \"score\": 8}\n  ]}\n  verdict=\"[One honest sentence verdict]\"\n/>\n\n### 7. TIME SAVED CALCULATOR (for tutorial and productivity posts only)\nIf post type is 'tutorial' or relates to saving time, include:\n<TimeSavedCalculator taskName=\"[specific task from this post]\" savingPercent={70} />\n\n### 8. FAQ (REQUIRED)\n4-5 questions from People Also Ask. EXACT format (required for Google rich results):\n**Q: [question]**\nA: [direct answer in 2-3 sentences]\n\n**Q: [question]**\nA: [direct answer in 2-3 sentences]\n\n### 9. CONCLUSION\n- 3 bullet point takeaways\n- CTA: recommend 1 specific tool with price\n- Final line: 'Written by a builder who uses these tools every day to run a real AI business.'\n\n## QUALITY RULES\n- Every claim must be specific: not 'saves time' but 'saves 2.3 hours/week'\n- Real pricing in tables — use the actual 2026 prices listed above\n- Never use: 'In today's fast-paced world', 'AI is changing everything', 'In conclusion', 'To summarize'\n- Describe exactly HOW you use each tool\n- Length: 2,000-2,500 words\n\n## SEO RULES\n- Exact keyword in: title, first 100 words, one H2, conclusion\n- Keyword variations throughout\n- Year 2026 in at least 2 headings\n- Short paragraphs for mobile\n\nChoose ONE category from: news, tutorial, review, opinion, research\nChoose 3-5 tags from: ai-tools, productivity, chatgpt, claude, n8n, automation, blogging, income, review, tutorial, opinion, workflow, honest\n\nOUTPUT ONLY VALID NEXT.JS MDX — no explanations, no preamble, no markdown fences around the whole output:\n---\ntitle: \"[SEO title with keyword and 2026]\"\ndate: \"{{ $now.format('YYYY-MM-DD') }}\"\ncategory: \"[one of: news, tutorial, review, opinion, research]\"\ntags: [\"tag1\", \"tag2\", \"tag3\"]\nexcerpt: \"[150 char meta description — keyword in first 10 words, include specific benefit]\"\ncoverImage: \"https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=450&fit=crop\"\nauthor:\n  name: \"Alex Morgan\"\n  avatar: \"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face\"\n---\n\n[Full blog post content — MDX with JSX components as specified above]\n\nIMPORTANT: Output ONLY the MDX. Use double quotes for all frontmatter strings. JSX component props that are arrays/objects must use valid JSX syntax. No text before or after the MDX."
+                }
+              ]
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.75,
+          "maxOutputTokens": 8000
+        }
+      },
+      "id": "gemini-generate",
+      "name": "Gemini — Generate Post",
+      "type": "n8n-nodes-base.googleGemini",
+      "typeVersion": 1,
+      "position": [900, 220]
+    },
+    {
+      "parameters": {
+        "jsCode": "const content = $('Gemini — Generate Post').item.json.text;\nconst keyword = $('Get Next Keyword').item.json.Keyword;\nconst rowId = $('Get Next Keyword').item.json.row_number;\n\n// Cover image per keyword — relevant Unsplash photos\nconst coverImages = {\n  'n8n blog automation': 'photo-1517694712202-14dd9538aa97',\n  'claude ai writing workflow': 'photo-1677442135703-1787eea5ce01',\n  'n8n vs zapier 2026': 'photo-1551288049-bebda4e38f71',\n  'n8n content automation': 'photo-1518770660439-4636190af475',\n  'claude api n8n': 'photo-1555066931-4365d14bab8c',\n  'claude vs chatgpt automation': 'photo-1620712943543-bcc4688e7485',\n  'claude ai mistakes': 'photo-1516116216624-53e697fedbea',\n  'ai output accuracy 2026': 'photo-1551288049-bebda4e38f71',\n  'gemini 1.5 flash review': 'photo-1620712943543-bcc4688e7485',\n  'n8n review 2026': 'photo-1451187580459-43490279c0fa',\n  'ai blog make money 2026': 'photo-1579621970563-ebec7560ff3e',\n  'make money with n8n': 'photo-1579621970563-ebec7560ff3e',\n  'passive income ai content': 'photo-1460925895917-afdab827c52f',\n  'ai blog affiliate marketing': 'photo-1460925895917-afdab827c52f',\n  'micro saas with ai 2026': 'photo-1551288049-bebda4e38f71',\n  'ai replacing human judgment': 'photo-1507003211169-0a1dd7228f2d',\n  'human in the loop ai': 'photo-1552664730-d307ca884978',\n  'using claude daily': 'photo-1677442135703-1787eea5ce01',\n  'chatgpt dependency': 'photo-1620712943543-bcc4688e7485',\n  'ai productivity mindset': 'photo-1499750310107-5fef28a66643'\n};\n\nconst photoId = coverImages[keyword.toLowerCase()] || 'photo-1677442135703-1787eea5ce01';\nconst coverImageUrl = `https://images.unsplash.com/${photoId}?w=800&h=450&fit=crop`;\n\n// Extract title from frontmatter\nconst titleMatch = content.match(/title: ['\"](.+?)['\"]/i);\nconst title = titleMatch ? titleMatch[1] : 'New Post';\n\n// Generate slug from keyword (reliable)\nconst slug = keyword\n  .toLowerCase()\n  .replace(/[^a-z0-9\\s-]/g, '')\n  .replace(/\\s+/g, '-')\n  .replace(/-+/g, '-')\n  .trim();\n\n// Replace coverImage in frontmatter with keyword-specific Unsplash photo\nlet fixedContent = content.replace(\n  /coverImage: ['\"]https?:\\/\\/[^'\"\\n]+['\"]/,\n  `coverImage: \"${coverImageUrl}\"`\n);\n\nreturn {\n  content: fixedContent,\n  title: title,\n  slug: slug,\n  filename: `${slug}.mdx`,\n  keyword: keyword,\n  rowId: rowId,\n  publishDate: new Date().toISOString().split('T')[0]\n};"
+      },
+      "id": "prepare-post",
+      "name": "Prepare Post Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 220]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "name": "={{ $json.filename }}",
+        "driveId": {
+          "__rl": true,
+          "value": "MyDrive",
+          "mode": "list"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1IWQs0Hbc1Kn2xPgJcarJLRlLl7M9AtoS",
+          "mode": "id"
+        },
+        "binaryData": false,
+        "fileContent": "={{ $json.content }}",
+        "options": {
+          "mimeType": "text/plain"
+        }
+      },
+      "id": "save-to-drive",
+      "name": "Save to Google Drive (Review)",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [1340, 220]
+    },
+    {
+      "parameters": {
+        "sendTo": "badreddinekx122@gmail.com",
+        "subject": "=🤖 New Draft Ready — Action Required: {{ $('Prepare Post Data').item.json.title }}",
+        "emailType": "html",
+        "message": "=<div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>\n<div style='background: #0F172A; padding: 24px; border-radius: 12px 12px 0 0;'>\n<h1 style='color: #0EA5E9; margin: 0; font-size: 20px;'>AutoMatrix Labs</h1>\n<p style='color: #94a3b8; margin: 4px 0 0 0; font-size: 13px;'>New post draft ready for your review</p>\n</div>\n<div style='background: #f8fafc; padding: 24px; border: 1px solid #e2e8f0;'>\n<h2 style='color: #0F172A; font-size: 18px;'>{{ $('Prepare Post Data').item.json.title }}</h2>\n<table style='width: 100%; border-collapse: collapse; margin-bottom: 24px;'>\n<tr><td style='padding: 8px; color: #64748b; font-size: 13px;'>Keyword</td><td style='padding: 8px; font-weight: bold; font-size: 13px;'>{{ $('Prepare Post Data').item.json.keyword }}</td></tr>\n<tr style='background:#fff;'><td style='padding: 8px; color: #64748b; font-size: 13px;'>Filename</td><td style='padding: 8px; font-weight: bold; font-size: 13px;'>{{ $('Prepare Post Data').item.json.filename }}</td></tr>\n<tr><td style='padding: 8px; color: #64748b; font-size: 13px;'>Date</td><td style='padding: 8px; font-weight: bold; font-size: 13px;'>{{ $('Prepare Post Data').item.json.publishDate }}</td></tr>\n</table>\n<div style='background: #fff; border: 2px solid #0EA5E9; border-radius: 8px; padding: 20px; margin-bottom: 20px;'>\n<h3 style='color: #0F172A; margin: 0 0 16px 0; font-size: 15px;'>YOUR 4 STEPS RIGHT NOW:</h3>\n<p style='margin: 0 0 10px 0; font-size: 14px;'><strong style='color: #0EA5E9;'>STEP 1</strong> — Open the draft in Google Drive:<br><a href='https://drive.google.com/drive/folders/1IWQs0Hbc1Kn2xPgJcarJLRlLl7M9AtoS' style='color: #0EA5E9;'>👉 Open Google Drive folder</a></p>\n<p style='margin: 0 0 10px 0; font-size: 14px;'><strong style='color: #0EA5E9;'>STEP 2</strong> — Copy ALL the content from the draft file</p>\n<p style='margin: 0 0 10px 0; font-size: 14px;'><strong style='color: #0EA5E9;'>STEP 3</strong> — Open Claude Code and paste this message:<br><code style='background: #f1f5f9; padding: 8px; display: block; margin-top: 8px; border-radius: 4px; font-size: 12px;'>Rewrite this blog post in AutoMatrix Labs voice — honest, first person, real builder experience, correct any AI mistakes, make it admirable. Keep the MDX frontmatter exactly as is. Here is the post: [PASTE CONTENT HERE]</code></p>\n<p style='margin: 0; font-size: 14px;'><strong style='color: #0EA5E9;'>STEP 4</strong> — Save the rewritten file as:<br><code style='background: #f1f5f9; padding: 6px 10px; border-radius: 4px; font-size: 13px;'>content/posts/{{ $('Prepare Post Data').item.json.filename }}</code><br><span style='color: #64748b; font-size: 12px;'>auto-push.ps1 will push to GitHub automatically ✅</span></p>\n</div>\n<p style='color: #64748b; font-size: 12px; text-align: center;'>AutoMatrix Labs — automatrix-blog.vercel.app</p>\n</div>\n</div>",
+        "options": {}
+      },
+      "id": "send-review-email",
+      "name": "Email — Review Notification",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1560, 120]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1AJo7mVuq6yyuqm21xdUdF6idGXvfC3wOGLhyp92-Xk4",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Keywords",
+          "mode": "name"
+        },
+        "columnToMatchOn": "row_number",
+        "valueToMatchOn": "={{ $('Prepare Post Data').item.json.rowId }}",
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "Status",
+              "fieldValue": "in-review"
+            },
+            {
+              "column": "Published Date",
+              "fieldValue": "={{ $('Prepare Post Data').item.json.publishDate }}"
+            },
+            {
+              "column": "Post URL",
+              "fieldValue": "=https://automatrix-blog.vercel.app/blog/{{ $('Prepare Post Data').item.json.slug }}"
+            },
+            {
+              "column": "Slug",
+              "fieldValue": "={{ $('Prepare Post Data').item.json.slug }}"
+            }
+          ]
+        }
+      },
+      "id": "update-keyword-status",
+      "name": "Update Keyword Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [2000, 340]
+    },
+    {
+      "parameters": {
+        "sendTo": "badreddinekx122@gmail.com",
+        "subject": "=🚀 Published: {{ $('Prepare Post Data').item.json.title }}",
+        "emailType": "html",
+        "message": "=<h2>Post Published! 🎉</h2>\n<p><strong>Title:</strong> {{ $('Prepare Post Data').item.json.title }}</p>\n<p><strong>URL:</strong> <a href='https://automatrix-blog.vercel.app/blog/{{ $('Prepare Post Data').item.json.slug }}'>View post</a></p>\n<p><strong>Keyword:</strong> {{ $('Prepare Post Data').item.json.keyword }}</p>\n<p>Vercel is deploying now. Post will be live in ~2 minutes.</p>",
+        "options": {}
+      },
+      "id": "send-publish-email",
+      "name": "Email — Published Notification",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [2220, 340]
+    },
+    {
+      "parameters": {
+        "sendTo": "badreddinekx122@gmail.com",
+        "subject": "⚠️ No keywords ready — AutoMatrix Blog Pipeline",
+        "message": "No keywords with status 'ready' found in your Google Sheet. Add more keywords to keep the pipeline running.",
+        "options": {}
+      },
+      "id": "no-keyword-email",
+      "name": "Email — No Keywords Left",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [900, 420]
+    }
+  ],
+  "connections": {
+    "Every Weekday 8am": {
+      "main": [[{"node": "Get Next Keyword", "type": "main", "index": 0}]]
+    },
+    "Get Next Keyword": {
+      "main": [[{"node": "Has Keyword?", "type": "main", "index": 0}]]
+    },
+    "Has Keyword?": {
+      "main": [
+        [{"node": "Gemini — Generate Post", "type": "main", "index": 0}],
+        [{"node": "Email — No Keywords Left", "type": "main", "index": 0}]
+      ]
+    },
+    "Gemini — Generate Post": {
+      "main": [[{"node": "Prepare Post Data", "type": "main", "index": 0}]]
+    },
+    "Prepare Post Data": {
+      "main": [[{"node": "Save to Google Drive (Review)", "type": "main", "index": 0}]]
+    },
+    "Save to Google Drive (Review)": {
+      "main": [
+        [{"node": "Email — Review Notification", "type": "main", "index": 0}]
+      ]
+    },
+    "Email — Review Notification": {
+      "main": [[{"node": "Update Keyword Status", "type": "main", "index": 0}]]
+    },
+    "Update Keyword Status": {
+      "main": [[{"node": "Email — Published Notification", "type": "main", "index": 0}]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null
+}

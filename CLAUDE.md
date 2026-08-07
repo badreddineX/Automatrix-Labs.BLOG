@@ -10,16 +10,27 @@ A portfolio of niche home-decor blogs, each paired with a Fourthwall print-on-de
 store. The growth loop: **Pinterest → blog traffic → matched store product per article**
 (not a generic storefront — products are meant to tie to specific articles).
 
-## Current scope (as of 2026-07-24)
+## Current scope (as of 2026-08-07)
 
-**Active: Canada + UK only.** Australia is intentionally paused/deprioritized — do not
-add work there unless explicitly asked.
+**Active: Canada + UK + Australia (reactivated).** Australia was paused/deprioritized
+as of 2026-07-24; as of 2026-08-07 the user asked to rework it to match the Canada/UK
+operating model. Structural scaffolding (`docs/SEO-GROWTH-PLAN-2026-2027.md`,
+`AUSTRALIA-ANALYTICS.md`, `BLOGS TO POST/`, `pinterest content/`) is now in place to
+match Canada/UK, but **GSC/GA4 API access is not yet set up for outdoorcoastalhome.com**
+— see `blogs/australia-subn-1/AUSTRALIA-ANALYTICS.md` Setup status before assuming
+analytics parity. The daily trend-content loop (below) has not been extended to
+Australia yet — that's a separate decision from the scaffolding work.
 
 | Country | Site | Live URL | Repo folder |
 |---|---|---|---|
 | Canada | SmallSpace Home | smallspacehome.ca | `blogs/canada-subn-1/smallspacehome/` |
 | UK | British Home Interior | britishhomeinterior.co.uk | `blogs/uk-subn-1/britishhomeinterior/` |
-| Australia (paused) | Outdoor & Coastal Home | outdoorcoastalhome.com | `blogs/australia-subn-1/website/` |
+| Australia | Outdoor & Coastal Home | outdoorcoastalhome.com | `blogs/australia-subn-1/website/` |
+
+**Note (2026-08-07):** `blogs/automatrix-labs-blog/` was added — an AI/tech niche blog
+(Next.js, not Astro), monetized via SaaS affiliates + display ads, not the
+Pinterest→Fourthwall loop above. Separate stack and growth model; see its own
+`CLAUDE.md` inside that folder before working on it.
 
 ## Folder map
 
@@ -32,8 +43,15 @@ add work there unless explicitly asked.
   plus `resources/` — reusable prompts (ebook/course/audiobook writing) and code snippets
   (WooCommerce/Gumroad checkout links) and an Elementor ebook-landing-page template,
   gathered from an external "Nid Academy" resource pack. Not tied to one country.
-- `blogging ressources/` — shared hub: cloned `claude-blog`/`claude-seo` skill packs,
-  plus niche/keyword strategy docs used by all blogs.
+  `resources/ebook-pdf-builder/` builds the finished ebook PDFs from `rewritten/` (source
+  manuscripts) via `build.mjs`; `design-references/` holds manual cover-design inspiration
+  images (not read by the build script). Finished PDFs in `output/` are gitignored — they're
+  regenerable and were bloating `.git` (~90MB) on every rebuild; keep them on disk, don't
+  re-add to git.
+- `blogging ressources/` — shared hub: cloned `claude-blog`/`claude-seo`/`hormozi-skills`
+  skill packs, plus niche/keyword strategy docs used by all blogs.
+- `docs/` (root) — cross-country planning docs that don't belong to one blog (e.g. a
+  combined GSC+Bing plan). Country-specific docs still go in that country's own `docs/`.
 
 ## Analytics access — already set up, don't redo
 
@@ -50,29 +68,35 @@ If a pull ever returns "permission denied," verify with a raw API call first —
 as likely to be a disabled API in the GCP project or a wrong property-URL format
 (prefix vs. domain) as an actual missing dashboard grant.
 
-## Current decision (2026-07-24) — do not re-litigate before the date below
+## Current decision (2026-07-30) — supersedes the 2026-07-24 content hold
 
-GA4 was only installed 2026-07-23 on both sites; GSC shows both sites indexed with
-impressions (200-300+ each) but almost no ranking above position 20 yet, and zero
-clicks/organic sessions so far. This is normal for month 1, not a problem.
+**The 2026-07-24 "hold on SEO/content changes until 2026-08-24" is now overridden by
+explicit user request (2026-07-30).** The 2026-08-24 GSC/GA4 re-check date itself still
+stands as an analytics checkpoint, but new content production is active again as of
+today, via the daily trend-content loop below. See `SEO-GROWTH-PLAN-2026-2027.md` in
+each country's `docs/` folder for the full 10-phase plan this sits inside of.
 
-**Holding on SEO/content changes. Re-check GSC + GA4 around 2026-08-24** (~1 month out) —
-checking sooner won't show meaningful signal. Pins + meta content for both Canada and UK
-are already scheduled for the week of 2026-07-24 (confirmed by user, handled outside this
-repo, e.g. via a scheduler tool) — UK's `pinterest content/` folder being empty in-repo is
-not a gap, just not reflected here. No Pinterest setup action needed right now; just wait
-for the scheduled posts to go live and show up in the next data pull.
+**Daily trend-content loop (active 2026-07-30 on both blogs):** each day, write one new
+article targeting a genuine trending keyword (Pinterest trend data or GSC-adjacent
+demand), and pair it with one new promotional Pinterest pin for that specific article —
+on top of the existing 3 pins/day baseline cadence (so 4 pins/day total on days this
+runs). **Before building each trend pin, check the existing `pinterest-pins/` library
+for topical/photo overlap first** — this exact idea was tried once already (2026-07-28)
+and reverted on both blogs because several trend pins duplicated existing pins almost
+exactly (same wording, one identical photo reuse). Don't repeat that mistake.
 
-One thing worth a small nudge now (doesn't need to wait for the 1-month check): Canada's
-query "where can i buy bathroom storage units that work in a rented flat?" sits at
-position 4.9 — a near-page-1 miss. An internal link or content refresh on whichever page
-targets it could push it onto page 1.
+One thing worth a small nudge (carried over, still valid): Canada's query "where can i
+buy bathroom storage units that work in a rented flat?" sits near position 4.9-4.9 —
+a near-page-1 miss. An internal link or content refresh on whichever page targets it
+could push it onto page 1.
 
 ## Working conventions
 
 - Never delete or restructure the three live site folders' framework paths (`src/`,
   `public/`, config files) without explicit confirmation — they're deployed on Vercel.
 - New planning/strategy docs for a country blog go in that country's `docs/` folder,
-  not loose at the country-folder root.
+  not loose at the country-folder root. Docs spanning both countries go in the root `docs/`.
+- Don't commit generated ebook PDFs (`digital prod/resources/ebook-pdf-builder/output/*.pdf`)
+  — gitignored on purpose, see Folder map above.
 - When adding blog posts to Canada/UK, consider which Fourthwall store product it
   should link to, per the article-matching strategy — not just publish-and-forget.
