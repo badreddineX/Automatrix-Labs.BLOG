@@ -39,13 +39,25 @@ folders — not content volume or code health.
 
 ## Phase 2 – Topic Clusters / Daily Content Loop
 
-Once analytics access confirms which queries/pages are already getting traction,
-apply the same daily-trend-content loop Canada/UK use: one new article per day
-targeting a genuine trending keyword, paired with one new promotional Pinterest pin,
-checked against the pin library first to avoid the topical/photo duplication mistake
-already made once on Canada/UK (2026-07-28, reverted). **Do not start this loop for
-Australia until the pause is formally lifted with the user** — this plan prepares the
-infrastructure, it does not itself restart daily publishing.
+**Loop started 2026-08-07** (pause lifted, user requested applying the same Canada/UK
+strategy). Same rule as Canada/UK: exactly ONE article published per day, extra drafts
+get queued in `BLOGS TO POST/` ahead of time but only one moves to
+`src/content/blog/` per calendar day — check the most recent `datePublished` (or use
+`blogs/check-posts.mjs`, now covers all three countries) before publishing to avoid
+breaking the daily-posting signal. Each new article pairs with one new Pinterest pin
+generated via `website/pin-generator/` — check `website/pinterest-pins/` for
+topical/photo overlap first (the same duplication mistake was made and reverted once
+on Canada/UK, 2026-07-28 — don't repeat it here).
+
+First 3 topics queued in `BLOGS TO POST/` (2026-08-07), picked as genuine gaps against
+the existing 42-post/pin library — outdoor kitchens, courtyards, and alfresco dining
+aren't covered yet despite being core to the coastal/outdoor-entertaining niche:
+1. `outdoor-kitchen-ideas-australia`
+2. `small-courtyard-garden-ideas-australia`
+3. `alfresco-dining-ideas-australia`
+
+These are keyword stubs only (not yet researched/written) — next step is running these
+through the same write pipeline Canada/UK use before the first one publishes.
 
 Coastal/outdoor decor pillar candidates (from the existing 42-post base, to be
 confirmed against real keyword data once GSC access exists):

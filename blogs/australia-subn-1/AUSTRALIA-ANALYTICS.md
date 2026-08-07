@@ -63,3 +63,10 @@ a real missing grant).
   `BLOGS TO POST/`, `pinterest content/` folders — created to match Canada/UK). Analytics
   access remains the open blocker before real data-driven decisions (Phase 7 in the
   growth plan) can start.
+- **2026-08-07 (same day):** User asked to apply the same active strategy Canada/UK
+  run, not just the scaffolding — daily trend-content loop started. Queued 3 stub
+  topics in `BLOGS TO POST/` (outdoor kitchen, small courtyard garden, alfresco
+  dining — all confirmed gaps against the existing 42-post/126-pin library). Added
+  Australia to `blogs/check-posts.mjs` so drafted-vs-published status is tracked across
+  all three countries the same way. Actual writing/publishing of the first article is
+  the next step, not done yet.
