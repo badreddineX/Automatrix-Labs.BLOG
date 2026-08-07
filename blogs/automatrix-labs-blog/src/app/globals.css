@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ── Light mode (default) ──────────────────────────────────── */
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 222 47% 11%;        /* #0F172A dark slate */
+    --muted: 210 20% 96%;             /* #F1F5F9 */
+    --muted-foreground: 215 16% 47%;  /* #64748B */
+    --accent: 210 20% 94%;
+    --accent-foreground: 222 47% 11%;
+    --primary: 199 89% 48%;           /* #0EA5E9 sky blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --border: 214 32% 91%;            /* #E2E8F0 */
+    --input: 214 32% 91%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+  }
+
+  /* ── Dark mode ─────────────────────────────────────────────── */
+  .dark {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 100%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 50%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 100%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 100%;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  /* Serif font for headings */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Georgia, serif;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+  .dark ::-webkit-scrollbar-thumb { background: #555; }
+}
+
+/* ── Syntax highlighting ─────────────────────────────────────── */
+[data-rehype-pretty-code-figure] pre,
+[data-rehype-pretty-code-figure] code,
+.prose pre,
+.prose pre code {
+  background-color: #1e293b !important;
+  color: #e2e8f0 !important;
+}
+[data-rehype-pretty-code-figure] pre {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  padding: 1.25rem 1rem;
+  margin: 1.5rem 0;
+}
+[data-rehype-pretty-code-title] {
+  border-radius: 0.75rem 0.75rem 0 0;
+  font-size: 0.75rem;
+  font-family: monospace;
+  padding: 0.5rem 1rem;
+  background-color: #0f172a !important;
+  color: #94a3b8;
+  border-bottom: 1px solid #334155;
+}
+
+/* ── Section label utility ───────────────────────────────────── */
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0EA5E9;
+}
+
+/* ── Fade Rise animations ────────────────────────────────────── */
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-rise         { animation: fade-rise 0.8s ease-out both; }
+.animate-fade-rise-delay   { animation: fade-rise 0.8s ease-out 0.2s both; }
+.animate-fade-rise-delay-2 { animation: fade-rise 0.8s ease-out 0.4s both; }
