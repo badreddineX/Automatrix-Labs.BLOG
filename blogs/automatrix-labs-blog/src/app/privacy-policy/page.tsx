@@ -61,10 +61,9 @@ export default function PrivacyPolicyPage() {
 
           <h2>Third-Party Links</h2>
           <p>
-            Articles on this site may link to third-party tools and services, including affiliate links
-            (see our <a href="/affiliate-disclosure">Affiliate Disclosure</a>). We are not responsible for
-            the privacy practices of external sites — please review their own policies before sharing
-            information with them.
+            Articles on this site may link to third-party tools and services, including affiliate links.
+            We are not responsible for the privacy practices of external sites — please review their own
+            policies before sharing information with them.
           </p>
 
           <h2>Your Rights</h2>

@@ -65,7 +65,7 @@ export function Footer() {
             © {new Date().getFullYear()} AutoMatrix Labs. All rights reserved.
           </p>
           <div className="flex gap-5">
-            {['Privacy Policy', 'Terms of Use', 'Affiliate Disclosure'].map(l => (
+            {['Privacy Policy', 'Terms of Use'].map(l => (
               <Link key={l} href={`/${l.toLowerCase().replace(/ /g, '-')}`} className="text-white/30 text-xs hover:text-white/60 transition-colors">
                 {l}
               </Link>
