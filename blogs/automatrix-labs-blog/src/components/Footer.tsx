@@ -30,7 +30,6 @@ export function Footer() {
                 { label: 'Tutorials', href: '/category/tutorial' },
                 { label: 'Research', href: '/category/research' },
                 { label: 'About', href: '/about' },
-                { label: 'Contact', href: '/contact' },
               ].map(l => (
                 <Link key={l.label} href={l.href} className="text-white/50 text-sm hover:text-white transition-colors">
                   {l.label}
@@ -66,7 +65,7 @@ export function Footer() {
             © {new Date().getFullYear()} AutoMatrix Labs. All rights reserved.
           </p>
           <div className="flex gap-5">
-            {['Privacy Policy', 'Terms of Use', 'Affiliate Disclosure', 'Contact'].map(l => (
+            {['Privacy Policy', 'Terms of Use', 'Affiliate Disclosure'].map(l => (
               <Link key={l} href={`/${l.toLowerCase().replace(/ /g, '-')}`} className="text-white/30 text-xs hover:text-white/60 transition-colors">
                 {l}
               </Link>

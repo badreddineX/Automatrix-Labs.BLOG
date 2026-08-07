@@ -79,7 +79,7 @@ export default function TermsOfUsePage() {
 
           <h2>Contact Us</h2>
           <p>
-            Questions about these terms? Reach out via our <a href="/contact">Contact page</a> or email{' '}
+            Questions about these terms? Email{' '}
             <a href="mailto:badreddinekx122@gmail.com">badreddinekx122@gmail.com</a>.
           </p>
         </div>
