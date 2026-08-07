@@ -152,54 +152,8 @@ export default function HomePage() {
                   <PostCardHorizontal key={post.slug} post={post} />
                 ))}
               </div>
-
-              {/* Newsletter box */}
-              <div className="mt-10 rounded-2xl p-6" style={{ background: '#0F172A' }}>
-                <p className="section-label mb-2" style={{ color: '#0EA5E9' }}>Newsletter</p>
-                <h3
-                  className="text-white font-bold text-lg mb-2"
-                  style={{ fontFamily: 'var(--font-display)' }}
-                >
-                  AI updates, weekly.
-                </h3>
-                <p className="text-white/50 text-xs mb-4 leading-relaxed">
-                  No spam. Just the best AI tools, tutorials and news — every week.
-                </p>
-                <a
-                  href="mailto:badreddinekx122@gmail.com"
-                  className="block text-center text-sm font-semibold py-2.5 rounded-full transition-opacity hover:opacity-90"
-                  style={{ background: '#0EA5E9', color: '#ffffff' }}
-                >
-                  Subscribe Free
-                </a>
-              </div>
             </div>
           </aside>
-        </div>
-      </section>
-
-      {/* ── REVIEW CTA ───────────────────────────────────────────── */}
-      <section className="border-t border-gray-100 py-16 text-center">
-        <div className="max-w-xl mx-auto px-6">
-          <p className="section-label mb-3">Share Your Thoughts</p>
-          <h2
-            className="text-3xl font-bold text-[#0F172A] mb-4"
-            style={{ fontFamily: 'var(--font-display)' }}
-          >
-            Enjoyed AutoMatrix Labs?
-          </h2>
-          <p className="text-[#64748B] text-sm mb-8 leading-relaxed">
-            Your feedback helps us improve and lets us know what content matters most.
-          </p>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfCCLfCCd6pvuycMcWaW8fUxjWIc_KiGyZhg18YXcn4m-lMiQ/viewform?usp=publish-editor"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm transition-all hover:opacity-90"
-            style={{ background: '#0F172A', color: '#ffffff' }}
-          >
-            Leave a Review <ArrowRight className="w-4 h-4" />
-          </a>
         </div>
       </section>
 

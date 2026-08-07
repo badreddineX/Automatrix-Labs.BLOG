@@ -3,7 +3,6 @@ import { ExternalLink } from 'lucide-react'
 import { CopyCodeBlock } from './CopyCodeBlock'
 import { Rating, RatingCard } from './Rating'
 import { TimeSavedCalculator } from './TimeSavedCalculator'
-import { EmailCapture } from './EmailCapture'
 import { ITestedThis } from './ITestedThis'
 
 function slugify(text: string) {
@@ -89,10 +88,6 @@ export const mdxComponents: MDXComponents = {
   // Time saved calculator — use in productivity/tutorial posts
   // <TimeSavedCalculator taskName="writing blog posts" savingPercent={70} />
   TimeSavedCalculator,
-
-  // Email capture — place after tutorial sections
-  // <EmailCapture title="Get my n8n workflow — free" />
-  EmailCapture,
 
   // I tested this box — wrap real output/proof
   // <ITestedThis tool="Claude">...</ITestedThis>
