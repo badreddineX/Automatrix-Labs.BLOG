@@ -97,3 +97,49 @@ a real missing grant).
   agent introduced before it went live (same bug class as the original audit's
   critical #1). Site is now 53 pages, builds clean, both commits pushed to
   `origin/main` (`a944413`, `0f1985e` in the `website/` repo).
+- **2026-08-07 (full-day wrap):** Analytics + indexing infrastructure fully stood
+  up. GSC verified (DNS TXT method via Hostinger, `sc-domain:outdoorcoastalhome.com`,
+  service account granted Full access, confirmed via API). GA4 property
+  `15398993923` created and gtag snippet wired in; **GA4 API Viewer access still
+  not confirmed working as of this entry** — re-check before trusting any GA4 pulls.
+  GTM container `GTM-MC5RJFSF` added, combined with gtag per Canada's pattern.
+  Google + Bing site-verification files/tags both live.
+
+  **Major bug found and fixed:** `outdoorcoastalhome.com` was 308-redirecting to
+  `coastal-home-au-blog.vercel.app` at the Vercel domain level — meant Google's last
+  crawl (2026-07-20, weeks before this session) saw the site as a redirect, and
+  every single post showed "URL is unknown to Google." User fixed the Vercel domain
+  config (removed the redirect-to-.vercel.app setting) mid-session; confirmed via
+  curl the apex domain now serves 200 OK directly. This likely explains most of
+  Australia's total lack of indexing prior to today, independent of anything
+  content/SEO-related.
+
+  Sitemap submitted directly via Search Console API (0 errors, confirmed
+  registered). Manual "Request Indexing" done by user for the homepage + 2 flagship
+  posts via GSC URL Inspection; same requested via Bing Webmaster Tools URL
+  submission. Indexing API (faster than sitemap crawl) needs Owner-level GSC access,
+  not just Full — skipped as optional since sitemap + manual requests cover it.
+
+  **Performance:** found and fixed real, measured issues, not guesses:
+  - Render-blocking Pinyon Script font stylesheet → switched to `media=print`/
+    `onload` swap pattern (~750ms saved per PSI).
+  - `public/images/` had 12 files up to 1400x2489px despite nothing on the site
+    displaying wider than 1600px — resized (max 1600px, no upscaling) + re-encoded
+    mozjpeg q80. `outdoor-kitchen-ideas-australia` inline image: 356KB → 218KB.
+  - Result, measured via PageSpeed on that same post: mobile performance 81 → 92,
+    LCP 5.0s → 3.2s, CLS 0.024 → 0.
+  - Also fixed: page-level horizontal-scrollbar bug (`overflow-x: hidden` missing
+    on html/body), a WCAG contrast failure on homepage category badge numbers
+    (dark backing pill added, verified 4.7-7:1 across all 4 card colors), and an
+    accessible-name mismatch on pagination arrow buttons.
+
+  **Content/UX tweaks per user request:** removed Reddit social icon (inactive
+  channel), removed `/author` and `/contact` standalone pages (reverted to the
+  `/about` page's embedded contact form), matched hero title font-family to
+  subtitle, kept hero title white/bold/large per explicit instruction.
+
+  **Status: technically ready for indexing.** No known blockers left on the site
+  side. Real GSC/GA4 data still at zero — expected, given crawling has only just
+  been requested. **Do not check again before ~2026-08-14** — nothing meaningful
+  will have accumulated before then; earlier checks just re-confirm the same
+  "too early" state already logged here.
