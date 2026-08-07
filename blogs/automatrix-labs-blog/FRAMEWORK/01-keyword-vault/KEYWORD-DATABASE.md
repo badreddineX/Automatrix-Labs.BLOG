@@ -114,6 +114,29 @@
 
 ---
 
+## TIER 5 — AI TOOL OPINION / TRUST ANGLE
+> Reader is already using AI tools daily and wants a second opinion, not a how-to.
+> Folded in from keywords-to-add.csv (2026-08-07) — the 10 entries here fit the
+> "AI at work" audience; 10 other entries in that file (n8n-blog-automation,
+> "make money with AI" topics) targeted aspiring AI bloggers instead of working
+> professionals, so they were dropped rather than merged — see git history for
+> the original file if that audience gets picked up later.
+
+| Keyword | Type | Notes |
+|---------|------|-------|
+| claude ai writing workflow | tutorial | Pairs with existing Claude review post |
+| claude vs chatgpt automation | review | Adjacent to existing Claude/ChatGPT comparison posts |
+| claude ai mistakes | opinion | Trust/limitations angle, few competitors cover this honestly |
+| ai output accuracy 2026 | opinion | Broader trust-in-AI-output angle |
+| gemini 1.5 flash review | review | Model-specific review, fills a gap (Gemini underrepresented vs Claude/ChatGPT coverage) |
+| ai replacing human judgment | opinion | Thought-leadership/discourse angle |
+| human in the loop ai | tutorial | Practical framing of oversight workflows |
+| using claude daily | opinion | Personal-experience/case-study angle |
+| chatgpt dependency | opinion | Risk/balance angle, distinguishes from pure how-to content |
+| ai productivity mindset | opinion | Broad opinion piece, good internal-link hub for the productivity cluster |
+
+---
+
 ## FIRST 10 POSTS — KEYWORD ASSIGNMENTS
 
 Start with these. Mix of quick wins + money keywords.
