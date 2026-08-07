@@ -58,8 +58,7 @@ export default function AffiliateDisclosurePage() {
 
           <h2>Questions</h2>
           <p>
-            If you have questions about a specific link or partnership, reach out via our{' '}
-            <a href="/contact">Contact page</a> or email{' '}
+            If you have questions about a specific link or partnership, email{' '}
             <a href="mailto:badreddinekx122@gmail.com">badreddinekx122@gmail.com</a>.
           </p>
         </div>

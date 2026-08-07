@@ -82,6 +82,15 @@ export default function AboutPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
+            <div className="flex items-center gap-5 mb-4">
+              <span
+                className="text-4xl font-normal leading-none shrink-0"
+                style={{ fontFamily: 'var(--font-display)', color: '#0EA5E9' }}
+              >
+                01
+              </span>
+              <div className="flex-1 h-px" style={{ background: 'rgba(14,165,233,0.35)' }} />
+            </div>
             <p className="section-label mb-3">Our Story</p>
             <h2
               className="text-3xl md:text-4xl font-bold text-[#0F172A] leading-tight mb-6"
@@ -119,6 +128,15 @@ export default function AboutPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F8FAFC]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
+            <div className="flex items-center justify-center gap-5 mb-4 max-w-xs mx-auto">
+              <span
+                className="text-4xl font-normal leading-none shrink-0"
+                style={{ fontFamily: 'var(--font-display)', color: '#0EA5E9' }}
+              >
+                02
+              </span>
+              <div className="flex-1 h-px" style={{ background: 'rgba(14,165,233,0.35)' }} />
+            </div>
             <p className="section-label mb-3">The Creator</p>
             <h2
               className="text-3xl md:text-4xl font-bold text-[#0F172A]"
@@ -194,6 +212,15 @@ export default function AboutPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
+            <div className="flex items-center justify-center gap-5 mb-4 max-w-xs mx-auto">
+              <span
+                className="text-4xl font-normal leading-none shrink-0"
+                style={{ fontFamily: 'var(--font-display)', color: '#0EA5E9' }}
+              >
+                03
+              </span>
+              <div className="flex-1 h-px" style={{ background: 'rgba(14,165,233,0.35)' }} />
+            </div>
             <p className="section-label mb-3">What Drives Us</p>
             <h2
               className="text-3xl md:text-4xl font-bold text-[#0F172A]"
@@ -252,20 +279,20 @@ export default function AboutPage() {
           </div>
           <div>
             <ul className="space-y-3 mb-8">
-              {['Sponsored articles & reviews', 'Newsletter placements', 'Affiliate partnerships', 'Product launches & announcements'].map(item => (
+              {['Sponsored articles & reviews', 'Affiliate partnerships', 'Product launches & announcements'].map(item => (
                 <li key={item} className="flex items-center gap-3 text-white/70 text-sm">
                   <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#0EA5E9' }} />
                   {item}
                 </li>
               ))}
             </ul>
-            <Link
-              href="/contact"
+            <a
+              href="mailto:badreddinekx122@gmail.com"
               className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-semibold transition-opacity hover:opacity-90"
               style={{ background: '#0EA5E9', color: '#fff' }}
             >
               Get in Touch →
-            </Link>
+            </a>
           </div>
         </div>
       </section>

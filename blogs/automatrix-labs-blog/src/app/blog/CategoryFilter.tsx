@@ -100,29 +100,9 @@ export function CategoryFilter({ posts, hidePills }: { posts: PostMeta[], hidePi
 
   return (
     <>
-      {/* Filter pills */}
-      {!hidePills && (
-        <div className="flex flex-wrap gap-2 mb-10">
-          {CATEGORIES.map(cat => (
-            <button
-              key={cat}
-              onClick={() => handleCategory(cat)}
-              className="px-4 py-1.5 rounded-full text-sm font-medium capitalize transition-all duration-200 border"
-              style={active === cat
-                ? { background: '#0F172A', color: '#fff', borderColor: '#0F172A' }
-                : { background: '#fff', color: '#64748B', borderColor: '#e2e8f0' }
-              }
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {/* All Blogs heading + search */}
-      <div className="flex items-center justify-between gap-4 mb-8 flex-wrap">
-        <h2 className="text-xl font-semibold text-[#0F172A]" style={{ fontFamily: 'var(--font-display)' }}>All Articles</h2>
-        <div className="relative" ref={searchWrapRef}>
+      {/* Search bar — right-aligned */}
+      <div className="flex justify-end mb-6">
+        <div className="relative w-full sm:w-80" ref={searchWrapRef}>
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94a3b8] pointer-events-none" />
           <input
             type="text"
@@ -131,7 +111,7 @@ export function CategoryFilter({ posts, hidePills }: { posts: PostMeta[], hidePi
             onChange={e => handleSearch(e.target.value)}
             onFocus={() => query.trim() && setShowSuggestions(true)}
             autoComplete="off"
-            className="pl-10 pr-4 py-2.5 rounded-full border border-gray-200 bg-white text-[#0F172A] placeholder:text-[#94a3b8] text-sm focus:outline-none focus:border-[#0EA5E9] transition-colors w-64"
+            className="w-full pl-10 pr-4 py-2.5 rounded-full border border-gray-200 bg-white text-[#0F172A] placeholder:text-[#94a3b8] text-sm focus:outline-none focus:border-[#0EA5E9] transition-colors"
           />
 
           {/* Live suggestions dropdown */}
@@ -164,6 +144,25 @@ export function CategoryFilter({ posts, hidePills }: { posts: PostMeta[], hidePi
           )}
         </div>
       </div>
+
+      {/* Category pills — below the search bar */}
+      {!hidePills && (
+        <div className="flex flex-wrap gap-2 mb-10">
+          {CATEGORIES.map(cat => (
+            <button
+              key={cat}
+              onClick={() => handleCategory(cat)}
+              className="px-4 py-1.5 rounded-full text-sm font-medium capitalize transition-all duration-200 border"
+              style={active === cat
+                ? { background: '#0F172A', color: '#fff', borderColor: '#0F172A' }
+                : { background: '#fff', color: '#64748B', borderColor: '#e2e8f0' }
+              }
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div id="posts-grid-anchor" />
 

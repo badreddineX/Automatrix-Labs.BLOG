@@ -84,7 +84,7 @@ export default function PrivacyPolicyPage() {
 
           <h2>Contact Us</h2>
           <p>
-            Questions about this policy? Reach out via our <a href="/contact">Contact page</a> or email{' '}
+            Questions about this policy? Email{' '}
             <a href="mailto:badreddinekx122@gmail.com">badreddinekx122@gmail.com</a>.
           </p>
         </div>
