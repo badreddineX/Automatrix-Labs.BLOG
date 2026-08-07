@@ -191,7 +191,7 @@ export default function PostPage({ params }: Props) {
           </article>
 
           {/* Sticky ToC sidebar */}
-          <aside className="hidden xl:block w-52 shrink-0">
+          <aside className="hidden xl:block w-72 shrink-0">
             <TableOfContents />
           </aside>
         </div>
