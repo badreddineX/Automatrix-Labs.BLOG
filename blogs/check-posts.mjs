@@ -19,3 +19,4 @@ function check(site, pendingDir, blogDir) {
 
 check("UK", "blogs/uk-subn-1/BLOGS TO POST", "blogs/uk-subn-1/britishhomeinterior/src/content/blog");
 check("CANADA", "blogs/canada-subn-1/BLOGS TO POST", "blogs/canada-subn-1/smallspacehome/src/content/blog");
+check("AUSTRALIA", "blogs/australia-subn-1/BLOGS TO POST", "blogs/australia-subn-1/website/src/content/blog");
