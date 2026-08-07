@@ -12,7 +12,7 @@ export function TableOfContents() {
   const [headings, setHeadings] = useState<Heading[]>([])
   const [active, setActive] = useState('')
   const [collapsed, setCollapsed] = useState(false)
-  const listRef = useRef<HTMLOListElement>(null)
+  const bodyRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const els = document.querySelectorAll('article h2')
@@ -32,13 +32,22 @@ export function TableOfContents() {
     return () => observer.disconnect()
   }, [])
 
-  // Keep the active item scrolled into view within the TOC's own box as the
-  // page scrolls, so a long heading list doesn't leave the current section
-  // hidden below the fold of the sidebar.
+  // Keep the active item visible within the TOC's own scroll box as the page
+  // scrolls. Sets scrollTop directly on the box rather than calling
+  // scrollIntoView on the item — scrollIntoView can hijack the whole page's
+  // scroll position on some browsers, which is not what we want here.
   useEffect(() => {
-    if (!active || !listRef.current) return
-    const activeEl = listRef.current.querySelector<HTMLElement>(`[data-heading-id="${active}"]`)
-    activeEl?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+    if (!active || !bodyRef.current) return
+    const box = bodyRef.current
+    const item = box.querySelector<HTMLElement>(`[data-heading-id="${active}"]`)
+    if (!item) return
+    const itemTop = item.offsetTop
+    const itemBottom = itemTop + item.offsetHeight
+    if (itemTop < box.scrollTop + 16) {
+      box.scrollTop = itemTop - 16
+    } else if (itemBottom > box.scrollTop + box.clientHeight - 16) {
+      box.scrollTop = itemBottom - box.clientHeight + 16
+    }
   }, [active])
 
   if (headings.length < 2) return null
@@ -60,10 +69,11 @@ export function TableOfContents() {
         </button>
 
         <div
+          ref={bodyRef}
           className="overflow-y-auto transition-[max-height] duration-300 ease-in-out border-t border-gray-100"
           style={{ maxHeight: collapsed ? 0 : 'min(560px, calc(100vh - 12rem))' }}
         >
-          <ol ref={listRef} className="list-none m-0 py-5 px-5">
+          <ol className="list-none m-0 py-5 px-5">
             {headings.map((h, i) => (
               <li key={h.id} data-heading-id={h.id} className="mb-4 last:mb-0">
                 <a
