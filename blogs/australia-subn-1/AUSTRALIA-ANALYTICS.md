@@ -75,6 +75,16 @@ permissions but is actually just this.
 
 ## Scaling Decisions Log
 
+- **2026-08-07 (later still):** Proactively checked for the same hub/spoke
+  cannibalization pattern found (and fixed) on Canada and UK's strongest pages —
+  couldn't check via real GSC data since AU isn't indexed yet, so checked
+  structurally instead. Found `outdoor-entertaining-ideas-australia.md` (21
+  sections) has 2 sections (BBQ station, fire pit zone) topically overlapping
+  with their own dedicated spoke posts. Unlike UK's severe case, these were
+  already brief summaries, not full-depth duplicates, so no trim was needed —
+  just added explicit inline links from each section to its spoke article
+  (previously only listed in the footer) to reinforce the hub-to-spoke signal
+  before it becomes a real problem once indexed. Commit `97bc670`.
 - **2026-08-07:** Reactivation kicked off. Site audited — content is solid (42 posts,
   ~85/100 avg quality, all previously-flagged bugs already fixed, build is clean). Gap
   closed today was purely structural (this file, `docs/SEO-GROWTH-PLAN-2026-2027.md`,
