@@ -53,7 +53,7 @@ permissions but is actually just this.
 
 | Date | Total Clicks | Total Impressions | Avg CTR | Avg Position | Notes |
 |------|-------------|--------------------|---------|--------------|-------|
-| — | — | — | — | — | No data yet — awaiting GSC access setup, see Setup status above. |
+| 2026-08-07 | 0 | 0 | 0% | — | First real pull, using AU's own dedicated service account. Genuinely zero, not a bug — confirmed via GSC URL Inspection the same day that no post has been crawled yet (sitemap only submitted a few hours prior). Expected to stay at zero until Google completes its first crawl pass; next pull should show the first real signal. |
 
 ---
 
@@ -61,7 +61,7 @@ permissions but is actually just this.
 
 | Date | Sessions | Users | Pageviews | Top Channel | Notes |
 |------|----------|-------|-----------|-------------|-------|
-| — | — | — | — | — | No data yet — awaiting GA4 property setup, see Setup status above. |
+| 2026-08-07 | 4 total | 4 | 31 | Unassigned (3), Direct (1) | First real pull, 28-day window, property `properties/549096981`, AU's own dedicated service account. Thin, as expected — no organic search sessions yet since nothing's indexed. The "Unassigned" channel being dominant this early is normal (tracking hadn't been live long in this window) and should resolve to real channels as more sessions accumulate. |
 
 ---
 
