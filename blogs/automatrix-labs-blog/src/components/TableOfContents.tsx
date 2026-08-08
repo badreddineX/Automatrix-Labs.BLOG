@@ -16,9 +16,12 @@ export function TableOfContents() {
 
   useEffect(() => {
     const els = document.querySelectorAll('article h2')
+    // The heading's own textContent includes the "01." number-prefix span
+    // text (rendered as a sibling span inside the h2) — strip it so the TOC
+    // doesn't show a doubled-up number like "1. 01.Title".
     const items: Heading[] = Array.from(els).map(el => ({
       id: el.id,
-      text: el.textContent ?? '',
+      text: (el.textContent ?? '').replace(/^\d+\.\s*/, ''),
     }))
     setHeadings(items)
 
