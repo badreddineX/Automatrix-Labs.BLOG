@@ -4,5 +4,9 @@
       "Bash(npm run build)",
       "Bash(npm run preview)"
     ]
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
   }
 }
