@@ -1,7 +1,7 @@
 import { getAllPosts, getPostBySlug, getRelatedPosts } from '@/lib/posts'
 import { CategoryBadge } from '@/components/CategoryBadge'
 import { PostCard } from '@/components/PostCard'
-import { mdxComponents } from '@/components/MDXComponents'
+import { createMdxComponents } from '@/components/MDXComponents'
 import { TableOfContents } from '@/components/TableOfContents'
 import { ReadingProgress } from '@/components/ReadingProgress'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -109,39 +109,41 @@ export default function PostPage({ params }: Props) {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
 
-      {/* ── HERO IMAGE — full-bleed, no text overlay ────────────────── */}
-      <div className="relative h-[42vh] min-h-[320px] max-h-[520px] w-full">
-        <Image src={post.coverImage} alt={post.title} fill className="object-cover" priority />
+      {/* ── HERO — wide banner strip, not full-bleed viewport height (matches Canada blog) ── */}
+      <div className="relative w-full aspect-[16/7] md:aspect-[4/1] max-h-[300px] md:max-h-[340px] overflow-hidden bg-[#F8FAFC]">
+        <Image src={post.coverImage} alt={post.title} fill className="object-cover" style={{ objectPosition: 'center 40%' }} priority />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(255,255,255,0.18) 80%, rgba(255,255,255,0.55) 100%)' }} />
       </div>
 
-      {/* ── POST HEADER — centered below hero ───────────────────────── */}
+      {/* ── POST HEADER — left-aligned below hero (matches Canada blog) ── */}
       <header className="border-b border-gray-100">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8 pt-10 pb-8 text-center">
-          <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-xs text-[#94a3b8] mb-5">
+        <div className="max-w-[760px] mx-auto px-6 lg:px-8 pt-12 pb-10">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs text-[#94a3b8] mb-6">
             <a href="/" className="hover:text-[#0F172A] transition-colors">Home</a>
             <span aria-hidden="true">›</span>
             <a href="/blog" className="hover:text-[#0F172A] transition-colors">Blog</a>
             <span aria-hidden="true">›</span>
-            <span className="text-[#0F172A] capitalize">{post.category}</span>
+            <span className="text-[#0F172A] capitalize" aria-current="page">{post.category}</span>
           </nav>
 
-          <div className="flex justify-center mb-4">
+          <div className="mb-[18px]">
             <CategoryBadge category={post.category} />
           </div>
 
           <h1
-            className="text-3xl md:text-5xl font-bold text-[#0F172A] leading-tight"
+            className="text-[1.6rem] md:text-5xl font-bold italic text-[#0F172A] leading-[1.12] mb-5 tracking-tight"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             {post.title}
           </h1>
-          <p className="text-[#64748B] text-base mt-4 max-w-xl mx-auto">
+          <p className="text-[#64748B] text-lg leading-relaxed mb-7 font-light">
             {post.excerpt}
           </p>
 
-          <div className="flex items-center justify-center gap-5 mt-6 text-sm text-[#64748B] flex-wrap">
+          <div className="flex flex-wrap items-center gap-6 text-sm text-[#374151] border-t border-gray-100 pt-5">
             <span className="flex items-center gap-2">
-              <Image src={post.author.avatar} alt={post.author.name} width={24} height={24} className="rounded-full" />
+              <span className="font-bold text-[#0F172A]">By</span>
+              <Image src={post.author.avatar} alt={post.author.name} width={22} height={22} className="rounded-full" />
               <span className="font-medium text-[#0F172A]">{post.author.name}</span>
             </span>
             <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{formatDate(post.date)}</span>
@@ -187,7 +189,7 @@ export default function PostPage({ params }: Props) {
               <span className="text-[#64748B]">✅ Tested by <strong className="text-[#0F172A]">{post.author.name}</strong></span>
             </div>
 
-            <MDXRemote source={post.content} components={mdxComponents} />
+            <MDXRemote source={post.content} components={createMdxComponents()} />
           </article>
 
           {/* Sticky ToC sidebar */}
