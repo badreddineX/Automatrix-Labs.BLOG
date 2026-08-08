@@ -15,24 +15,43 @@ export function TableOfContents() {
   const bodyRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const els = document.querySelectorAll('article h2')
+    const els = Array.from(document.querySelectorAll<HTMLHeadingElement>('article h2'))
     // The heading's own textContent includes the "01." number-prefix span
     // text (rendered as a sibling span inside the h2) — strip it so the TOC
     // doesn't show a doubled-up number like "1. 01.Title".
-    const items: Heading[] = Array.from(els).map(el => ({
+    const items: Heading[] = els.map(el => ({
       id: el.id,
       text: (el.textContent ?? '').replace(/^\d+\.\s*/, ''),
     }))
     setHeadings(items)
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id) })
-      },
-      { rootMargin: '-80px 0px -60% 0px' }
-    )
-    els.forEach(el => observer.observe(el))
-    return () => observer.disconnect()
+    // Continuous scroll-position check (matches the Canada blog) instead of
+    // IntersectionObserver alone — IntersectionObserver only fires on
+    // enter/exit, so on a tall section it can leave the wrong item marked
+    // active for the whole time you're reading it. This walks every heading
+    // on each scroll frame and picks the last one whose top has crossed 35%
+    // of the viewport, so the highlighted item moves in step with whichever
+    // subtitle's paragraph you're actually reading.
+    function setActiveByScroll() {
+      let activeIndex = -1
+      for (let i = 0; i < els.length; i++) {
+        const rect = els[i].getBoundingClientRect()
+        if (rect.top <= window.innerHeight * 0.35) activeIndex = i
+      }
+      setActive(activeIndex >= 0 ? els[activeIndex].id : '')
+    }
+
+    setActiveByScroll()
+    let rafId: number
+    const onScroll = () => {
+      cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(setActiveByScroll)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(rafId)
+    }
   }, [])
 
   // Keep the active item visible within the TOC's own scroll box as the page
