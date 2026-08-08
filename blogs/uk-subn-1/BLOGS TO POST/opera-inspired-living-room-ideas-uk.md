@@ -11,10 +11,10 @@ category: "Room Makeovers"
 readTime: "8 min read"
 excerpt: "Channel West End glamour without breaking the bank — real velvet textures, layered lighting, and renters-safe styling tips."
 tldr:
-  - Use affordable velvet (IKEA’s Ektorp covers or Dunelm’s peel-and-stick cushions) to add luxe texture — no sewing required.
-  - Build moody lighting with tiered layers: ambient (LED strips), task (vintage-style bulbs), and accent (dimmable floor lamps).
-  - Renters can safely install peel-and-stick wallpaper on feature walls or use freestanding gold-or brass-framed mirrors for instant drama.
-  - Thrift vintage opera binoculars, brooches, or frames to personalise shelves — zero damage, maximum storytelling.
+  - "Use affordable velvet (IKEA’s Ektorp covers or Dunelm’s peel-and-stick cushions) to add luxe texture — no sewing required."
+  - "Build moody lighting with tiered layers: ambient (LED strips), task (vintage-style bulbs), and accent (dimmable floor lamps)."
+  - "Renters can safely install peel-and-stick wallpaper on feature walls or use freestanding gold-or brass-framed mirrors for instant drama."
+  - "Thrift vintage opera binoculars, brooches, or frames to personalise shelves — zero damage, maximum storytelling."
 faqs:
   - q: "Is velvet furniture too expensive for a UK budget?"
     a: "Not at all — IKEA’s Ektorp sofa covers start at ~£12 for a 2-seater and transform plain chairs in minutes. Dunelm’s own-brand velvet pouffes are ~£29, and Wayfair UK has velvet accent chairs from ~£129 — all renter-safe to update."
