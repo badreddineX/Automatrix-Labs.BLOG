@@ -113,3 +113,32 @@ No action needed.
    Astro related-posts component off this map.
 5. New articles going forward must have their hub + sibling links identified *before*
    publishing, not after.
+
+## Maintenance rules (added 2026-08-11)
+
+**Table schema, going forward:** every row added to this map from now on (new articles,
+or existing ones as they get touched) should carry these fields, not just URL/category/
+inbound-links:
+
+| Field | Source |
+|---|---|
+| Primary query | GSC "queries" for that URL once it has impressions, or the target keyword at write-time if pre-launch |
+| Secondary queries | Same, top 2-3 by impressions once available |
+| Last updated | `dateModified` from frontmatter — already tracked per-post, just needs surfacing here |
+
+Not backfilling this for all 57 existing rows in one pass — that requires real GSC query
+data per URL, which is pull-as-you-go, not something to fabricate. Add it opportunistically
+during the next GSC pull or whenever an article gets refreshed.
+
+**Mandatory pre-publish check:** before any new Canada article gets written, check this
+map (Ctrl+F the target keyword/topic) for an existing URL already covering the same
+reader action. Same room + same budget tier + same next-step as an existing article means
+update that article instead of publishing a new one. This applies on top of the existing
+one-article/day rule from `SEO-GROWTH-PLAN-2026-2027.md` — the daily cadence rule says
+*when* to publish, this rule says *whether* a new URL is warranted at all.
+
+**Recurring orphan re-check:** after every published batch (including single-article days),
+re-run the inbound-link count for any article published in the last 30 days. A `datePublished`
+older than 30 days with 0 inbound links is a real orphan needing a fix, not just "too new to
+be linked yet." This map's data is a point-in-time snapshot (2026-08-11) — don't treat it as
+current beyond the next batch.

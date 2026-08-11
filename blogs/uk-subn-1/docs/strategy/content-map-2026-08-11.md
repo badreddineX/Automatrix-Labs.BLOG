@@ -103,3 +103,19 @@ the general-ideas pages above (assuming the general pages don't lean into any on
 4. Link the 9 live orphans into their nearest hub (kitchen spokes → `kitchen-on-a-budget-uk`,
    room-makeover pieces → `rented-flat-makeover-uk` or a relevant style hub).
 5. Feed into the same `relatedPosts:` frontmatter + Astro component work planned for Canada.
+
+## Maintenance rules (added 2026-08-11)
+
+Same rules as the Canada content map (companion doc, same date) — not duplicating the
+full explanation here, see `blogs/canada-subn-1/docs/strategy/content-map-2026-08-11.md`
+Maintenance section for the reasoning. Summary:
+
+- **Table schema going forward**: add primary query, secondary queries, and `dateModified`
+  as fields on any row touched from now on. Not backfilled for all 58 existing rows —
+  pull-as-you-go from GSC, don't fabricate.
+- **Mandatory pre-publish check**: before any new UK article, check this map for an
+  existing URL already covering the same room + budget tier + next-step. Applies on top
+  of (not instead of) the one-article/day cadence rule.
+- **Recurring orphan re-check**: re-run inbound-link counts after every batch. A UK
+  article older than 30 days with 0 inbound links is a real orphan, not "too new yet."
+  This snapshot is dated 2026-08-11 — don't treat it as current beyond the next batch.
