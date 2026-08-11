@@ -61,6 +61,14 @@ cover different rooms/scope, retitle to make that explicit; if they genuinely ov
 merge into whichever has stronger GSC performance (check before deciding — `home-interior-ideas-uk`
 has more inbound links currently, but that's not the same as ranking performance).
 
+**Status (2026-08-11, later same day): downgraded to hypothesis, not settled.** Checked
+against real GSC data: `home-decor-inspiration-uk` has **zero impressions**;
+`home-interior-ideas-uk` has exactly **one** impression, and it's for the query "british
+home interiors" — a branded search, not a topic query. Neither page has any real
+query-level data yet, so there's no evidence either way on whether they compete. Revisit
+once both have actual query volume. Don't merge on title-similarity alone (see evidence-
+hierarchy note below).
+
 ### 🟡 Living room "general ideas" pair — review
 | Slug | Angle | Inbound |
 |---|---|---|
@@ -74,6 +82,21 @@ they don't just restate the same 10 tips in different order. Do **not** merge wi
 checking GSC query data first — high combined authority suggests these may already be
 ranking for different queries.
 
+**Status (2026-08-11, later same day) — real finding, not what was expected.** Checked
+GSC data: both flagged pages have almost no query data (`small-living-room-ideas-uk`: 4
+impressions across 4 queries; `how-to-style-a-living-room-uk`: 4 impressions across 2
+queries). Meanwhile a **third page not flagged in this cluster at all** —
+`small-living-room-layout-ideas` (only 3 inbound links, wasn't even on this list) — has
+**151 impressions across 57 distinct queries**, by far the most-tested living-room page
+on the site (top query: "small front room layouts," 27 impressions). Layout/arrangement
+framing is clearly what Google is actually testing for this room, not the generic
+"ideas" or "how to style" framing this cluster worried about. **Action: this page is
+under-linked relative to how much Google is testing it** — give `small-living-room-layout-ideas`
+more inbound links from the two higher-authority-but-untested pages above, not the
+reverse. The cannibalization question for the original pair remains unresolved (too
+little data), but the real opportunity in this room category is strengthening the page
+that's already winning attention, not choosing between the two that aren't.
+
 ### 🟡 Bedroom "general ideas" trio — review
 | Slug | Angle | Inbound |
 |---|---|---|
@@ -84,6 +107,14 @@ ranking for different queries.
 "Cosy" and "makeover" are real angles if content commits to them; "decor ideas" is the
 generic catch-all and is the one most likely to overlap with the other two piecemeal.
 Lower priority than the two 🔴/🟡 items above — revisit after those are resolved.
+
+**Status (2026-08-11, later same day):** GSC data confirms "cosy" is a real, working
+angle — `cosy-bedroom-ideas-uk` has 65 impressions across 9 queries (top: "cosy bedroom,"
+21 impressions), clearly the strongest of the three. `bedroom-decor-ideas-uk` (the
+generic catch-all) has **zero impressions** — no data to confirm or deny overlap.
+`bedroom-makeover-uk` has 3 impressions across 2 queries — too thin to judge. No action
+change from "review" status, but this at least confirms the cosy-angle page is worth
+protecting/strengthening rather than merging away.
 
 ### 🟢 Kitchen component cluster — keep (hub-and-spoke working as intended)
 `kitchen-on-a-budget-uk` (13 inbound) functions as the budget-kitchen hub; component-specific
@@ -100,6 +131,31 @@ just needs the 2-inbound spokes linked more from the hub and each other.
 Scandi, cottagecore, maximalist, dark & moody, soft minimalism, afrobohemian, opera-inspired,
 FunHaus — each targets a distinct aesthetic/style, not competing with each other or with
 the general-ideas pages above (assuming the general pages don't lean into any one style).
+
+## Evidence hierarchy (added 2026-08-11, later same day)
+
+Same methodological correction as the Canada content map (companion doc) — the 🔴/🟡
+calls above were built on title-similarity + inbound-link-count reasoning before any
+real GSC query data existed. Now that a baseline pull exists, weigh evidence in this
+order, strongest first: (1) GSC query/page data, (2) internal-link/content-map
+structure, (3) search intent + SERP analysis, (4) title similarity alone — useful for a
+hypothesis, never a verdict on its own. The `small-living-room-layout-ideas` finding
+above is the clearest example of why: it wasn't even flagged as a cluster member by
+link-structure reasoning, yet it's the site's best-tested living-room page by a wide
+margin. **A page's current low-impression status is not evidence its topic is wrong**
+either — most UK pages are still in the single-digit-impression range; don't restructure
+based on speculative overlap while sample sizes are this small.
+
+## Coverage gaps — not yet audited
+
+Unlike Canada, no third-party topic audit has been run against the UK title list yet.
+Worth doing the same exercise (paste the 58 titles to a second model, ask for a
+redundancy/gap audit using the same evidence-hierarchy discipline, cross-check any
+claims against this doc's link data and real GSC queries before acting) before assuming
+UK's coverage gaps mirror Canada's — UK's audience (flats, GBP, UK retailers) and
+category mix (Kitchen and Room Makeovers instead of Canada's Storage/Budget Tips split)
+are different enough that Canada's specific gaps (moving/transition content,
+space-planning vs. decor, renter-constraints-beyond-walls) may or may not apply as-is.
 
 ## Bottom line before resuming UK publishing
 
