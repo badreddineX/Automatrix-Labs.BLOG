@@ -86,19 +86,30 @@ Differentiated enough by style/constraint angle to keep separate — `renter-fri
 is clearly the no-damage hub (already well-linked, 15 inbound). No action needed beyond
 normal internal linking.
 
-### 🟡 Small living room cluster — review
+**Status (2026-08-11, later same day): hypothesis only, not settled.** A second-opinion
+pass (ChatGPT) flagged `apartment-decor-ideas` vs. `renter-friendly-apartment-decor-ideas`
+as its top cannibalization concern — the opposite conclusion from the "keep separate"
+call above. Checked against real GSC data: `apartment-decor-ideas` currently gets **zero
+impressions**, and `renter-friendly-*` gets a distinct, non-overlapping query set (all
+"rental"-phrased) — no evidence either way, sample too small to be conclusive. Revisit
+once both pages have enough query volume to actually compare. Don't restructure on
+title-similarity alone.
+
+### 🟢 Small living room cluster — downgraded from 🟡, keep (2026-08-11, later same day)
 | Slug | Angle | Inbound |
 |---|---|---|
 | how-to-decorate-a-small-living-room | Decor-focused | 4 |
 | small-space-living-room-ideas | General ideas listicle | 7 |
 | small-living-room-storage-solutions | Storage-focused | 3 |
 
-Storage one is clearly distinct (different intent: buying furniture vs. styling). The
-decor vs. "ideas listicle" pair is the closest overlap in the whole site — same room,
-same audience, similar framing. **Recommend differentiating explicitly**: keep
-`how-to-decorate-a-small-living-room` as the how-to/process piece and reposition
-`small-space-living-room-ideas` toward inspiration/gallery framing if it isn't already,
-otherwise merge.
+Storage one is clearly distinct (different intent: buying furniture vs. styling).
+**Correction**: the original 🟡 flag on `small-space-living-room-ideas` (title-similarity
+guess) is contradicted by real GSC data — it's the site's **second-highest-impression
+page** (160 impressions / 75 distinct queries in 27 days, second only to
+`small-space-furniture`). That's Google actively testing this page across a wide,
+diverse query set — the opposite of an undifferentiated/weak topic. No action needed;
+do not merge or deprioritize this page. See the evidence-hierarchy note below for why
+this correction happened.
 
 ### 🟢 Room-specific storage — keep (hub-and-spoke working as intended)
 `storage-ideas-for-small-places` (23-ideas roundup, 19 inbound) is functioning as the
@@ -113,6 +124,57 @@ model working correctly, not a risk. Action needed is linking, not differentiati
 14 inbound) vs. seasonal variants (`january-reset-organization-ideas`,
 `spring-cleaning-organization-tips`) — differentiated by budget tier and season/timing.
 No action needed.
+
+**Status (2026-08-11, later same day): hypothesis only, not settled.** Same second-opinion
+pass called `small-apartment-organization` vs. `small-apartment-organization-ideas-on-a-budget`
+"dangerously close" — disagrees with the "keep" call above. Real GSC data: the two pages
+share exactly **one** overlapping query, 1 impression each, at very different positions
+(58 vs. 82) — statistically meaningless, doesn't confirm or refute either read. Revisit
+once real query volume exists.
+
+## Evidence hierarchy (added 2026-08-11, after a ChatGPT second-opinion cross-check)
+
+A second-opinion audit run through ChatGPT flagged some of this map's clusters
+differently — mostly by reading title semantics without GSC or link-structure access.
+Cross-checking it surfaced one real correction (the small-living-room downgrade above)
+and one outright fabrication (a claimed duplicate "Small Apartment Storage Ideas" title
+that doesn't exist in the actual 57 — discard). Going forward, weigh evidence in this
+order, strongest first:
+
+1. **GSC query/page data** — once enough impressions exist, this is the strongest
+   signal of actual search competition between two pages.
+2. **Internal-link/content-map structure** — a page's intended role, inbound links, and
+   parent/child relationship, useful before GSC data accumulates.
+3. **Search intent + SERP analysis** — predicts whether two pages *could* compete.
+4. **Title similarity alone** — useful for generating a hypothesis, never for declaring
+   cannibalization on its own. Most of this document's original 🔴/🟡 calls were built
+   on (1)+(2); anything built on (4) alone should stay flagged as "hypothesis" until
+   GSC data can confirm it, as marked above.
+
+**Also: a page's current 0-click status is not evidence its topic is wrong.** The whole
+site is at 0 organic clicks / 947 impressions — that's an authority/indexation-maturity
+signal, not a topic-quality signal. Don't reorganize the 57 articles based on
+speculative cannibalization while sample sizes are this small.
+
+## Coverage gaps — confirmed, ready to act on
+
+Unlike the redundancy claims above, these gaps aren't semantic-similarity guesses —
+they're genuine absences from the current 57 titles, and nothing in the evidence
+cross-check undermined them. Candidate topics for the next publishing batch (once
+resumed), one per gap to start:
+
+- **Moving/transition (evergreen, not just event-specific)**: existing coverage
+  (`september-student-move-in-storage-guide`, `quebec-moving-day-storage-guide`) is
+  tied to specific calendar events. Gap: a general "just signed a lease / moving in
+  next week" piece covering the first-week setup order — what to unpack/set up first,
+  what to buy vs. wait on, how to avoid over-buying before you know the space.
+- **Space-planning vs. decor-inspiration**: current content leans toward "how should I
+  decorate this" over "how do I physically fit everything." Gap: a furniture-arrangement
+  piece for awkward/narrow living rooms or bedrooms — layout-first, not style-first.
+- **Renter constraints beyond walls**: site strongly owns no-drill/no-damage wall decor,
+  but not the broader renter-restriction space. Gap: a piece on what's actually
+  reversible/landlord-safe beyond Command Strips — balcony rules, temporary installs,
+  what to undo before move-out to protect a deposit.
 
 ## Bottom line before resuming publishing
 
