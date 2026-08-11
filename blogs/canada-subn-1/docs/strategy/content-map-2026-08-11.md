@@ -4,6 +4,18 @@ Source of truth for cannibalization, orphan status, and internal-link planning b
 resuming daily publishing. Built from `src/content/blog/*.md` frontmatter + a grep-based
 inbound-link count (`/blog/<slug>` references in other articles' body/FAQ markdown).
 
+**Correction (2026-08-11, later same day):** the "0 inbound" orphan counts above only
+measured manual in-body markdown links. The site already had a build-time auto related-posts
+algorithm (`[slug].astro`, category+tag scoring) rendering related-article cards regardless —
+so no article was ever fully unlinked in production, just under-linked by editorial choice.
+**Status: implemented.** Added an optional `relatedPosts` frontmatter field (content.config.ts)
+that overrides the auto-scoring when set, falling back to it otherwise. Populated for the 22
+articles flagged in this audit (11 new-batch orphans, 8 pre-existing orphans, the 3-article
+budget-decor subset, and the how-to-decorate/small-space-living-room-ideas cross-link) — see
+commit `e7c1a89`. Remaining ~35 articles still rely on the auto-fallback, which is fine for
+well-behaved hub/spoke clusters (storage, organization) — only override where the auto-score
+would pick a worse match than an editorial decision.
+
 **Rubric used for cannibalization calls:** two articles compete only if they'd satisfy
 the *same reader action* (same room/context + same budget tier + same next-step). Same
 keyword phrase with a different room, different price point, or different constraint

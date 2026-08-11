@@ -5,6 +5,15 @@ if they satisfy the same reader action (same room/context + same budget tier + s
 next step). Room-specific or style-specific differentiation is fine; same room + same
 angle is not.
 
+**Correction (2026-08-11, later same day):** UK's `BlogPost.astro` already had a
+build-time auto related-posts algorithm (same-category selection) — the orphan counts
+above measured only manual in-body links, not what actually renders. **Status:
+implemented.** Added an optional `relatedPosts` frontmatter override (content.config.ts),
+resolved ahead of the category auto-fallback. Populated for 21 articles: the 9 local-only
+drafts (ready for whenever pushed), 9 live orphans, and the `home-decor-inspiration-uk`
+/ `home-interior-ideas-uk` cannibalization pair — deliberately cross-linked rather than
+merged (see commit `aa713c2`). Remaining articles rely on the category auto-fallback.
+
 **Status legend:** 🟢 Keep as-is · 🟡 Review · 🔴 Cannibalization risk
 
 ## Orphan pages (0 inbound internal links) — 19 of 58
