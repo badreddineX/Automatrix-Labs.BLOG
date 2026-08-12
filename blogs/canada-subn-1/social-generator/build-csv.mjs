@@ -9,7 +9,7 @@ import { readFileSync, writeFileSync } from 'fs';
 const COMMIT = 'f4cc247d2cf7ef09e3bb015c681cb5c881f8e71d';
 const REPO = 'badreddineX/SmallSpaceHome.BLOG';
 const IMG_DIR = 'social-posts/2026-08-13';
-const BRAND = 'SmallSpaceHome';
+const BRAND = 'SmallSpace Home';
 
 const posts = JSON.parse(readFileSync('social-posts.json', 'utf8'));
 
