@@ -1,0 +1,295 @@
+{
+  "summary": {
+    "site": "https://automatrix-blog.vercel.app",
+    "audit_date": "2026-08-12",
+    "health_score": 75,
+    "business_type": "AI/tech affiliate + display-ad blog (Next.js 14, MDX)",
+    "posts_found": 26,
+    "note_posts_vs_claude_md": "CLAUDE.md states 21 posts as of 2026-08-07; sitemap.xml and content/posts/*.mdx both show 26 as of this audit (2026-08-12).",
+    "environment_limitations": [
+      "No browser automation available; real Core Web Vitals / Lighthouse scores were not measured.",
+      "JSON-LD script tags were verified via source code read, not via live-rendered WebFetch output (WebFetch's HTML-to-markdown conversion strips <script> tags)."
+    ],
+    "top_findings": [
+      "All 26 posts share one byline (Alex Morgan) that contradicts the /about page's claim that a different named person (Badreddine) personally wrote every article",
+      "dateModified is hardcoded equal to datePublished in JSON-LD for every post - freshness signal cannot ever be accurate",
+      "All 26 posts share the same publish date (2026-08-07) - reads as a single batch-publish",
+      "No custom domain live - site only resolves at automatrix-blog.vercel.app",
+      "Affiliate CTA (<AffiliateLink>) present in only 5 of 26 posts (19%) despite affiliate revenue being the stated business model"
+    ],
+    "quick_wins": [
+      "Fix dateModified to track a real last-updated value instead of reusing date",
+      "Add <AffiliateLink> CTAs to the 21 posts currently missing one",
+      "Add X-Content-Type-Options, Referrer-Policy, X-Frame-Options, basic CSP response headers",
+      "Add /privacy-policy and /terms-of-use to sitemap.ts (both already 200/indexable)",
+      "Reconcile the author story between bylines and the About page"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "weight_pct": 22,
+      "score": 78,
+      "what_works": [
+        "robots.txt allows all, correctly links sitemap.xml",
+        "sitemap.xml valid, includes all 26 posts + home/blog/about",
+        "No sitewide noindex; robots meta index:true follow:true",
+        "Genuine 404 status for nonexistent post URLs (not soft-404)",
+        "HSTS present on all responses",
+        "Canonical tags set per-post in source",
+        "Reasonable page weight (~106-117KB HTML)",
+        "Self-hosted Google Fonts via next/font (no render-blocking third-party font request)"
+      ],
+      "findings": [
+        {
+          "title": "No custom domain live",
+          "severity": "High",
+          "description": "Site only resolves at automatrix-blog.vercel.app; a .vercel.app subdomain carries weaker trust/brand signal and any future migration needs redirects + GSC re-verification.",
+          "recommendation": "Set up and DNS-point the intended custom domain, then update SITE_URL constants across layout.tsx, sitemap.ts, robots.ts, blog/[slug]/page.tsx."
+        },
+        {
+          "title": "Missing security response headers",
+          "severity": "Medium",
+          "description": "No X-Content-Type-Options, X-Frame-Options, Content-Security-Policy, or Referrer-Policy found on curl -sI checks of / and /blog/claude-ai-review.",
+          "recommendation": "Add headers via next.config.js headers() function."
+        },
+        {
+          "title": "Sitemap omits indexable pages",
+          "severity": "Medium",
+          "description": "/privacy-policy and /terms-of-use both return HTTP 200 but are absent from sitemap.xml.",
+          "recommendation": "Add both URLs to the static entries array in sitemap.ts."
+        },
+        {
+          "title": "No llms.txt",
+          "severity": "Info",
+          "description": "No AI-crawler discovery file found; not yet a formal standard.",
+          "recommendation": "Optional low-cost addition given the site's AI/GEO topical focus."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "weight_pct": 23,
+      "score": 68,
+      "what_works": [
+        "Healthy word counts across all 26 posts (1,062-2,260 words, measured via wc -w on every file)",
+        "Consistent answer-first Key Takeaways box on every post",
+        "FAQ Q&A pattern present in 26/26 posts, correctly parsed into FAQPage schema",
+        "Genuine contextual internal linking with descriptive anchor text",
+        "Practical, opinionated tone rather than generic AI filler"
+      ],
+      "findings": [
+        {
+          "title": "Author identity contradicts About page",
+          "severity": "Critical",
+          "description": "All 26 posts bylined 'Alex Morgan' (generic title, picsum placeholder avatar, no bio page); /about names a different real person ('Badreddine') claiming to have personally written every article.",
+          "recommendation": "Pick one consistent author identity; if 'Alex Morgan' is a house pen name, disclose it and give it a real bio page."
+        },
+        {
+          "title": "dateModified cannot reflect real updates",
+          "severity": "High",
+          "description": "dateModified is hardcoded to equal post.date in every post's JSON-LD.",
+          "recommendation": "Add an optional 'updated' frontmatter field defaulting to date, wire into JSON-LD."
+        },
+        {
+          "title": "Affiliate CTAs underused",
+          "severity": "Medium",
+          "description": "Only 5 of 26 posts (19%) contain an AffiliateLink component despite affiliate revenue being the stated monetization model.",
+          "recommendation": "Add contextual AffiliateLink CTAs to the remaining 21 posts, prioritizing tool-comparison/review posts."
+        },
+        {
+          "title": "Claims lack outbound citations",
+          "severity": "Low",
+          "description": "Spot-checked posts state specific figures (e.g. pricing ranges) without a linked primary source.",
+          "recommendation": "Add outbound links to vendor pricing pages/official docs for factual claims."
+        },
+        {
+          "title": "One excerpt slightly over meta-description budget",
+          "severity": "Info",
+          "description": "automate-repetitive-tasks-with-ai.mdx excerpt is 156 characters vs. the documented 155-char limit.",
+          "recommendation": "Trim by one character."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "weight_pct": 20,
+      "score": 85,
+      "what_works": [
+        "Title template with unique per-post titles, confirmed live",
+        "Meta descriptions sourced from excerpt, within budget for 25/26 posts",
+        "Full Open Graph + Twitter Card metadata per post",
+        "Canonical tag per post",
+        "Programmatically enforced single-H1/sequential-H2/H3 hierarchy across all posts",
+        "Contextual internal linking plus Related Articles section",
+        "Visual breadcrumb UI on every post",
+        "GSC verification meta tag present, confirming prior ownership setup"
+      ],
+      "findings": [
+        {
+          "title": "Breadcrumb UI has no matching structured data",
+          "severity": "Medium",
+          "description": "Visual breadcrumbs render on every post but no BreadcrumbList JSON-LD exists.",
+          "recommendation": "Add BreadcrumbList schema alongside existing BlogPosting/FAQPage schema."
+        },
+        {
+          "title": "Unverified Twitter/X handle in metadata",
+          "severity": "Low",
+          "description": "layout.tsx sets twitter.site to @automatrixlabs without confirmation the handle exists/is owned.",
+          "recommendation": "Confirm the handle is real and owned, or remove."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "weight_pct": 10,
+      "score": 65,
+      "what_works": [
+        "BlogPosting schema with all required fields on every post",
+        "FAQPage schema dynamically generated and confirmed present on all 26 posts",
+        "Schema correctly scoped per-post, valid @context/@type"
+      ],
+      "findings": [
+        {
+          "title": "dateModified hardcoded equal to datePublished",
+          "severity": "High",
+          "description": "Same underlying issue as content.md - schema-level freshness signal is structurally inaccurate.",
+          "recommendation": "See content quality action item #2."
+        },
+        {
+          "title": "No sitewide Organization/WebSite schema",
+          "severity": "Medium",
+          "description": "Only a nested publisher object exists inside each BlogPosting; no standalone entity schema.",
+          "recommendation": "Add Organization/WebSite JSON-LD with sameAs links on the homepage or root layout."
+        },
+        {
+          "title": "No BreadcrumbList schema",
+          "severity": "Medium",
+          "description": "Duplicate of on-page finding - noted here as a schema gap specifically.",
+          "recommendation": "Add BreadcrumbList JSON-LD."
+        },
+        {
+          "title": "Minimal Person author schema",
+          "severity": "Low",
+          "description": "Author schema is just a name string, no url/image/jobTitle/sameAs - symptom of the unresolved author-identity issue.",
+          "recommendation": "Once author identity is resolved, enrich Person schema with real profile data."
+        },
+        {
+          "title": "No Review/AggregateRating schema on review posts",
+          "severity": "Low",
+          "description": "Rating/RatingCard component renders scores visually on review-category posts but this isn't mirrored in JSON-LD.",
+          "recommendation": "Add Review schema to category:review posts."
+        }
+      ]
+    },
+    {
+      "name": "Performance",
+      "weight_pct": 10,
+      "score": 70,
+      "what_works": [
+        "Self-hosted fonts via next/font",
+        "Reasonable HTML payload size observed on all fetched pages",
+        "next/image used throughout with priority on above-fold hero images"
+      ],
+      "findings": [
+        {
+          "title": "Core Web Vitals not measurable in this environment",
+          "severity": "Info",
+          "description": "No browser automation/Lighthouse available; LCP/INP/CLS were not measured and this category's score reflects structural HTML/response signals only, not lab or field data.",
+          "recommendation": "Run a real Lighthouse/PageSpeed/CrUX pass separately before treating this score as a performance measurement."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "weight_pct": 10,
+      "score": 75,
+      "what_works": [
+        "Answer-first Key Takeaways box on every post",
+        "FAQ schema on all 26 posts",
+        "Numbered, clearly-scoped H2/H3 structure aids passage-level extraction",
+        "Clear entity definitions in intro paragraphs (spot-checked)"
+      ],
+      "findings": [
+        {
+          "title": "No outbound citations reduce AI-citation trust",
+          "severity": "Low",
+          "description": "Same issue as content.md - factual claims without linked sources are weaker candidates for AI-answer citation.",
+          "recommendation": "Add sourced citations for statistics/pricing claims."
+        },
+        {
+          "title": "Stale dateModified undercuts freshness signal",
+          "severity": "Medium",
+          "description": "Same root cause as the technical/schema findings - AI systems weight content freshness and this signal can't currently move.",
+          "recommendation": "See earlier dateModified fix."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "weight_pct": 5,
+      "score": 88,
+      "what_works": [
+        "Cover images are real, working Unsplash URLs confirmed via HTTP 200",
+        "Author avatars (picsum.photos) resolve via HTTP 302 redirect - not broken",
+        "Descriptive, specific alt text on all inline body images checked",
+        "next/image used throughout for responsive/optimized delivery",
+        "priority attribute correctly used on above-fold hero images"
+      ],
+      "findings": [
+        {
+          "title": "Minor inline-image count inconsistency",
+          "severity": "Low",
+          "description": "Two posts have only 1 inline image vs. 2-3 in most others.",
+          "recommendation": "Not urgent; consider for consistency in future edits."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Immediate",
+        "items": [
+          "Resolve author-identity contradiction between post bylines and /about page",
+          "Fix dateModified to no longer hardcode equal to datePublished"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Week 1",
+        "items": [
+          "Add AffiliateLink CTAs to the 21 posts currently missing one",
+          "Stagger future publish/update dates instead of batch-publishing",
+          "Add security response headers via next.config.js"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 1",
+        "items": [
+          "Add /privacy-policy and /terms-of-use to sitemap.ts",
+          "Add BreadcrumbList JSON-LD",
+          "Add sitewide Organization/WebSite schema",
+          "Add Review/AggregateRating schema to review-category posts",
+          "Add outbound citations for factual claims"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Set up custom domain and re-point DNS, update SITE_URL constants, re-verify GSC",
+          "Set up GA4 for this blog",
+          "Consider llms.txt",
+          "Run a real Lighthouse/PageSpeed/CrUX pass to replace the structural-signals-only performance score"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "not available - no browser automation in this environment"
+  }
+}

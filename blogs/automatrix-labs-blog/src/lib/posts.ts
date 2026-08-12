@@ -1,10 +1,29 @@
 import fs from 'fs'
 import path from 'path'
+import { execFileSync } from 'child_process'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
 import type { Post, PostMeta, Category } from '@/types/post'
 
 const POSTS_DIR = path.join(process.cwd(), 'content', 'posts')
+
+// Real last-modified date from git history, not a hardcoded copy of
+// `date` -- every post previously reported dateModified === datePublished
+// in its schema even after edits, which is a dead freshness signal to
+// Google/AI Overviews. Falls back to `fallback` if git isn't available
+// (e.g. a shallow clone in some deploy environments) or the file has no
+// history yet (freshly added, not committed).
+function getGitLastModified(filePath: string, fallback: string): string {
+  try {
+    const out = execFileSync('git', ['log', '-1', '--format=%aI', '--', filePath], {
+      cwd: process.cwd(),
+      encoding: 'utf8',
+    }).trim()
+    return out || fallback
+  } catch {
+    return fallback
+  }
+}
 
 function parsePost(slug: string, includeContent = false): Post {
   const filePath = path.join(POSTS_DIR, `${slug}.mdx`)
@@ -16,6 +35,7 @@ function parsePost(slug: string, includeContent = false): Post {
     slug,
     title: data.title,
     date: data.date,
+    lastModified: getGitLastModified(filePath, data.date),
     category: data.category,
     tags: data.tags ?? [],
     excerpt: data.excerpt,

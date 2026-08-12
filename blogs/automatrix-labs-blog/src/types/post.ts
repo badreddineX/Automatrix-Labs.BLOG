@@ -9,6 +9,7 @@ export interface Post {
   slug: string
   title: string
   date: string
+  lastModified: string
   category: Category
   tags: string[]
   excerpt: string

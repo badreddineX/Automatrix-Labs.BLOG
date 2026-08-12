@@ -31,9 +31,39 @@ export const metadata: Metadata = {
   },
 }
 
+// Sitewide WebSite + Organization JSON-LD -- previously only individual
+// blog posts carried any schema at all; the homepage and static pages had
+// none. Rendered once here instead of duplicated per-page.
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://automatrix-blog.vercel.app/#website',
+      url: 'https://automatrix-blog.vercel.app',
+      name: 'AutoMatrix Labs',
+      description: 'AI news, tutorials, tools reviews, and research insights from the frontier.',
+      publisher: { '@id': 'https://automatrix-blog.vercel.app/#organization' },
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://automatrix-blog.vercel.app/#organization',
+      name: 'AutoMatrix Labs',
+      url: 'https://automatrix-blog.vercel.app',
+      logo: { '@type': 'ImageObject', url: 'https://automatrix-blog.vercel.app/logo.png' },
+    },
+  ],
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+        />
+      </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <Navbar />

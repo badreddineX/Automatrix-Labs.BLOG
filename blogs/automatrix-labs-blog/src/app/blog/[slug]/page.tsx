@@ -83,11 +83,25 @@ export default function PostPage({ params }: Props) {
       description: post.excerpt,
       image: post.coverImage,
       datePublished: post.date,
-      dateModified: post.date,
+      dateModified: post.lastModified,
       author: { '@type': 'Person', name: post.author.name },
-      publisher: { '@type': 'Organization', name: 'AutoMatrix Labs', url: SITE_URL },
+      publisher: {
+        '@type': 'Organization',
+        name: 'AutoMatrix Labs',
+        url: SITE_URL,
+        logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` },
+      },
       url: `${SITE_URL}/blog/${post.slug}`,
       keywords: post.tags.join(', '),
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
+      ],
     },
     ...(faqs.length > 0
       ? [{
