@@ -1,13 +1,12 @@
-// Extracts title/description/image/category/tags from each Canada blog post
-// frontmatter and builds social-posts.json — one entry per post, shared by
-// both the IG and FB image renders and the caption/CSV builder.
+// Extracts title/description/image/category/tags from each Australia blog
+// post frontmatter and builds social-posts.json for the Instagram-only pipeline.
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { resolve } from 'path';
 
-const BLOG_DIR = resolve('../smallspacehome/src/content/blog');
-const IMAGES_DIR = resolve('../smallspacehome/public/images');
-const DOMAIN = 'SMALLSPACEHOME.CA';
-const SITE = 'https://smallspacehome.ca';
+const BLOG_DIR = resolve('../../website/src/content/blog');
+const IMAGES_DIR = resolve('../../website/public/images');
+const DOMAIN = 'OUTDOORCOASTALHOME.COM';
+const SITE = 'https://outdoorcoastalhome.com';
 
 function field(fm, name) {
   const m = fm.match(new RegExp(`^${name}:\\s*"?(.*?)"?\\s*$`, 'm'));
@@ -28,7 +27,7 @@ for (const f of files) {
   const title = field(fm, 'title');
   const description = field(fm, 'description');
   const image = field(fm, 'image');
-  const category = field(fm, 'category') || 'Small Space Living';
+  const category = field(fm, 'category') || 'Coastal Decor';
   const tags = fieldArray(fm, 'tags');
   const id = f.replace(/\.md$/, '');
 

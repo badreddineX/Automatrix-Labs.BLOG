@@ -3,8 +3,8 @@
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { resolve } from 'path';
 
-const BLOG_DIR = resolve('../website/src/content/blog');
-const IMAGES_DIR = resolve('../website/public/images');
+const BLOG_DIR = resolve('../../website/src/content/blog');
+const IMAGES_DIR = resolve('../../website/public/images');
 const DOMAIN = 'OUTDOORCOASTALHOME.COM';
 
 function field(fm, name) {

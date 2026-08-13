@@ -1,0 +1,217 @@
+{
+  "summary": {
+    "health_score": 68,
+    "business_type": "Content publisher / affiliate blog (home decor niche, Pinterest-driven traffic, matched Fourthwall POD store)",
+    "top_findings": [
+      "Zero structured data (schema.org) on homepage, /about, /blog listing, category pages, and legal pages -- only the 50 blog posts carry BlogPosting/FAQPage/Breadcrumb schema",
+      "No security headers beyond HSTS -- missing X-Content-Type-Options, X-Frame-Options, Content-Security-Policy, Referrer-Policy, Permissions-Policy",
+      "Unoptimized images: all hero/inline images are raw .jpg (150-170KB each), no WebP/AVIF, PageSpeed flags ~1,985 KiB of potential savings and 2,875 KiB total page weight on the homepage",
+      "Mobile LCP measured at 4.1s (needs-improvement threshold is 2.5s) via live PageSpeed Insights -- confirms the image-weight finding is a real user-facing issue, not just a lab warning",
+      "No llms.txt and no AI-crawler-specific signals -- AI Search Readiness gap on a site whose content (first-person, AUD-priced, source-specific) is otherwise well-suited to AI citation"
+    ],
+    "quick_wins": [
+      "Naive https://outdoorcoastalhome.com/sitemap.xml serves the site's 404 page instead of the real sitemap (real one is only reachable via sitemap-index.xml -> sitemap-0.xml) -- add a redirect or make /sitemap.xml itself valid, since many tools/crawlers probe that path by default",
+      "Add Organization/WebSite JSON-LD to the homepage and WebPage schema to /about, /blog, and the legal pages -- near-zero effort, currently completely absent outside blog posts",
+      "Add the 5 missing security response headers via Vercel config (vercel.json headers) -- a few lines, no code risk",
+      "Convert hero/inline images to WebP/AVIF (or route through Astro's built-in image optimization instead of static /images/ raw files) -- directly fixes the flagged 1,985 KiB PageSpeed savings",
+      "Create a minimal llms.txt at the root -- near-zero effort, immediate AI-crawler signal"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 70,
+      "what_works": [
+        "robots.txt correctly allows all and points to sitemap-index.xml",
+        "sitemap-index.xml -> sitemap-0.xml resolves cleanly with 56 URLs, all 200-status",
+        "www -> apex and http -> https both 308-redirect correctly to canonical https://outdoorcoastalhome.com/",
+        "Real 404s return true 404 status codes (verified on a nonexistent blog slug)",
+        "Canonical tags present and self-referential and correct on every page checked",
+        "HSTS header present (max-age=63072000)"
+      ],
+      "findings": [
+        {
+          "title": "/sitemap.xml resolves to the site's 404 page, not the sitemap",
+          "severity": "Medium",
+          "description": "Requesting https://outdoorcoastalhome.com/sitemap.xml returns the rendered 'Page Not Found' HTML page (200 status, ~37KB) instead of XML or a redirect. The functioning sitemap only exists at /sitemap-index.xml -> /sitemap-0.xml. robots.txt correctly references sitemap-index.xml so GSC discovery is fine, but any tool, plugin, or crawler that defaults to checking /sitemap.xml (very common convention) will silently fail.",
+          "recommendation": "Add a redirect from /sitemap.xml to /sitemap-index.xml, or generate /sitemap.xml directly as the index file."
+        },
+        {
+          "title": "Missing security response headers",
+          "severity": "Medium",
+          "description": "Only Strict-Transport-Security is present on responses. No X-Content-Type-Options, X-Frame-Options, Content-Security-Policy, Referrer-Policy, or Permissions-Policy headers were observed on the homepage or any sampled page.",
+          "recommendation": "Add a headers() block in vercel.json (or Astro middleware) setting X-Content-Type-Options: nosniff, X-Frame-Options: DENY/SAMEORIGIN, Referrer-Policy: strict-origin-when-cross-origin, and a baseline CSP."
+        },
+        {
+          "title": "No llms.txt",
+          "severity": "Low",
+          "description": "https://outdoorcoastalhome.com/llms.txt returns 404. No explicit AI-crawler guidance file exists.",
+          "recommendation": "Add a minimal llms.txt listing the site's purpose, key pages, and permitted-use note -- low effort, aligns with the AI Search Readiness gap noted below."
+        },
+        {
+          "title": "Category and tag URLs indexed alongside canonical blog posts",
+          "severity": "Low",
+          "description": "The sitemap includes /blog/category/hamptons-style (a thin listing page) and blog posts link out to /blog?tag=... query-string filter URLs. These add index bloat and dilution risk without unique value.",
+          "recommendation": "Either build out category pages with genuinely unique intro copy + noindex thin ones, and add rel=canonical or noindex on ?tag= filter views so they don't compete with the main /blog listing."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 78,
+      "what_works": [
+        "Blog posts sampled run 3,100-4,500 words -- not thin content",
+        "Strong first-person E-E-A-T signals: 'I've had a Gold Coast pergola for 4 years', specific AUD prices, named Australian retailers (Temple & Webster, Beacon Lighting, Dulux/Taubmans paint codes) -- reads as genuinely experienced, not generic AI filler",
+        "Named author (Badreddine Br) consistently attributed via Person schema and linked to an /about page",
+        "Editorial Policy page exists, which is a real E-E-A-T/trust signal many niche blogs skip"
+      ],
+      "findings": [
+        {
+          "title": "Author bio lacks depth/credentials",
+          "severity": "Medium",
+          "description": "The /about page identifies the author by name but doesn't establish specific credentials, location detail, or a track record beyond general interest -- thinner than ideal for E-E-A-T given Google's continued scrutiny of affiliate/decor content.",
+          "recommendation": "Expand /about with concrete specifics (which Australian city/region, how many projects/homes, any relevant background) mirroring the specificity already used inside the posts themselves."
+        },
+        {
+          "title": "Category pages are thin listings",
+          "severity": "Low",
+          "description": "/blog/category/hamptons-style is a short auto-generated listing with generic intro copy, indexed via sitemap but with far less unique content than the main posts.",
+          "recommendation": "Either add unique curatorial copy per category (a few hundred words explaining the category, not just links) or exclude these from the sitemap."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 76,
+      "what_works": [
+        "Every sampled page has a unique, keyword-relevant title tag and meta description",
+        "Single H1 per page, consistent heading hierarchy",
+        "Canonical tags correct and self-referential",
+        "Decent internal linking: ~9 contextual internal links per post sampled, plus category/tag links"
+      ],
+      "findings": [
+        {
+          "title": "Static/legal pages share a generic OG image",
+          "severity": "Low",
+          "description": "/about, /blog, /privacy-policy, /terms-of-use, and the homepage all reuse the same og:image (unsplash-1600566753086...jpg) instead of a purpose-built social image, weakening social-share click-through.",
+          "recommendation": "Generate a branded OG/social image for the homepage and a generic branded fallback distinct from a random Unsplash photo."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 55,
+      "what_works": [
+        "Blog posts (sampled: 8/8) carry a complete, well-formed schema graph: BlogPosting, FAQPage + Question/Answer, BreadcrumbList, Person (author), Organization (publisher), ImageObject, WebPage",
+        "FAQPage schema is genuinely tied to on-page FAQ content, not fabricated"
+      ],
+      "findings": [
+        {
+          "title": "No schema at all on non-post pages",
+          "severity": "High",
+          "description": "Homepage, /about, /blog listing, /editorial-policy, /privacy-policy, /terms-of-use all returned zero @type schema matches. Only individual blog posts have structured data.",
+          "recommendation": "Add WebSite + Organization JSON-LD to the homepage (enables sitelinks search box eligibility and consistent entity signals), and WebPage/AboutPage/CollectionPage schema to the remaining static pages."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 65,
+      "what_works": [
+        "Lighthouse mobile scores (live PageSpeed Insights, homepage): Performance 83, Accessibility 96, Best Practices 100, SEO 100",
+        "Cumulative Layout Shift excellent: 0.002",
+        "Total Blocking Time low: 150ms"
+      ],
+      "findings": [
+        {
+          "title": "Largest Contentful Paint at 4.1s (mobile, homepage) -- needs-improvement threshold",
+          "severity": "High",
+          "description": "Live PageSpeed Insights data (not lab estimate) puts mobile LCP at 4.1s, above Google's 2.5s 'good' threshold and near the 4.0s 'poor' boundary. 'Improve image delivery' flagged at ~1,985 KiB potential savings; total page weight 2,875 KiB.",
+          "recommendation": "Serve hero images as WebP/AVIF at appropriately sized dimensions (route through Astro's built-in <Image> optimization rather than static /images/*.jpg files), and consider a CDN image resizer."
+        },
+        {
+          "title": "No CrUX field data available",
+          "severity": "Info",
+          "description": "Chrome UX Report has no data for this origin yet -- expected for a low-traffic, recently-reactivated site, not itself a problem, but means Core Web Vitals field scores can't be verified until traffic grows.",
+          "recommendation": "Re-check CrUX in 60-90 days once traffic volume is sufficient."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness (GEO)",
+      "score": 50,
+      "what_works": [
+        "FAQPage schema with real Q&A content on every blog post is a strong AI-citation structural asset already in place",
+        "Answer-first, specific, sourced content (prices, named retailers) is exactly the kind of passage AI Overviews/Perplexity prefer to cite"
+      ],
+      "findings": [
+        {
+          "title": "No llms.txt, no explicit AI-crawler allowlist beyond default robots.txt",
+          "severity": "Medium",
+          "description": "robots.txt is a blanket Allow: / with no AI-specific user-agent guidance (GPTBot, PerplexityBot, ClaudeBot etc. all inherit the same generic allow, which is functionally fine, but there's no llms.txt to summarize the site for AI crawlers).",
+          "recommendation": "Add llms.txt; consider explicit AI-bot allow lines in robots.txt for clarity."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 55,
+      "what_works": [
+        "Alt text present and descriptive on 100% of images sampled across all pages checked (0 missing alt attributes)",
+        "Hero images use loading=\"eager\" + fetchpriority=\"high\" correctly for LCP images; below-fold images use loading=\"lazy\""
+      ],
+      "findings": [
+        {
+          "title": "All images are unoptimized raw JPEG, no responsive srcset",
+          "severity": "High",
+          "description": "Every image sampled (hero + inline) is served as a flat .jpg at 150-170KB+ with a single fixed size, no srcset/sizes attributes, no WebP/AVIF variant. This is the direct cause of the PageSpeed 'Improve image delivery' warning (~1,985 KiB) and contributes to the 4.1s LCP.",
+          "recommendation": "Route images through Astro's built-in image pipeline (astro:assets) to auto-generate WebP/AVIF + responsive srcset instead of serving static files from /public/images/ directly."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "Fix /sitemap.xml to redirect to /sitemap-index.xml instead of serving the 404 page",
+          "Add security headers (X-Content-Type-Options, X-Frame-Options, Referrer-Policy, baseline CSP) via vercel.json"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Convert site images to WebP/AVIF with responsive srcset (Astro image pipeline) to cut the 1,985 KiB PageSpeed penalty and bring mobile LCP under 2.5s",
+          "Add WebSite/Organization JSON-LD to homepage and WebPage schema to /about, /blog, and legal pages",
+          "Add llms.txt at site root"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Expand /about with concrete author credentials/specifics to strengthen E-E-A-T",
+          "Add unique curatorial copy to category pages or exclude thin ones from the sitemap",
+          "noindex or canonicalize /blog?tag= filter URLs",
+          "Set up GSC + GA4 API access for outdoorcoastalhome.com (currently not configured) to unlock real indexation/traffic data for future audits"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Re-run PageSpeed Insights after image optimization ships to confirm LCP improvement",
+          "Re-check CrUX field data in 60-90 days once traffic accumulates",
+          "Re-audit after GSC/GA4 access is live to replace lab estimates with real indexation and query data"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

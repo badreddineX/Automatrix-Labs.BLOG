@@ -1,0 +1,259 @@
+{
+  "summary": {
+    "health_score": 84,
+    "business_type": "Content/Blog (home-decor, Canadian small-apartment niche)",
+    "top_findings": [
+      "No responsive images or next-gen formats (WebP/AVIF) on any of the 57 posts — biggest performance lever available",
+      "Several in-article images (below the fold) missing loading=\"lazy\" entirely",
+      "35 of 57 post titles exceed 60 characters, risking SERP truncation",
+      "No Content-Security-Policy header (all other modern security headers present)",
+      "Backlink profile is effectively zero (expected for ~1-month-old domain, not a technical issue)"
+    ],
+    "quick_wins": [
+      "Add loading=\"lazy\" to in-article images (keep hero as eager/fetchpriority=high)",
+      "Convert images to WebP with srcset/responsive sizes",
+      "Trim the 10-15 worst over-length titles to under 60 characters",
+      "Add a basic Content-Security-Policy header via vercel.json",
+      "Add FAQPage schema to the homepage to match the depth already used on every blog post"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 92,
+      "what_works": [
+        "robots.txt permissive and correct, references sitemap-index.xml",
+        "Valid sitemap index -> sitemap-0.xml containing all 70 site URLs",
+        "Canonical tags present and self-referential on every page checked",
+        "HTTPS enforced with 2-year HSTS",
+        "Strong security headers: X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy",
+        "Fast TTFB (~190ms) via Vercel edge cache",
+        "Mobile viewport meta tag present on all pages",
+        "Flat, descriptive, keyword-relevant URL structure",
+        "Third-party scripts (GTM/gtag/Clarity) deliberately deferred to window load event for LCP, with documented rationale"
+      ],
+      "findings": [
+        {
+          "title": "No Content-Security-Policy header",
+          "severity": "Medium",
+          "description": "curl -sI on homepage and post pages shows no CSP header of any kind.",
+          "recommendation": "Add a CSP via vercel.json headers config or Astro middleware, starting permissive and tightening after verification."
+        },
+        {
+          "title": "HSTS missing includeSubDomains/preload",
+          "severity": "Low",
+          "description": "Current header is max-age=63072000 only.",
+          "recommendation": "Add includeSubDomains; preload once confirmed safe, then consider HSTS preload list submission."
+        },
+        {
+          "title": "HTTP protocol version not directly verified",
+          "severity": "Info",
+          "description": "Local curl build lacked --http2 support in this environment.",
+          "recommendation": "Not actionable; Vercel serves HTTP/2+ by default in virtually all cases."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 90,
+      "what_works": [
+        "No thin content: word counts ranged ~1,479-3,249 across sample",
+        "No duplicate titles or meta descriptions across all 57 posts (full-corpus check)",
+        "Strong E-E-A-T signals: Person schema per post, /about and /author pages, first-hand-tested framing, real CAD pricing and named Canadian retailers",
+        "FAQ sections present and schema-marked on every sampled post",
+        "Editorial policy page exists (/editorial-policy)"
+      ],
+      "findings": [
+        {
+          "title": "Homepage lacks the same schema depth as posts",
+          "severity": "Medium",
+          "description": "Homepage carries WebSite/Organization schema but not the FAQPage/Person combination posts have.",
+          "recommendation": "Add 3-4 FAQ entries to the homepage with FAQPage schema."
+        },
+        {
+          "title": "Content freshness/update cadence not independently verified",
+          "severity": "Info",
+          "description": "dateModified values in schema weren't spot-checked against actual content diffs in this run.",
+          "recommendation": "Confirm dateModified only updates on genuine content edits, not on every deploy."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 85,
+      "what_works": [
+        "Exactly one H1 per page across homepage + all 19 sampled posts",
+        "Meta descriptions present on 100% of pages checked",
+        "Complete Open Graph tags on homepage",
+        "Strong internal linking: 11-13 unique internal /blog/ links per sampled post",
+        "Real heading hierarchy depth (19 H2s observed on one sampled post)"
+      ],
+      "findings": [
+        {
+          "title": "35 of 57 post titles exceed 60 characters",
+          "severity": "Medium",
+          "description": "Longest observed titles run 82-88 characters, risking SERP truncation around 55-60 chars.",
+          "recommendation": "Trim to primary keyword + short qualifier; prioritize the 10-15 worst offenders first."
+        },
+        {
+          "title": "Some meta descriptions exceed ~200 characters",
+          "severity": "Low",
+          "description": "E.g. the bike-storage post description is 205 chars vs a ~155-160 char SERP display limit.",
+          "recommendation": "Trim to ~155 chars, front-load the value proposition."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 95,
+      "what_works": [
+        "Consistent BlogPosting + FAQPage + BreadcrumbList + Person + Organization + WebSite + ImageObject JSON-LD across all 19 sampled posts, indicating reliable templating across all 57 posts",
+        "No schema type mismatches or deprecated types observed"
+      ],
+      "findings": [
+        {
+          "title": "Homepage schema lighter than post schema",
+          "severity": "Low",
+          "description": "Homepage has WebSite/Organization but not FAQPage/BreadcrumbList.",
+          "recommendation": "Add FAQ schema to homepage, mirroring the post-level pattern."
+        },
+        {
+          "title": "Not independently validated against Google's Rich Results Test",
+          "severity": "Info",
+          "description": "JSON-LD checked via pattern matching only, not Google's live validator.",
+          "recommendation": "Run 2-3 representative URLs through https://search.google.com/test/rich-results."
+        }
+      ]
+    },
+    {
+      "name": "Performance",
+      "score": 68,
+      "what_works": [
+        "Fast TTFB (~190ms) via Vercel edge cache",
+        "Font files correctly preloaded (WOFF2, crossorigin set)",
+        "Hero/LCP image correctly marked loading=eager fetchpriority=high",
+        "Related-post thumbnails correctly use loading=lazy",
+        "Third-party scripts deliberately deferred off the critical rendering path with measured, documented LCP improvement (5-6s to 2-3s)"
+      ],
+      "findings": [
+        {
+          "title": "No responsive images (srcset/sizes) anywhere checked",
+          "severity": "High",
+          "description": "Every img ships one fixed-size file (e.g. 1600x900 hero) regardless of viewport; mobile downloads desktop-resolution files.",
+          "recommendation": "Add srcset with 2-3 widths per image, generated at build time via Astro's astro:assets/<Image> component if not already used."
+        },
+        {
+          "title": "No next-gen image formats",
+          "severity": "High",
+          "description": "All images observed are JPG/PNG; hero image is 149KB as JPEG.",
+          "recommendation": "Convert to WebP with JPG picture fallback, or serve via Astro's image optimization pipeline."
+        },
+        {
+          "title": "Mid-article images missing loading attribute entirely",
+          "severity": "Medium",
+          "description": "3 of 9 images on the sampled post have no loading attribute (not lazy, not eager), competing with the actual LCP candidate for bandwidth.",
+          "recommendation": "Add loading=\"lazy\" explicitly to every in-article image except the hero."
+        },
+        {
+          "title": "No field CWV data pulled in this audit",
+          "severity": "Info",
+          "description": "This run used lab/static signals only; PageSpeed Insights/CrUX field data was not pulled.",
+          "recommendation": "Run https://pagespeed.web.dev/ manually on 2-3 URLs, or use the blog-google skill's PageSpeed integration if GSC/GA4 credentials exist for this property."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 85,
+      "what_works": [
+        "Zero missing alt text across all 57 posts (full-corpus check)",
+        "Decorative images correctly use alt=\"\" with aria-hidden=\"true\"",
+        "All images have explicit width/height attributes (prevents CLS)",
+        "Graceful onerror fallback handling on hero/related images"
+      ],
+      "findings": [
+        {
+          "title": "JPG/PNG only, no modern formats",
+          "severity": "High",
+          "description": "Duplicate of the Performance finding, listed here as an Images-category issue too.",
+          "recommendation": "See Performance section fix."
+        },
+        {
+          "title": "No responsive srcset",
+          "severity": "High",
+          "description": "Duplicate of the Performance finding.",
+          "recommendation": "See Performance section fix."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 88,
+      "what_works": [
+        "llms.txt exists at /llms.txt with clear site summary, scope, links, and explicit AI-attribution instructions",
+        "robots.txt has no disallow rules blocking AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.)",
+        "FAQPage schema with Q&A pairs on every post gives AI answer engines pre-structured extractable content",
+        "Content is specific and citable (real prices, real retailer names, first-hand testing claims)",
+        "RSS feed exists and is referenced in llms.txt"
+      ],
+      "findings": [
+        {
+          "title": "No ai.txt (404)",
+          "severity": "Low",
+          "description": "ai.txt is a newer, less-standardized convention; llms.txt (the more established one) is present and solid.",
+          "recommendation": "Not urgent; consider adding as a redundant signal only if the convention gains adoption."
+        },
+        {
+          "title": "Author/entity external authority not deeply verified",
+          "severity": "Low",
+          "description": "Person schema and /author page exist but external authority linkage (sameAs) wasn't verified.",
+          "recommendation": "Consider linking author Person schema sameAs to a consistent external profile (e.g. Pinterest business profile)."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": []
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Add loading=\"lazy\" to all in-article images except hero",
+          "Convert images to WebP with responsive srcset (Astro image optimization pipeline)"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Shorten the 10-15 worst over-length title tags (currently up to 88 chars)",
+          "Trim meta descriptions running past ~160 characters",
+          "Add Content-Security-Policy header",
+          "Add FAQPage schema to the homepage",
+          "Run live PageSpeed Insights/CrUX check on 2-3 URLs to replace lab-estimated Performance score"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Add includeSubDomains; preload to HSTS and consider preload list submission",
+          "Add ai.txt as a redundant AI-crawler signal",
+          "Validate JSON-LD via Google's Rich Results Test",
+          "Confirm dateModified only changes on genuine content edits",
+          "Link author Person schema sameAs to external authority profile",
+          "Continue Pinterest-driven promotion to build backlink/authority profile over time"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

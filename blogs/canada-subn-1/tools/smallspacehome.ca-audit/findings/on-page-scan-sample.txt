@@ -1,0 +1,133 @@
+URL: https://smallspacehome.ca/blog/apartment-decor-ideas
+  size: 102861  words(approx-incl-nav): 2780
+  title(75 chars): <title>Apartment Decor Ideas for Canadian Renters | SmallSpace Home</title>
+  desc(192 chars): <meta name="description" content="14 renter-friendly apartment decor ideas for Canadian apartments — no damage, no lost deposits. Real CAD prices, works in Toronto, Vancouver, and Montreal."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/apartment-decor-ideas">
+  h1count: 1  jsonld_blocks: 2  imgs: 9  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/cheapest-ways-rental-feel-stylish
+  size: 97113  words(approx-incl-nav): 1883
+  title(81 chars): <title>Cheapest Ways to Make a Rental Feel More Stylish | SmallSpace Home</title>
+  desc(183 chars): <meta name="description" content="Make a Canadian rental feel stylish for almost nothing — free rearranging tricks plus Dollarama, Marketplace, and thrift finds under $10 CAD each."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/cheapest-ways-rental-feel-stylish">
+  h1count: 1  jsonld_blocks: 2  imgs: 9  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/cozy-winter-apartment-decor
+  size: 97579  words(approx-incl-nav): 1967
+  title(72 chars): <title>Cozy Winter Apartment Decor for Renters | SmallSpace Home</title>
+  desc(191 chars): <meta name="description" content="Cozy winter apartment decor ideas for Canadian renters — textiles, lighting, scent, and seasonal touches that make a small apartment feel warm all winter."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/cozy-winter-apartment-decor">
+  h1count: 1  jsonld_blocks: 2  imgs: 8  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/fall-apartment-decorating-ideas
+  size: 96320  words(approx-incl-nav): 1917
+  title(73 chars): <title>Fall Apartment Decorating Ideas (Canada) | SmallSpace Home</title>
+  desc(189 chars): <meta name="description" content="Fall apartment decorating ideas for Canadian renters — seasonal textures, warm tones, and autumn touches that need no permanent changes or a big budget."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/fall-apartment-decorating-ideas">
+  h1count: 1  jsonld_blocks: 2  imgs: 7  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/how-to-decorate-a-small-living-room
+  size: 97811  words(approx-incl-nav): 2092
+  title(68 chars): <title>How to Decorate a Small Living Room | SmallSpace Home</title>
+  desc(190 chars): <meta name="description" content="A step-by-step guide to decorating a small living room in a Canadian rental — layout, lighting, furniture scale, colour, and storage, in the right order."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/how-to-decorate-a-small-living-room">
+  h1count: 1  jsonld_blocks: 2  imgs: 9  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/january-reset-organization-ideas
+  size: 100051  words(approx-incl-nav): 2380
+  title(70 chars): <title>January Reset: Apartment Organization | SmallSpace Home</title>
+  desc(188 chars): <meta name="description" content="15 January reset organization ideas for small Canadian apartments — declutter, reset every room, and build systems that actually hold through the year."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/january-reset-organization-ideas">
+  h1count: 1  jsonld_blocks: 2  imgs: 8  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/pet-friendly-small-apartment-ideas
+  size: 94782  words(approx-incl-nav): 1746
+  title(76 chars): <title>15 Pet-Friendly Small Apartment Setup Ideas | SmallSpace Home</title>
+  desc(148 chars): <meta name="description" content="Practical, renter-approved pet setup ideas for small Canadian apartments—no drilling, no damage, all effective."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/pet-friendly-small-apartment-ideas">
+  h1count: 1  jsonld_blocks: 2  imgs: 9  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/renter-friendly-bike-storage-small-apartments
+  size: 98563  words(approx-incl-nav): 2153
+  title(82 chars): <title>Renter-Friendly Bike Storage for Small Apartments | SmallSpace Home</title>
+  desc(205 chars): <meta name="description" content="No garage, no drilling, still no bike blocking your hallway. Renter-friendly bike storage for small Canadian apartments — wall hooks, floor stands, and balcony options."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/renter-friendly-bike-storage-small-apartments">
+  h1count: 1  jsonld_blocks: 2  imgs: 8  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/september-student-move-in-storage-guide
+  size: 97539  words(approx-incl-nav): 2184
+  title(78 chars): <title>September Student Move-In Storage Setup Guide | SmallSpace Home</title>
+  desc(190 chars): <meta name="description" content="Moving into your first Canadian apartment this September? Here's the room-by-room storage checklist, real CAD prices, and where to buy cheap or secondhand."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/september-student-move-in-storage-guide">
+  h1count: 1  jsonld_blocks: 2  imgs: 6  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/small-apartment-beauty-skincare-storage
+  size: 99622  words(approx-incl-nav): 2183
+  title(84 chars): <title>Small Apartment Beauty &amp; Skincare Storage Ideas | SmallSpace Home</title>
+  desc(202 chars): <meta name="description" content="Organize skincare, makeup, and beauty products in a small Canadian apartment — acrylic organizers, drawer dividers, vanity trays, and an expiry decluttering routine."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/small-apartment-beauty-skincare-storage">
+  h1count: 1  jsonld_blocks: 2  imgs: 8  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/small-apartment-home-gym-storage-setup
+  size: 97906  words(approx-incl-nav): 2049
+  title(83 chars): <title>Small Apartment Home Gym Storage &amp; Setup Ideas | SmallSpace Home</title>
+  desc(190 chars): <meta name="description" content="Build a real home gym in a small Canadian apartment. Folding equipment, storage ottomans, under-bed bins, and wall hooks that hide it all when you're done."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/small-apartment-home-gym-storage-setup">
+  h1count: 1  jsonld_blocks: 2  imgs: 8  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/small-apartment-organization
+  size: 99638  words(approx-incl-nav): 2247
+  title(67 chars): <title>Small Apartment Organization Guide | SmallSpace Home</title>
+  desc(194 chars): <meta name="description" content="A complete room-by-room organization system for small Canadian apartments. Declutter first, then organize — realistic, renter-friendly, no permanent changes."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/small-apartment-organization">
+  h1count: 1  jsonld_blocks: 2  imgs: 10  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/small-apartment-paperwork-mail-organization
+  size: 99400  words(approx-incl-nav): 2143
+  title(88 chars): <title>Small Apartment Paperwork &amp; Mail Organization Ideas | SmallSpace Home</title>
+  desc(203 chars): <meta name="description" content="Stop losing lease documents and bills in a 500 sq ft rental. A wall-mounted command centre, filing system, and shredding routine that actually fits Canadian apartments."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/small-apartment-paperwork-mail-organization">
+  h1count: 1  jsonld_blocks: 2  imgs: 7  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/small-apartment-reading-nook-ideas
+  size: 95272  words(approx-incl-nav): 1971
+  title(88 chars): <title>15 Small Apartment Reading Nook Ideas That Actually Fit | SmallSpace Home</title>
+  desc(179 chars): <meta name="description" content="Comfy reading chair and reading nook ideas for small Canadian apartments — renter-friendly layouts, real CAD prices, and no permanent changes."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/small-apartment-reading-nook-ideas">
+  h1count: 1  jsonld_blocks: 2  imgs: 6  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/small-bedroom-decor-ideas
+  size: 98081  words(approx-incl-nav): 2187
+  title(70 chars): <title>Small Bedroom Decor Ideas for Renters | SmallSpace Home</title>
+  desc(187 chars): <meta name="description" content="Small bedroom decor ideas for Canadian renters — colour, lighting, furniture, and layout tricks that make any bedroom feel more spacious, on a budget."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/small-bedroom-decor-ideas">
+  h1count: 1  jsonld_blocks: 2  imgs: 8  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/small-living-room-storage-solutions
+  size: 96507  words(approx-incl-nav): 2017
+  title(88 chars): <title>Small Living Room Storage: Furniture That Hides Clutter | SmallSpace Home</title>
+  desc(185 chars): <meta name="description" content="Small living room storage ideas that use furniture, not walls — storage ottomans, coffee tables with shelves, and TV consoles that hide the clutter."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/small-living-room-storage-solutions">
+  h1count: 1  jsonld_blocks: 2  imgs: 7  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/small-space-kitchen-organization
+  size: 100703  words(approx-incl-nav): 2259
+  title(68 chars): <title>14 Small Kitchen Organization Ideas | SmallSpace Home</title>
+  desc(178 chars): <meta name="description" content="14 kitchen organization ideas for small Canadian apartments — pantry, counters, cabinets, and drawers. Renter-friendly, with real CAD prices."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/small-space-kitchen-organization">
+  h1count: 1  jsonld_blocks: 2  imgs: 9  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/storage-ideas-for-small-places
+  size: 108726  words(approx-incl-nav): 3249
+  title(65 chars): <title>23 Small Apartment Storage Ideas | SmallSpace Home</title>
+  desc(187 chars): <meta name="description" content="Out of storage in your Canadian apartment? These 23 renter-friendly storage ideas use vertical space, hidden nooks, and smart furniture — no drilling."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/storage-ideas-for-small-places">
+  h1count: 1  jsonld_blocks: 2  imgs: 11  imgs_no_alt: 0
+
+URL: https://smallspacehome.ca/blog/vertical-storage-ideas-small-apartment
+  size: 97692  words(approx-incl-nav): 2116
+  title(81 chars): <title>12 Vertical Storage Ideas (No Drilling Required) | SmallSpace Home</title>
+  desc(163 chars): <meta name="description" content="Smart vertical storage solutions for small Canadian apartments—renter-friendly, no-wall-damage options from IKEA to HomeSense."
+  canonical: <link rel="canonical" href="https://smallspacehome.ca/blog/vertical-storage-ideas-small-apartment">
+  h1count: 1  jsonld_blocks: 2  imgs: 10  imgs_no_alt: 0
+

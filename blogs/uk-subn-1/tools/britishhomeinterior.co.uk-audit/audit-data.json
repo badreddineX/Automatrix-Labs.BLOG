@@ -1,0 +1,176 @@
+{
+  "summary": {
+    "health_score": 84,
+    "business_type": "UK home-decor content blog (Pinterest-driven, Astro on Vercel)",
+    "top_findings": [
+      "No Content-Security-Policy header in vercel.json",
+      "kitchen-on-a-budget-uk has only cluster-internal links (~13/64 posts), no cross-cluster coverage despite ~48% of GSC impressions",
+      "No homepage FAQPage schema (present on all 58 checked blog posts)",
+      "15+ of 64 post titles exceed ~70 displayed characters, worst case 85 chars",
+      "No llms.txt (404 confirmed)"
+    ],
+    "quick_wins": [
+      "Add CSP header to vercel.json headers block",
+      "Add 1-2 contextual links to kitchen-on-a-budget-uk in bedroom/living-room/seasonal posts",
+      "Copy homepage FAQPage schema pattern from BlogPost.astro/FAQ.astro",
+      "Trim titles on the 5 worst offenders (afrobohemian-decor-ideas-uk, unfitted-kitchen-ideas-uk, renter-friendly-gallery-wall-ideas-uk, funhaus-decor-ideas-uk, budget-kitchen-cabinet-makeover-uk)",
+      "Add a basic llms.txt at site root"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 90,
+      "what_works": [
+        "robots.txt allows all agents, correct sitemap-index.xml reference",
+        "Per-post real lastmod dates in sitemap (astro.config.mjs reads dateModified frontmatter)",
+        "HTTPS + HSTS enforced, Vercel edge caching",
+        "Consistent trailing slashes, clean redirect map for consolidated posts"
+      ],
+      "findings": [
+        {
+          "title": "Missing Content-Security-Policy header",
+          "severity": "High",
+          "description": "vercel.json headers block includes X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy but no CSP entry.",
+          "recommendation": "Add a CSP header to vercel.json, starting permissive (allow GTM/GA, Google Fonts, self) then tighten."
+        },
+        {
+          "title": "Conventional /sitemap.xml path returns the site's 404 page (HTTP 200, noindex) instead of the real sitemap",
+          "severity": "Low",
+          "description": "The real sitemap is at /sitemap-index.xml per robots.txt and works correctly; /sitemap.xml is unused and silently serves the custom 404 page.",
+          "recommendation": "No functional fix needed since robots.txt correctly points to sitemap-index.xml; just be aware when submitting to tools/engines that assume the default path."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 85,
+      "what_works": [
+        "58/64 posts confirmed with unique, specific meta descriptions (UK retailer/price detail)",
+        "No duplicate meta descriptions found in sample",
+        "Active cannibalization cleanup discipline (5 documented redirects/merges)"
+      ],
+      "findings": []
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 78,
+      "what_works": [
+        "Correct canonical tags",
+        "Proper H1/H2 heading hierarchy per post"
+      ],
+      "findings": [
+        {
+          "title": "Over-length page titles",
+          "severity": "Medium",
+          "description": "15+ of 64 posts have displayed titles (incl. site-name suffix) over 70 characters; worst is 85 chars (afrobohemian-decor-ideas-uk).",
+          "recommendation": "Shorten to <=60 chars pre-suffix where possible, prioritizing worst offenders."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 92,
+      "what_works": [
+        "FAQPage schema on 58/58 checked blog posts",
+        "BlogPosting, BreadcrumbList, Person, Organization, ImageObject schema present on posts"
+      ],
+      "findings": [
+        {
+          "title": "No FAQPage schema on homepage",
+          "severity": "Medium",
+          "description": "Homepage JSON-LD only has Organization + WebSite types.",
+          "recommendation": "Add homepage FAQ content + FAQPage schema, reusing the existing per-post pattern."
+        }
+      ]
+    },
+    {
+      "name": "Performance",
+      "score": null,
+      "what_works": [
+        "Inlined stylesheets (build.inlineStylesheets: 'always') to cut render-blocking CSS",
+        "Postbuild script injects image width/height to prevent CLS",
+        "Vercel edge caching confirmed (X-Vercel-Cache: HIT)"
+      ],
+      "findings": [
+        {
+          "title": "No independent CWV/Lighthouse measurement in this pass",
+          "severity": "Info",
+          "description": "Scoping limitation -- structural positives observed in code but not lab-tested.",
+          "recommendation": "Run PageSpeed Insights / CrUX once Google API access is confirmed for this property."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 70,
+      "what_works": [
+        "FAQPage Q&A schema on every post is directly extractable by AI answer engines"
+      ],
+      "findings": [
+        {
+          "title": "No llms.txt",
+          "severity": "Medium",
+          "description": "Confirmed 404 at /llms.txt.",
+          "recommendation": "Add a basic llms.txt listing site purpose, categories, and sitemap link."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 90,
+      "what_works": [
+        "WebP conversion pipeline with responsive srcset/sizes on card thumbnails",
+        "loading=lazy applied site-wide on below-fold images; hero images correctly eager+fetchpriority=high",
+        "Width/height attributes patched via postbuild script"
+      ],
+      "findings": [
+        {
+          "title": "Alt-text not exhaustively audited",
+          "severity": "Low",
+          "description": "Spot-checked posts had descriptive, keyword-relevant alt text; not verified across all 64 posts.",
+          "recommendation": "Run a full alt-text pass as a backlog item."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": []
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Week 1",
+        "items": [
+          "Add CSP header to vercel.json",
+          "Add cross-cluster internal links to kitchen-on-a-budget-uk from bedroom/living-room/seasonal posts"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 1",
+        "items": [
+          "Add homepage FAQPage schema",
+          "Shorten over-length titles (5 worst offenders first)",
+          "Add llms.txt"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Full alt-text audit",
+          "Run Lighthouse/CrUX once Google API access confirmed",
+          "Consider explicit AI-crawler mentions in robots.txt"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

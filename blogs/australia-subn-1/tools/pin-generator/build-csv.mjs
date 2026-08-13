@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 
-const BLOG_DIR = resolve('../website/src/content/blog');
+const BLOG_DIR = resolve('../../website/src/content/blog');
 const COMMIT = '685c4c621ba2aa400431e36dbd2fe9b8a288dde8';
 const REPO = 'badreddineX/coastal-home-au.BLOG';
 const IMG_DIR = 'pinterest-pins/template-a-2026-08-13';

@@ -1,12 +1,12 @@
-// Extracts title/description/image/category/tags from each Australia blog
-// post frontmatter and builds social-posts.json for the Instagram-only pipeline.
+// Extracts title/description/image/category/tags from each UK blog post
+// frontmatter and builds social-posts.json for the Instagram-only pipeline.
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { resolve } from 'path';
 
-const BLOG_DIR = resolve('../website/src/content/blog');
-const IMAGES_DIR = resolve('../website/public/images');
-const DOMAIN = 'OUTDOORCOASTALHOME.COM';
-const SITE = 'https://outdoorcoastalhome.com';
+const BLOG_DIR = resolve('../../britishhomeinterior/src/content/blog');
+const IMAGES_DIR = resolve('../../britishhomeinterior/public/images');
+const DOMAIN = 'BRITISHHOMEINTERIOR.CO.UK';
+const SITE = 'https://britishhomeinterior.co.uk';
 
 function field(fm, name) {
   const m = fm.match(new RegExp(`^${name}:\\s*"?(.*?)"?\\s*$`, 'm'));
@@ -27,7 +27,7 @@ for (const f of files) {
   const title = field(fm, 'title');
   const description = field(fm, 'description');
   const image = field(fm, 'image');
-  const category = field(fm, 'category') || 'Coastal Decor';
+  const category = field(fm, 'category') || 'Home Decor';
   const tags = fieldArray(fm, 'tags');
   const id = f.replace(/\.md$/, '');
 
