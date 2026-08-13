@@ -12,6 +12,8 @@ node_modules/
 dist/
 .astro/
 .vercel/
+__pycache__/
+*.pyc
 
 # Generated ebook PDFs + build artifacts — regenerable from rewritten/ + build.mjs,
 # kept on disk but not in git history (was bloating .git on every rebuild)
