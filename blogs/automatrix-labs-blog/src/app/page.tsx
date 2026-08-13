@@ -100,11 +100,10 @@ export default function HomePage() {
 
                 <Link
                   href={`/blog/${featuredPost.slug}`}
-                  aria-label={`Read more: ${featuredPost.title}`}
                   className="inline-flex items-center gap-2 font-semibold text-sm hover:gap-3 transition-all"
                   style={{ color: '#0EA5E9' }}
                 >
-                  Read More <ArrowRight className="w-4 h-4" />
+                  Read More<span className="sr-only"> about {featuredPost.title}</span> <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>

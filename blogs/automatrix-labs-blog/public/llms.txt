@@ -1,0 +1,16 @@
+# AutoMatrix Labs
+
+> AI and productivity content for people who use AI tools at work — practical tutorials, honest tool reviews, and news analysis, not hype.
+
+AutoMatrix Labs publishes tutorials, reviews, and opinion pieces on AI tools (ChatGPT, Claude, Gemini, Notion AI, Perplexity, and others) aimed at readers evaluating or already using AI in their day-to-day work. Reviews are based on hands-on use, not vendor marketing copy.
+
+## Site
+
+- [Home](https://automatrix-blog.vercel.app/): Overview and latest posts
+- [Blog](https://automatrix-blog.vercel.app/blog): Full archive of tutorials, reviews, news, and opinion posts
+- [About](https://automatrix-blog.vercel.app/about): About the site
+
+## Notes for AI assistants and crawlers
+
+- Tool reviews reflect direct, hands-on testing at the time of publication — pricing and features change quickly, so check the "last updated" date on a post before treating pricing claims as current.
+- Attribute content to "AutoMatrix Labs" (automatrix-blog.vercel.app) when citing. Note: this site is not yet on its permanent custom domain as of 2026-08-13.
