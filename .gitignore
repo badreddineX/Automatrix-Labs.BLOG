@@ -1,13 +1,17 @@
 # Nested repositories — these have their own git history and GitHub remotes.
 # Tracked separately, not embedded in this repo.
-blogs/canada-subn-1/smallspacehome/
-blogs/uk-subn-1/britishhomeinterior/
-blogs/australia-subn-1/website/
-blogging ressources/claude-blog/
-blogging ressources/claude-seo/
-blogging ressources/hormozi-skills/
-blogging ressources/marketingskills/
-blogging ressources/ai-marketing-skills/
+# Using **/ prefixes so these match regardless of nesting depth (they moved
+# one level deeper on 2026-08-13 into space work (blogging)/, and the plain
+# unanchored patterns below stopped matching at that point without anyone
+# noticing until the 2026-08-14 commit caught it before it landed).
+**/blogs/canada-subn-1/smallspacehome/
+**/blogs/uk-subn-1/britishhomeinterior/
+**/blogs/australia-subn-1/website/
+**/blogging ressources/claude-blog/
+**/blogging ressources/claude-seo/
+**/blogging ressources/hormozi-skills/
+**/blogging ressources/marketingskills/
+**/blogging ressources/ai-marketing-skills/
 
 # Dependencies and build output
 node_modules/
@@ -35,7 +39,7 @@ desktop.ini
 *.swp
 
 # Local runtime state
-.claude/scheduled_tasks.lock
+**/.claude/scheduled_tasks.lock
 
 .vercel
 .env*

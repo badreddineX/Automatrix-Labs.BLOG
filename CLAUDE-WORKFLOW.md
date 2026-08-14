@@ -23,30 +23,24 @@ live sites.
 
 ## When to delegate outside Claude Code entirely
 
-An OpenRouter + Cline setup exists at `C:\Users\bader\OneDrive\Desktop\openrouter-tools\`
-(see `models.md` there for the current model list and picks). The split:
+**Updated 2026-08-13 — the section below is superseded; see global `CLAUDE.md` (user-level,
+`~/.claude/CLAUDE.md`) for the current, authoritative delegation setup.** OpenRouter/Cline was
+retired 2026-08-05 (paid credit exhausted, free tier unreliable) and is no longer a valid
+delegation path — don't route tasks there. Current setup: Gemini direct API (first choice when
+available) and a local Ollama install (`qwen2.5-coder:3b`/`7b`, fallback, picked by task
+complexity + free RAM) via `ollama-delegate.mjs`. Same underlying split still applies:
 
 - **Bulk, low-stakes, generative tasks** (drafting many pin title options, brainstorming
-  topic ideas, a quick throwaway script you'll review yourself) — **use Cline/OpenRouter
-  directly, not through Claude.** Asking Claude to relay a request to a free model and then
-  check the result doesn't save meaningful usage — the relay + verification step costs
-  about as much as just doing the task directly.
-- **Anything touching git, live site code, deletions, or requiring multi-step verification**
-  — stays on Claude Code. This is most of what actually happens in this repo day to day.
-- Decide which bucket a task is in *before* starting it, not mid-task — that's what
-  actually reduces load, not routing through Claude as a middleman.
+  topic ideas, a quick throwaway script you'll review yourself) — use Gemini or Ollama
+  directly, not routed through Claude Code as a middleman.
+- **Anything touching git, live site code, deletions, quality-sensitive/sellable content, or
+  requiring multi-step verification** — stays on Claude Code. This is most of what actually
+  happens in this repo day to day.
+- Decide which bucket a task is in *before* starting it, not mid-task.
 
-**Other free options, checked 2026-07-28 (verify currency before relying on these — this
-space changes fast):**
-
-- **Codeium** — unlimited free autocomplete + basic in-editor chat in VS Code, no API key
-  to manage at all. Good for everyday autocomplete while typing, separate from Cline's
-  agentic chat.
-- **Amazon Q Developer** — unlimited free completions + 50 agentic requests/day, also no
-  key management. A second free agentic option to fall back on if Cline/OpenRouter's free
-  models are rate-limited that day.
-- Skipped: Cursor (separate editor, not a VS Code extension — bigger switch than
-  warranted), Continue.dev/Aider (same bring-your-own-key model as Cline, redundant).
+Full details, model picks, RAM-check command, and the hardware constraints that shaped this
+choice all live in the global `CLAUDE.md` — don't duplicate them here again, just check there
+for anything delegation-related so this file doesn't drift out of date a second time.
 
 ## Practices that produced good results this session (keep doing these)
 
