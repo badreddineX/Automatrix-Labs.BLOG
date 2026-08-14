@@ -6,6 +6,8 @@ blogs/australia-subn-1/website/
 blogging ressources/claude-blog/
 blogging ressources/claude-seo/
 blogging ressources/hormozi-skills/
+blogging ressources/marketingskills/
+blogging ressources/ai-marketing-skills/
 
 # Dependencies and build output
 node_modules/
@@ -37,3 +39,6 @@ desktop.ini
 
 .vercel
 .env*
+
+# Nested repo — own git history, own GitHub remote (badreddineX/prosperity-press-digital-prod)
+space work (digital prod)/
