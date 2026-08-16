@@ -6,7 +6,16 @@ Central hub for every resource, repo, and skill used across the blog projects in
 
 | Repo | Path | Purpose |
 |------|------|---------|
+| [claude-blog](https://github.com/AgriciDaniel/claude-blog) | `claude-blog/` | The full `blog` skill suite source (writing, rewriting, audits, SEO checks, Google API integration via `blog-google`, etc.) |
 | [claude-seo](https://github.com/AgriciDaniel/claude-seo) | `claude-seo/` | External SEO skill pack: audits, content briefs, technical SEO, schema, GEO/AEO, hreflang, sitemaps, and more (see `claude-seo/skills/`) |
+| [hormozi-skills](https://github.com/alexsmedile/hormozi-skills) | `hormozi-skills/` | Alex Hormozi-style offer/pricing/pitch skill pack (offer construction, bonus stacks, objection handling) |
+| [marketingskills](https://github.com/coreyhaines31/marketingskills) | `marketingskills/` | General B2B/SaaS marketing skill pack (ads, CRO, email, positioning, etc.) |
+| [ai-marketing-skills](https://github.com/ericosiu/ai-marketing-skills) | `ai-marketing-skills/` | AI/GEO-focused marketing skill pack |
+
+Added 2026-08-13/15 (see [SPACE WORK Structure] memory for the reorg this was part of). All
+five repos' skills are also mirrored into `space work (blogging)/.claude/skills/` (95
+skills total) so they're available project-wide — see that folder for the active,
+in-use copies; these are the source clones.
 
 ## Skills already in use (Claude Code built-in `blog` suite)
 
@@ -42,14 +51,11 @@ Niche/keyword/audience research, now under `strategy/blogging-strategy/` (moved 
 - Winning niches & keywords per country
 - Subniche selector, content format guide
 
-## Known stale asset
-
-`SPACE WORK/graphify-out/` — a Graphify-generated knowledge graph of the whole repo, built 2026-07-11 (commit `b688a26f`). It predates this reorg (strategy moved, claude-seo added), so its file map no longer matches the current layout. The `graphify` CLI isn't installed in this environment, so it can't be regenerated here — treat `graph.html` / `GRAPH_REPORT.md` as a rough historical snapshot only, not a live map.
-
 ## Log
 
 | Date | Action |
 |------|--------|
 | 2026-07-15 | Folder created; claude-seo repo cloned |
 | 2026-07-15 | strategy/ moved here from SPACE WORK root |
-| 2026-07-15 | Noted graphify-out/ is stale; graphify CLI unavailable to refresh |
+| 2026-08-13/15 | claude-blog, hormozi-skills, marketingskills, ai-marketing-skills repos added |
+| 2026-08-16 | README brought up to date (was only documenting claude-seo, missing 4 repos). Removed the graphify-out/ note — that folder no longer exists in the repo at all. Deleted a 289MB untracked/gitignored `.venv` inside `claude-blog/skills/blog-google/` — not needed to run its scripts, regenerates automatically if ever required. |

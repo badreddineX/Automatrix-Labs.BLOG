@@ -1,5 +1,26 @@
 # Affiliate + Store Split Strategy (2026-08-10)
 
+## Status update (2026-08-16) — Lane 2 is currently blocked, read before acting
+
+**The Fourthwall stores for CAD/UK are not set up at all yet.** This is structural,
+not a scheduling choice: Fourthwall payouts require a linked bank account, and the
+user deliberately isn't opening one in his current country — he'd just have to close
+it again when he relocates to Canada post-visa. See `THE MAIN IDEA.md` (SPACE WORK
+root) for the full context. **Nothing in this document has been implemented yet**
+(confirmed 2026-08-16 — no Fourthwall or affiliate-disclosure content exists in any
+live CAD/UK post).
+
+- **Lane 2 (Fourthwall store push) is deferred** until the store is actually live —
+  don't start social pushes toward a store that doesn't exist.
+- **Lane 1 (affiliate links via Amazon/Etsy)** is not blocked by the bank-account
+  issue in the same way — applications can be submitted and links planned now, but
+  actually *receiving payouts* from these programs will likely also eventually need a
+  bank account, so double-check each program's payout requirements before assuming
+  this lane is fully unblocked either.
+- Current priority per `THE MAIN IDEA.md`'s plan is fixing the traffic/ranking gap on
+  CAD/UK first (both are ~1 month old, near-zero backlinks) — this document's rollout
+  should wait until that's further along, not run in parallel.
+
 ## The decision (updated 2026-08-10)
 
 **Applies identically to both Canada (smallspacehome.ca) and UK (britishhomeinterior.co.uk).**
@@ -77,12 +98,16 @@ evidence," not "build on spec."
 
 ## Immediate next steps
 
-1. Apply for Amazon Associates (Canada + UK) and Etsy affiliate access.
+**Blocked/deferred (per 2026-08-16 status update above):**
+1. ~~Apply for Amazon Associates (Canada + UK) and Etsy affiliate access.~~ Verify
+   each program's payout requirements first — may hit the same bank-account blocker.
+4. ~~Increase Pinterest/Instagram cadence pointed directly at the Fourthwall store.~~
+   Wait until the store actually exists.
+
+**Still doable now, once traffic-building priorities allow:**
 2. Pick 5-10 highest-traffic posts per blog from GSC; match each to a real,
    specific, already-proven product.
 3. Add one mid-article + one bottom-of-article affiliate mention per chosen post,
    with FTC/ASA disclosure.
-4. Increase Pinterest/Instagram cadence pointed directly at the Fourthwall store
-   (separate from the existing blog-promo pin cadence).
 5. Start logging GSC/Pinterest signals that would justify building a specific new
    digital product — don't build until one shows up.
