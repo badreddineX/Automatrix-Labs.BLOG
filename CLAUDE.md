@@ -117,6 +117,17 @@ which of the two credential setups above is actually in use, and check the exact
 service-account email being added in GSC (easy to add the wrong project's account by
 mistake — happened twice this session, 2026-08-16) before assuming it's a deeper issue.
 
+**Known flaky spot (2026-08-16, later same day):** the shared `blog-google` skill's UK
+GSC access (via the CA service account added as a UK property user) stopped working
+again a few hours after being confirmed fixed, with no config change on our end — same
+"permission denied" error. The dedicated `content-decay-check.py` UK path (its own
+`service_account_uk.json` / `claude-blog-uk@...`) was re-tested directly and still works
+fine with real current data, so UK access itself isn't broken, just the shared-config
+path is unreliable for UK specifically. If the shared `blog-google` skill fails for UK
+again, don't assume everything is broken — fall back to querying directly with
+`service_account_uk.json`'s credentials (see `content-decay-check.py` for the pattern)
+rather than re-doing the whole GSC-user-permission fix from scratch.
+
 ## Working conventions
 
 - Never delete or restructure the live site folders' framework paths (`src/`, `public/`,
